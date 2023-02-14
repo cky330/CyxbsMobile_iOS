@@ -531,6 +531,7 @@
 		AAE3309925E4E5CD00324750 /* DeleteArticleTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE3309825E4E5CD00324750 /* DeleteArticleTipView.m */; };
 		AAE87797286B304F0091656B /* PrivacyTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE87796286B304E0091656B /* PrivacyTipView.swift */; };
 		AAFD87D024F50DB800CBBD11 /* FakeTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAFD87CF24F50DB800CBBD11 /* FakeTabBarView.m */; };
+		B030B362299BE99A0035B500 /* AmusementParkVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B030B361299BE99A0035B500 /* AmusementParkVC.m */; };
 		B033366E294C971D004D141D /* HttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = B033366D294C971D004D141D /* HttpTool.m */; };
 		B0F08FDD28A2497F00986EB6 /* SportAttendanceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F08FCE28A2497F00986EB6 /* SportAttendanceModel.m */; };
 		B0F08FDE28A2497F00986EB6 /* SportAttendanceItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F08FD128A2497F00986EB6 /* SportAttendanceItem.m */; };
@@ -1752,6 +1753,8 @@
 		AAE87796286B304E0091656B /* PrivacyTipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyTipView.swift; sourceTree = "<group>"; };
 		AAFD87CE24F50DB800CBBD11 /* FakeTabBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FakeTabBarView.h; sourceTree = "<group>"; };
 		AAFD87CF24F50DB800CBBD11 /* FakeTabBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FakeTabBarView.m; sourceTree = "<group>"; };
+		B030B360299BE99A0035B500 /* AmusementParkVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AmusementParkVC.h; sourceTree = "<group>"; };
+		B030B361299BE99A0035B500 /* AmusementParkVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AmusementParkVC.m; sourceTree = "<group>"; };
 		B033366D294C971D004D141D /* HttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpTool.m; sourceTree = "<group>"; };
 		B0F08FCC28A2497F00986EB6 /* SportAttendanceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SportAttendanceModel.h; sourceTree = "<group>"; };
 		B0F08FCD28A2497F00986EB6 /* SportAttendanceItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SportAttendanceItemModel.h; sourceTree = "<group>"; };
@@ -2925,12 +2928,8 @@
 		1817F00C2594D5C500FE1304 /* NewQA */ = {
 			isa = PBXGroup;
 			children = (
-				7A64BFF22892826F007CCB1E /* Source */,
-				AA7ABA2D2873EA5300BA6790 /* NewQAMainView */,
-				AA7ABAC72873EA6D00BA6790 /* DynamicDetail */,
-				AA7ABA0B2873EA4100BA6790 /* ReleaseDynamic */,
-				AA7AB9272873E5E800BA6790 /* Search */,
-				7F101AB5260613E800F2034C /* YYZTopicGroup */,
+				B030B35C299BE8D60035B500 /* New */,
+				B030B35B299BE8BA0035B500 /* Old */,
 			);
 			path = NewQA;
 			sourceTree = "<group>";
@@ -5755,6 +5754,52 @@
 			path = ArticleRemarkPraise;
 			sourceTree = "<group>";
 		};
+		B030B35B299BE8BA0035B500 /* Old */ = {
+			isa = PBXGroup;
+			children = (
+				7A64BFF22892826F007CCB1E /* Source */,
+				AA7ABA2D2873EA5300BA6790 /* NewQAMainView */,
+				AA7ABAC72873EA6D00BA6790 /* DynamicDetail */,
+				AA7ABA0B2873EA4100BA6790 /* ReleaseDynamic */,
+				AA7AB9272873E5E800BA6790 /* Search */,
+				7F101AB5260613E800F2034C /* YYZTopicGroup */,
+			);
+			path = Old;
+			sourceTree = "<group>";
+		};
+		B030B35C299BE8D60035B500 /* New */ = {
+			isa = PBXGroup;
+			children = (
+				B030B35F299BE90C0035B500 /* Controller */,
+				B030B35E299BE9000035B500 /* View */,
+				B030B35D299BE8E50035B500 /* Model */,
+			);
+			path = New;
+			sourceTree = "<group>";
+		};
+		B030B35D299BE8E50035B500 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B030B35E299BE9000035B500 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B030B35F299BE90C0035B500 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B030B360299BE99A0035B500 /* AmusementParkVC.h */,
+				B030B361299BE99A0035B500 /* AmusementParkVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		B0F08FCA28A2497F00986EB6 /* Discover_SportAttendance */ = {
 			isa = PBXGroup;
 			children = (
@@ -6907,6 +6952,7 @@
 				AAE3304725E2A0D800324750 /* ArticleViewController.m in Sources */,
 				D0101D6A24352092004337ED /* UITextView+Placeholder.m in Sources */,
 				AA7ABAF82873EA6D00BA6790 /* DKSKeyboardView.m in Sources */,
+				B030B362299BE99A0035B500 /* AmusementParkVC.m in Sources */,
 				18CDF6B8257F91BD006E8E5C /* ScoreViewController.m in Sources */,
 				18CDF6AC257F91BD006E8E5C /* SCTool.m in Sources */,
 				14B73F80281BED7B00D08ADD /* MessagePresentView.m in Sources */,
