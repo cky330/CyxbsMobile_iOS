@@ -532,6 +532,7 @@
 		AAE87797286B304F0091656B /* PrivacyTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE87796286B304E0091656B /* PrivacyTipView.swift */; };
 		AAFD87D024F50DB800CBBD11 /* FakeTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAFD87CF24F50DB800CBBD11 /* FakeTabBarView.m */; };
 		B030B362299BE99A0035B500 /* AmusementParkVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B030B361299BE99A0035B500 /* AmusementParkVC.m */; };
+		B030B368299BF1590035B500 /* foodVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B030B367299BF1590035B500 /* foodVC.m */; };
 		B033366E294C971D004D141D /* HttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = B033366D294C971D004D141D /* HttpTool.m */; };
 		B0F08FDD28A2497F00986EB6 /* SportAttendanceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F08FCE28A2497F00986EB6 /* SportAttendanceModel.m */; };
 		B0F08FDE28A2497F00986EB6 /* SportAttendanceItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F08FD128A2497F00986EB6 /* SportAttendanceItem.m */; };
@@ -1755,6 +1756,8 @@
 		AAFD87CF24F50DB800CBBD11 /* FakeTabBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FakeTabBarView.m; sourceTree = "<group>"; };
 		B030B360299BE99A0035B500 /* AmusementParkVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AmusementParkVC.h; sourceTree = "<group>"; };
 		B030B361299BE99A0035B500 /* AmusementParkVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AmusementParkVC.m; sourceTree = "<group>"; };
+		B030B366299BF1590035B500 /* foodVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = foodVC.h; sourceTree = "<group>"; };
+		B030B367299BF1590035B500 /* foodVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = foodVC.m; sourceTree = "<group>"; };
 		B033366D294C971D004D141D /* HttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpTool.m; sourceTree = "<group>"; };
 		B0F08FCC28A2497F00986EB6 /* SportAttendanceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SportAttendanceModel.h; sourceTree = "<group>"; };
 		B0F08FCD28A2497F00986EB6 /* SportAttendanceItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SportAttendanceItemModel.h; sourceTree = "<group>"; };
@@ -5770,9 +5773,8 @@
 		B030B35C299BE8D60035B500 /* New */ = {
 			isa = PBXGroup;
 			children = (
-				B030B35F299BE90C0035B500 /* Controller */,
-				B030B35E299BE9000035B500 /* View */,
-				B030B35D299BE8E50035B500 /* Model */,
+				B030B364299BF12F0035B500 /* Main */,
+				B030B363299BF1210035B500 /* Food */,
 			);
 			path = New;
 			sourceTree = "<group>";
@@ -5798,6 +5800,33 @@
 				B030B361299BE99A0035B500 /* AmusementParkVC.m */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		B030B363299BF1210035B500 /* Food */ = {
+			isa = PBXGroup;
+			children = (
+				B030B365299BF13E0035B500 /* View */,
+			);
+			path = Food;
+			sourceTree = "<group>";
+		};
+		B030B364299BF12F0035B500 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				B030B35F299BE90C0035B500 /* Controller */,
+				B030B35E299BE9000035B500 /* View */,
+				B030B35D299BE8E50035B500 /* Model */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		B030B365299BF13E0035B500 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B030B366299BF1590035B500 /* foodVC.h */,
+				B030B367299BF1590035B500 /* foodVC.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		B0F08FCA28A2497F00986EB6 /* Discover_SportAttendance */ = {
@@ -6910,6 +6939,7 @@
 				14B73F7F281BED7B00D08ADD /* DiscoverMineMessageVC.m in Sources */,
 				AA49098924F3BF5A007CB3BC /* TransitionManager.m in Sources */,
 				DB34EB28239BD4550052B65E /* DetailLessonController.m in Sources */,
+				B030B368299BF1590035B500 /* foodVC.m in Sources */,
 				AA7ABAAD2873EA5500BA6790 /* FunctionBtn.m in Sources */,
 				AA57588924EE739F002F6F6D /* TimeBtnSelectedBackView.m in Sources */,
 				4931630D26CD7B6800140412 /* StampCenterCollectionHeaderView.m in Sources */,

@@ -1,22 +1,22 @@
 //
-//  AmusementParkVC.m
+//  foodVC.m
 //  CyxbsMobile2019_iOS
 //
 //  Created by 潘申冰 on 2023/2/15.
 //  Copyright © 2023 Redrock. All rights reserved.
 //
 
-#import "AmusementParkVC.h"
+#import "foodVC.h"
 
-@interface AmusementParkVC ()
+@interface foodVC ()
 
 @end
 
-@implementation AmusementParkVC
+@implementation foodVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = UIColor.redColor;
+    self.view.backgroundColor = UIColor.whiteColor;
     // Do any additional setup after loading the view.
 }
 
