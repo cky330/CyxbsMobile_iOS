@@ -7,10 +7,17 @@
 //
 
 #import "CenterVC.h"
+#import "CenterView.h"
 #import "ClassTabBar.h"
 #import <Accelerate/Accelerate.h>
 
 @interface CenterVC ()
+
+/// 封面View
+@property (nonatomic, strong) CenterView *centerView;
+
+/// 虚化模糊效果Array
+@property (nonatomic, copy) NSArray <UIImageView *> *blurImgViewArray;
 
 @end
 
@@ -21,18 +28,42 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = YES;
+    self.blurImgViewArray = [NSArray array];
+    // 不做上拉课表
     [[NSNotificationCenter defaultCenter] postNotificationName:@"HideBottomClassScheduleTabBarView" object:nil userInfo:nil];
+    // 颜色
+    if (@available(iOS 15.0, *)) {
+        UITabBarAppearance *appearance = [[UITabBarAppearance alloc]init];
+        appearance.backgroundColor = [UIColor colorWithHexString:@"#FFFFFF"];
+        self.tabBarController.tabBar.scrollEdgeAppearance = appearance;
+        self.tabBarController.tabBar.standardAppearance = appearance;
+    }
+    
+    if (self.blurImgViewArray.count != 0) {
+        [self.tabBarController.tabBar addSubview:self.blurImgViewArray[0]];
+    } else {
+        [self test2];
+    }
+    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self testTabBar];
+//    [self testTabBar];
     
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     ((ClassTabBar *)self.tabBarController.tabBar).hidden = NO;
+    // 恢复背景颜色
+    if (@available(iOS 15.0, *)) {
+        UITabBarAppearance *appearance = [[UITabBarAppearance alloc]init];
+        appearance.backgroundColor = [UIColor dm_colorWithLightColor:[UIColor colorWithHexString:@"#FFFFFF" alpha:1] darkColor:[UIColor colorWithHexString:@"#2C2C2C" alpha:1]];
+        self.tabBarController.tabBar.scrollEdgeAppearance = appearance;
+        self.tabBarController.tabBar.standardAppearance = appearance;
+    }
+    [self.blurImgViewArray[0] removeFromSuperview];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowBottomClassScheduleTabBarView" object:nil userInfo:nil];
 }
 
@@ -48,6 +79,8 @@
     [self test2];
 }
 
+// MARK: 毛玻璃
+
 - (void)test2 {
 
     CGRect rect = CGRectMake(0, 0, (self.tabBarController.tabBar.frame.size.width)/3, self.tabBarController.tabBar.frame.size.height);
@@ -55,7 +88,15 @@
     // showImgView
     UIImageView *imgView = [self boxblurImage:img withBlurNumber:0.05];
     imgView.frame = rect;
-    [self.tabBarController.tabBar addSubview:imgView];
+    NSMutableArray *tempArray = [NSMutableArray array];
+    [tempArray addObject:imgView];
+    self.blurImgViewArray = tempArray;
+    [self.tabBarController.tabBar addSubview:self.blurImgViewArray[0]];
+}
+
+// 去除毛玻璃
+- (void)removeToolBar {
+    
 }
 
 // 截取内容转换成UIImage
@@ -93,10 +134,10 @@
     vImage_Error error;
     
     void *pixelBuffer;
-    //从CGImage中获取数据
+    // 从CGImage中获取数据
     CGDataProviderRef inProvider = CGImageGetDataProvider(img);
     CFDataRef inBitmapData = CGDataProviderCopyData(inProvider);
-    //设置从CGImage获取对象的属性
+    // 设置从CGImage获取对象的属性
     inBuffer.width = CGImageGetWidth(img);
     inBuffer.height = CGImageGetHeight(img);
     inBuffer.rowBytes = CGImageGetBytesPerRow(img);
@@ -120,11 +161,9 @@
         NSLog(@"error from convolution %ld", error);
     }
     
-    // Modify alpha channel
     for (int y = 0; y < outBuffer.height; y++) {
         for (int x = 0; x < outBuffer.width; x++) {
             uint8_t *pixel = outBuffer.data + y * outBuffer.rowBytes + x * 4;
-            // alpha channel is the fourth channel
             pixel[3] *= 0.5;
         }
     }
@@ -141,7 +180,6 @@
     CGImageRef imageRef = CGBitmapContextCreateImage (ctx);
     UIImage *returnImage = [UIImage imageWithCGImage:imageRef];
     
-    //clean up
     CGContextRelease(ctx);
     CGColorSpaceRelease(colorSpace);
     CGImageRelease(imageRef);
@@ -149,7 +187,6 @@
     CFRelease(inBitmapData);
     
     UIImageView *imgView = [[UIImageView alloc] initWithImage:returnImage];
-    
     return imgView;
 }
 
