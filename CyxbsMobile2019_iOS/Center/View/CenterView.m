@@ -16,7 +16,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.detailsBtnsArray = [NSMutableArray array];
-        [self addSubview:self.fontCoverImgView];
+        [self addSubview:self.frontCoverImgView];
         [self addSubview:self.centerPromptBoxView];
         
         [self setPosition];
@@ -29,7 +29,7 @@
 - (void)setPosition {
     // centerPromptBoxView
     [self.centerPromptBoxView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self).offset(5);
+        make.top.equalTo(self).offset(STATUSBARHEIGHT + 5);
         make.left.equalTo(self).offset(10);
         make.right.equalTo(self).offset(-10);
         make.height.mas_equalTo(80);
@@ -39,11 +39,11 @@
 
 #pragma mark - Getter
 
-- (UIImageView *)fontCoverImgView {
-    if (_fontCoverImgView == nil) {
-        _fontCoverImgView = [[UIImageView alloc] initWithFrame:self.bounds];
+- (UIImageView *)frontCoverImgView {
+    if (_frontCoverImgView == nil) {
+        _frontCoverImgView = [[UIImageView alloc] initWithFrame:self.bounds];
     }
-    return _fontCoverImgView;
+    return _frontCoverImgView;
 }
 
 

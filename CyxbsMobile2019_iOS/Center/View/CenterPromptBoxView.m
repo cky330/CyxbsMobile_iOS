@@ -16,6 +16,7 @@
     self = [super init];
     if (self) {
         self.backgroundColor = UIColor.whiteColor;
+        self.layer.cornerRadius = 40;
 //        self.backgroundColor = [UIColor colorWithHexString:<#(nonnull NSString *)#>];
         [self addSubview:self.nameLab];
         [self addSubview:self.daysLab];
@@ -36,14 +37,14 @@
     }];
     // nameLab
     [self.nameLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.mas_equalTo(self.centerY).offset(-10);
+        make.bottom.mas_equalTo(self.mas_centerY);
         make.left.equalTo(self).offset(30);
         make.right.equalTo(self.avatarImgView.mas_left);
         make.height.mas_equalTo(30);
     }];
     // daysLab
     [self.daysLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.centerY).offset(10);
+        make.top.mas_equalTo(self.mas_centerY);
         make.left.right.height.equalTo(self.nameLab);
     }];
 }

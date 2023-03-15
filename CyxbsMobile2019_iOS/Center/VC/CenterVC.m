@@ -42,15 +42,15 @@
     if (self.blurImgViewArray.count != 0) {
         [self.tabBarController.tabBar addSubview:self.blurImgViewArray[0]];
     } else {
-        [self test2];
+        [self toolBar];
     }
     
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [self testTabBar];
-    
+    [self.view addSubview:self.centerView];
+    [self requestDaysAndFrontCoverImgView];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -69,20 +69,47 @@
 
 #pragma mark - Method
 
-- (void)testTabBar {
-    if (@available(iOS 15.0, *)) {
-        UITabBarAppearance *appearance = [[UITabBarAppearance alloc]init];
-        appearance.backgroundColor = [UIColor colorWithHexString:@"#FFFFFF"];
-        self.tabBarController.tabBar.scrollEdgeAppearance = appearance;
-        self.tabBarController.tabBar.standardAppearance = appearance;
-    }
-    [self test2];
+// 网络请求天数，封面图片
+- (void)requestDaysAndFrontCoverImgView {
+    // 天数
+//    [HttpTool.shareTool
+//     request:<#(NSString * _Nonnull)#>
+//     type:HttpToolRequestTypeGet
+//     serializer:HttpToolRequestSerializerHTTP
+//     bodyParameters:<#(id _Nullable)#>
+//     progress:nil
+//     success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable object) {
+//        NSLog(@"🦞%@", object[@"data"]);
+//        self.centerView.centerPromptBoxView.daysLab.text = [NSString stringWithFormat:@"这是你来到属于你的邮乐园的第%d天", object[@"data"]["days"]];
+//        [NSUserDefaults.standardUserDefaults setInteger:object[@"data"]["days"] forKey:@"lastTimeIntoYouCity"];
+//    }
+//     failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        self.centerView.centerPromptBoxView.daysLab.text = [NSString stringWithFormat:@"这是你来到属于你的邮乐园的第%ld天",  (long)[NSUserDefaults.standardUserDefaults integerForKey:@"lastTimeIntoYouCity"]];
+//    }];
+    
+    // 封面图片
+//    [HttpTool.shareTool
+//     request:<#(NSString * _Nonnull)#>
+//     type:HttpToolRequestTypeGet
+//     serializer:HttpToolRequestSerializerHTTP
+//     bodyParameters:nil
+//     progress:nil
+//     success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable object) {
+//        NSLog(@"🌲%@", object[@"data"]);
+//        NSURL *FrontCoverURL = [NSURL URLWithString:object[@"data"]["picture"]];
+//        [self.centerView.frontCoverImgView sd_setImageWithURL:FrontCoverURL];
+//        [NSUserDefaults.standardUserDefaults setURL:FrontCoverURL forKey:@"FrontCoverURL"];
+//
+//    }
+//     failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        NSURL *defaultsURL = [NSUserDefaults.standardUserDefaults URLForKey:@"FrontCoverURL"];
+//        [self.centerView.frontCoverImgView sd_setImageWithURL:defaultsURL];
+//    }];
 }
 
 // MARK: 毛玻璃
 
-- (void)test2 {
-
+- (void)toolBar {
     CGRect rect = CGRectMake(0, 0, (self.tabBarController.tabBar.frame.size.width)/3, self.tabBarController.tabBar.frame.size.height);
     UIImage *img = [self captureTabBarImageInRect:rect];
     // showImgView
@@ -92,11 +119,6 @@
     [tempArray addObject:imgView];
     self.blurImgViewArray = tempArray;
     [self.tabBarController.tabBar addSubview:self.blurImgViewArray[0]];
-}
-
-// 去除毛玻璃
-- (void)removeToolBar {
-    
 }
 
 // 截取内容转换成UIImage
@@ -188,6 +210,15 @@
     
     UIImageView *imgView = [[UIImageView alloc] initWithImage:returnImage];
     return imgView;
+}
+
+#pragma mark - Getter
+
+- (CenterView *)centerView {
+    if (_centerView == nil) {
+        _centerView = [[CenterView alloc] initWithFrame:self.view.bounds];
+    }
+    return _centerView;
 }
 
 @end

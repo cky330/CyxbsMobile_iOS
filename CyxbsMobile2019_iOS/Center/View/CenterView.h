@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface CenterView : UIView
 
 /// 游乐场的封面
-@property (nonatomic, strong) UIImageView *fontCoverImgView;
+@property (nonatomic, strong) UIImageView *frontCoverImgView;
 
 /// 顶部提示框
 @property (nonatomic, strong) CenterPromptBoxView *centerPromptBoxView;
