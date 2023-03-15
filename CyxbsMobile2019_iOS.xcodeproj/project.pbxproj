@@ -532,7 +532,7 @@
 		AAE87797286B304F0091656B /* PrivacyTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE87796286B304E0091656B /* PrivacyTipView.swift */; };
 		AAFD87D024F50DB800CBBD11 /* FakeTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAFD87CF24F50DB800CBBD11 /* FakeTabBarView.m */; };
 		B030B362299BE99A0035B500 /* AmusementParkVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B030B361299BE99A0035B500 /* AmusementParkVC.m */; };
-		B030B368299BF1590035B500 /* foodVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B030B367299BF1590035B500 /* foodVC.m */; };
+		B030B368299BF1590035B500 /* FoodVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B030B367299BF1590035B500 /* FoodVC.m */; };
 		B033366E294C971D004D141D /* HttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = B033366D294C971D004D141D /* HttpTool.m */; };
 		B0F08FDD28A2497F00986EB6 /* SportAttendanceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F08FCE28A2497F00986EB6 /* SportAttendanceModel.m */; };
 		B0F08FDE28A2497F00986EB6 /* SportAttendanceItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F08FD128A2497F00986EB6 /* SportAttendanceItem.m */; };
@@ -547,6 +547,14 @@
 		B0F08FFA28A24F9000986EB6 /* IdsBindingView.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F08FF728A24F9000986EB6 /* IdsBindingView.m */; };
 		B0F08FFD28A2509900986EB6 /* RisingRouter+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F08FFB28A2509800986EB6 /* RisingRouter+Extension.m */; };
 		B0F0900128A2605E00986EB6 /* popUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F0900028A2605E00986EB6 /* popUpViewController.m */; };
+		B0F944F429C203CE00DE3830 /* BTCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F944F329C203CE00DE3830 /* BTCollectionViewCell.m */; };
+		B0F944F729C203D500DE3830 /* UDScrollAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F944F629C203D500DE3830 /* UDScrollAnimationView.m */; };
+		B0F944FA29C203FD00DE3830 /* FootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F944F929C203FD00DE3830 /* FootViewController.m */; };
+		B0F9450429C2050600DE3830 /* food2Model.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F944FD29C2050200DE3830 /* food2Model.m */; };
+		B0F9450529C2050600DE3830 /* food1Model.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F944FE29C2050300DE3830 /* food1Model.m */; };
+		B0F9450629C2050600DE3830 /* food3Model.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F944FF29C2050400DE3830 /* food3Model.m */; };
+		B0F9450729C2050600DE3830 /* food4Model.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F9450229C2050600DE3830 /* food4Model.m */; };
+		B0F9450A29C2056600DE3830 /* FoodHomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F9450929C2056600DE3830 /* FoodHomeModel.m */; };
 		B0FE5F29294C94540070E755 /* NSDate+Rising.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FE5F1F294C94540070E755 /* NSDate+Rising.m */; };
 		B0FE5F2A294C94540070E755 /* RisingFoundationExtention.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FE5F20294C94540070E755 /* RisingFoundationExtention.m */; };
 		B0FE5F2B294C94540070E755 /* RisingUIKitExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FE5F25294C94540070E755 /* RisingUIKitExtension.m */; };
@@ -1756,8 +1764,8 @@
 		AAFD87CF24F50DB800CBBD11 /* FakeTabBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FakeTabBarView.m; sourceTree = "<group>"; };
 		B030B360299BE99A0035B500 /* AmusementParkVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AmusementParkVC.h; sourceTree = "<group>"; };
 		B030B361299BE99A0035B500 /* AmusementParkVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AmusementParkVC.m; sourceTree = "<group>"; };
-		B030B366299BF1590035B500 /* foodVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = foodVC.h; sourceTree = "<group>"; };
-		B030B367299BF1590035B500 /* foodVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = foodVC.m; sourceTree = "<group>"; };
+		B030B366299BF1590035B500 /* FoodVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoodVC.h; sourceTree = "<group>"; };
+		B030B367299BF1590035B500 /* FoodVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoodVC.m; sourceTree = "<group>"; };
 		B033366D294C971D004D141D /* HttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpTool.m; sourceTree = "<group>"; };
 		B0F08FCC28A2497F00986EB6 /* SportAttendanceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SportAttendanceModel.h; sourceTree = "<group>"; };
 		B0F08FCD28A2497F00986EB6 /* SportAttendanceItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SportAttendanceItemModel.h; sourceTree = "<group>"; };
@@ -1786,6 +1794,22 @@
 		B0F08FFC28A2509800986EB6 /* RisingRouter+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RisingRouter+Extension.h"; sourceTree = "<group>"; };
 		B0F08FFF28A2605E00986EB6 /* popUpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = popUpViewController.h; sourceTree = "<group>"; };
 		B0F0900028A2605E00986EB6 /* popUpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = popUpViewController.m; sourceTree = "<group>"; };
+		B0F944F229C203CD00DE3830 /* BTCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTCollectionViewCell.h; sourceTree = "<group>"; };
+		B0F944F329C203CE00DE3830 /* BTCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTCollectionViewCell.m; sourceTree = "<group>"; };
+		B0F944F529C203D400DE3830 /* UDScrollAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDScrollAnimationView.h; sourceTree = "<group>"; };
+		B0F944F629C203D500DE3830 /* UDScrollAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDScrollAnimationView.m; sourceTree = "<group>"; };
+		B0F944F829C203FC00DE3830 /* FootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FootViewController.h; sourceTree = "<group>"; };
+		B0F944F929C203FD00DE3830 /* FootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FootViewController.m; sourceTree = "<group>"; };
+		B0F944FC29C2050200DE3830 /* food3Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = food3Model.h; sourceTree = "<group>"; };
+		B0F944FD29C2050200DE3830 /* food2Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = food2Model.m; sourceTree = "<group>"; };
+		B0F944FE29C2050300DE3830 /* food1Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = food1Model.m; sourceTree = "<group>"; };
+		B0F944FF29C2050400DE3830 /* food3Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = food3Model.m; sourceTree = "<group>"; };
+		B0F9450029C2050400DE3830 /* food4Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = food4Model.h; sourceTree = "<group>"; };
+		B0F9450129C2050500DE3830 /* food1Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = food1Model.h; sourceTree = "<group>"; };
+		B0F9450229C2050600DE3830 /* food4Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = food4Model.m; sourceTree = "<group>"; };
+		B0F9450329C2050600DE3830 /* food2Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = food2Model.h; sourceTree = "<group>"; };
+		B0F9450829C2056600DE3830 /* FoodHomeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoodHomeModel.h; sourceTree = "<group>"; };
+		B0F9450929C2056600DE3830 /* FoodHomeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoodHomeModel.m; sourceTree = "<group>"; };
 		B0FE5F1B294C94540070E755 /* RisingExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RisingExtension.h; sourceTree = "<group>"; };
 		B0FE5F1C294C94540070E755 /* RisingSingleClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RisingSingleClass.h; sourceTree = "<group>"; };
 		B0FE5F1E294C94540070E755 /* RisingFoundationExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RisingFoundationExtension.h; sourceTree = "<group>"; };
@@ -5779,20 +5803,6 @@
 			path = New;
 			sourceTree = "<group>";
 		};
-		B030B35D299BE8E50035B500 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		B030B35E299BE9000035B500 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		B030B35F299BE90C0035B500 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -5805,7 +5815,9 @@
 		B030B363299BF1210035B500 /* Food */ = {
 			isa = PBXGroup;
 			children = (
-				B030B365299BF13E0035B500 /* View */,
+				B0F944FB29C204EB00DE3830 /* Model */,
+				B0F944F129C203BC00DE3830 /* View */,
+				B030B365299BF13E0035B500 /* Controller */,
 			);
 			path = Food;
 			sourceTree = "<group>";
@@ -5814,19 +5826,19 @@
 			isa = PBXGroup;
 			children = (
 				B030B35F299BE90C0035B500 /* Controller */,
-				B030B35E299BE9000035B500 /* View */,
-				B030B35D299BE8E50035B500 /* Model */,
 			);
 			path = Main;
 			sourceTree = "<group>";
 		};
-		B030B365299BF13E0035B500 /* View */ = {
+		B030B365299BF13E0035B500 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B030B366299BF1590035B500 /* foodVC.h */,
-				B030B367299BF1590035B500 /* foodVC.m */,
+				B0F944F829C203FC00DE3830 /* FootViewController.h */,
+				B0F944F929C203FD00DE3830 /* FootViewController.m */,
+				B030B366299BF1590035B500 /* FoodVC.h */,
+				B030B367299BF1590035B500 /* FoodVC.m */,
 			);
-			path = View;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		B0F08FCA28A2497F00986EB6 /* Discover_SportAttendance */ = {
@@ -5952,6 +5964,34 @@
 				B0F0900028A2605E00986EB6 /* popUpViewController.m */,
 			);
 			path = PopUpController;
+			sourceTree = "<group>";
+		};
+		B0F944F129C203BC00DE3830 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B0F944F529C203D400DE3830 /* UDScrollAnimationView.h */,
+				B0F944F629C203D500DE3830 /* UDScrollAnimationView.m */,
+				B0F944F229C203CD00DE3830 /* BTCollectionViewCell.h */,
+				B0F944F329C203CE00DE3830 /* BTCollectionViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B0F944FB29C204EB00DE3830 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B0F9450129C2050500DE3830 /* food1Model.h */,
+				B0F944FE29C2050300DE3830 /* food1Model.m */,
+				B0F9450329C2050600DE3830 /* food2Model.h */,
+				B0F944FD29C2050200DE3830 /* food2Model.m */,
+				B0F944FC29C2050200DE3830 /* food3Model.h */,
+				B0F944FF29C2050400DE3830 /* food3Model.m */,
+				B0F9450029C2050400DE3830 /* food4Model.h */,
+				B0F9450229C2050600DE3830 /* food4Model.m */,
+				B0F9450829C2056600DE3830 /* FoodHomeModel.h */,
+				B0F9450929C2056600DE3830 /* FoodHomeModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		B0FE5F1A294C94540070E755 /* Rising Extension */ = {
@@ -6871,6 +6911,7 @@
 				18CDF6C7257F91BE006E8E5C /* CalendarViewController.m in Sources */,
 				18CDF67A257F91BD006E8E5C /* ScheduleInquiryViewController.m in Sources */,
 				14B73F6E281BED7B00D08ADD /* MessageSettingCell.m in Sources */,
+				B0F9450A29C2056600DE3830 /* FoodHomeModel.m in Sources */,
 				AA7AB96B2873E5EA00BA6790 /* SegmentBarView.m in Sources */,
 				18CDF70E257F91BE006E8E5C /* YearTableViewCell.m in Sources */,
 				DB4064FB2466D889006CE5BC /* DLWeeklSelectView.m in Sources */,
@@ -6900,6 +6941,7 @@
 				18CDF70D257F91BE006E8E5C /* QueryTableViewCell.m in Sources */,
 				49252DAA26D39CC9003A8A7F /* FeedBackMainPageViewController.m in Sources */,
 				49A50B6726D83B9600B25DDF /* CommonQuestionDetailVC.m in Sources */,
+				B0F944F729C203D500DE3830 /* UDScrollAnimationView.m in Sources */,
 				AA7ABAC32873EA5500BA6790 /* MGDCurrentTimeStr.m in Sources */,
 				AAE3309025E3D59100324750 /* ShareViewPlus.m in Sources */,
 				1A9B767A235F50A800725937 /* main.m in Sources */,
@@ -6939,11 +6981,12 @@
 				14B73F7F281BED7B00D08ADD /* DiscoverMineMessageVC.m in Sources */,
 				AA49098924F3BF5A007CB3BC /* TransitionManager.m in Sources */,
 				DB34EB28239BD4550052B65E /* DetailLessonController.m in Sources */,
-				B030B368299BF1590035B500 /* foodVC.m in Sources */,
+				B030B368299BF1590035B500 /* FoodVC.m in Sources */,
 				AA7ABAAD2873EA5500BA6790 /* FunctionBtn.m in Sources */,
 				AA57588924EE739F002F6F6D /* TimeBtnSelectedBackView.m in Sources */,
 				4931630D26CD7B6800140412 /* StampCenterCollectionHeaderView.m in Sources */,
 				B0FE5F29294C94540070E755 /* NSDate+Rising.m in Sources */,
+				B0F944FA29C203FD00DE3830 /* FootViewController.m in Sources */,
 				18CDF675257F91BD006E8E5C /* PointAndDottedLineView.m in Sources */,
 				AA0DDB69286C8B1A00802324 /* FansAndFollowingSegmentView.m in Sources */,
 				D0101D592433C885004337ED /* SDMaskController.m in Sources */,
@@ -6968,6 +7011,7 @@
 				AA7ABA9F2873EA5400BA6790 /* HotSearchModel.m in Sources */,
 				FE2C136527AEF629001CF7AF /* TodoDateTool.m in Sources */,
 				AA289B1524F29F7600FDF70C /* ClassSchedulPresentingAnimater.m in Sources */,
+				B0F9450529C2050600DE3830 /* food1Model.m in Sources */,
 				B51C501028A5FFC00011465E /* ForgetPwdVC.m in Sources */,
 				AA7AB9632873E5EA00BA6790 /* CYSearchEndKnowledgeDetailModel.m in Sources */,
 				18CDF68D257F91BD006E8E5C /* CQUPTMapPresenter.m in Sources */,
@@ -7066,6 +7110,7 @@
 				18CDF694257F91BD006E8E5C /* CQUPTMapSearchItem.m in Sources */,
 				AAC7CA3B25F89C9D00E6B5D5 /* MainPageModel.m in Sources */,
 				4931630E26CD7B6800140412 /* StampCenterSecondHeaderView.m in Sources */,
+				B0F9450729C2050600DE3830 /* food4Model.m in Sources */,
 				18CDF71F257F91BE006E8E5C /* VolunteerInfoView.m in Sources */,
 				18CDF722257F91BE006E8E5C /* FinderToolViewItem.m in Sources */,
 				FE2C136827AEF629001CF7AF /* TodoSyncMsg.m in Sources */,
@@ -7131,6 +7176,7 @@
 				AA0DD8FB286C50E500802324 /* MineMsgCntView.m in Sources */,
 				AA536DF5258C4F7600F69E73 /* IgnoreViewController.m in Sources */,
 				18CDF66C257F91BD006E8E5C /* DiscoverADModel.m in Sources */,
+				B0F944F429C203CE00DE3830 /* BTCollectionViewCell.m in Sources */,
 				18CDF685257F91BD006E8E5C /* EmptyClassTableViewCell.m in Sources */,
 				18CDF663257F91BD006E8E5C /* ElectricFeeItem.m in Sources */,
 				AA289B0F24EF9CFA00FDF70C /* NoteDataModel.m in Sources */,
@@ -7160,6 +7206,7 @@
 				DB34EADB239BD4550052B65E /* LessonRemindNotification.m in Sources */,
 				AA0DDB7A286C8B1A00802324 /* IDModel.m in Sources */,
 				D0101D5E2433C885004337ED /* SDMaskModel.m in Sources */,
+				B0F9450629C2050600DE3830 /* food3Model.m in Sources */,
 				1404746C27F446DF00307209 /* DiscoverADBannerView.m in Sources */,
 				AAFD87D024F50DB800CBBD11 /* FakeTabBarView.m in Sources */,
 				18CDF6A3257F91BD006E8E5C /* CQUPTMapDetailTagsCollectionViewCell.m in Sources */,
@@ -7402,6 +7449,7 @@
 				AA7ABAC12873EA5500BA6790 /* MGDStatusBarHeight.m in Sources */,
 				B0F08FE328A2497F00986EB6 /* SportAttendanceViewController.m in Sources */,
 				735BC53226D38EA600F22678 /* HistoricalFeedBackTableView.m in Sources */,
+				B0F9450429C2050600DE3830 /* food2Model.m in Sources */,
 				B0FE5F2A294C94540070E755 /* RisingFoundationExtention.m in Sources */,
 				AA536DDA258C3F7C00F69E73 /* TopBarBasicViewController.m in Sources */,
 				73AAA1CC26C918250084E44D /* DetailsGoodsModel.m in Sources */,

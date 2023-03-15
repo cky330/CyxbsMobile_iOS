@@ -32,7 +32,7 @@
 
 -(void)choose{
     NSLog(@"跳转到美食");
-    foodVC * vc = [[foodVC alloc] init];
+    FoodVC * vc = [[FoodVC alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
     //隐藏navBar,之后自定义返回键
 //    self.navigationController.navigationBar.hidden = YES;

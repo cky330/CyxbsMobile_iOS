@@ -1,5 +1,5 @@
 //
-//  foodVC.h
+//  FoodVC.h
 //  CyxbsMobile2019_iOS
 //
 //  Created by 潘申冰 on 2023/2/15.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface foodVC : UIViewController
+@interface FoodVC : UIViewController
 
 @end
 
