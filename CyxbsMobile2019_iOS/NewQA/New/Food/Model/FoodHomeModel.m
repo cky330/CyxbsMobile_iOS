@@ -7,6 +7,7 @@
 //
 
 #import "FoodHomeModel.h"
+#import "FoodHeader.h"
 
 @implementation FoodHomeModel
 
@@ -16,9 +17,8 @@
 }
 
 - (void)requestSuccess:(void (^)(void))success failure:(void (^)(NSError * _Nonnull))failure{
-    NSLog(@"22");
     [HttpTool.shareTool
-     request:[CyxbsMobileBaseURL_1 stringByAppendingString:@"magipoke-delicacy/HomePage"]
+     request:NewQA_GET_FoodHomePage_API
      type:HttpToolRequestTypeGet
      serializer:HttpToolRequestSerializerJSON
      bodyParameters:nil

@@ -7,7 +7,6 @@
 //
 
 #import "SportAttendanceTableViewCell.h"
-#import "Masonry.h"
 
 @implementation SportAttendanceTableViewCell
 

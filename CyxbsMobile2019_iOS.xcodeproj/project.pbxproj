@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -531,6 +531,10 @@
 		AAE3309925E4E5CD00324750 /* DeleteArticleTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE3309825E4E5CD00324750 /* DeleteArticleTipView.m */; };
 		AAE87797286B304F0091656B /* PrivacyTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE87796286B304E0091656B /* PrivacyTipView.swift */; };
 		AAFD87D024F50DB800CBBD11 /* FakeTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAFD87CF24F50DB800CBBD11 /* FakeTabBarView.m */; };
+		B01D3ED229C2E62500FCE3F1 /* FoodRefreshModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B01D3ED129C2E62500FCE3F1 /* FoodRefreshModel.m */; };
+		B01D3ED729C2EC8300FCE3F1 /* FoodResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B01D3ED629C2EC8300FCE3F1 /* FoodResultModel.m */; };
+		B01D3EDA29C2EDF300FCE3F1 /* FoodPraiseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B01D3ED929C2EDF300FCE3F1 /* FoodPraiseModel.m */; };
+		B01D3EDD29C2FD0600FCE3F1 /* popUpInformationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B01D3EDC29C2FD0600FCE3F1 /* popUpInformationVC.m */; };
 		B030B362299BE99A0035B500 /* AmusementParkVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B030B361299BE99A0035B500 /* AmusementParkVC.m */; };
 		B030B368299BF1590035B500 /* FoodVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B030B367299BF1590035B500 /* FoodVC.m */; };
 		B033366E294C971D004D141D /* HttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = B033366D294C971D004D141D /* HttpTool.m */; };
@@ -550,10 +554,6 @@
 		B0F944F429C203CE00DE3830 /* BTCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F944F329C203CE00DE3830 /* BTCollectionViewCell.m */; };
 		B0F944F729C203D500DE3830 /* UDScrollAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F944F629C203D500DE3830 /* UDScrollAnimationView.m */; };
 		B0F944FA29C203FD00DE3830 /* FootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F944F929C203FD00DE3830 /* FootViewController.m */; };
-		B0F9450429C2050600DE3830 /* food2Model.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F944FD29C2050200DE3830 /* food2Model.m */; };
-		B0F9450529C2050600DE3830 /* food1Model.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F944FE29C2050300DE3830 /* food1Model.m */; };
-		B0F9450629C2050600DE3830 /* food3Model.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F944FF29C2050400DE3830 /* food3Model.m */; };
-		B0F9450729C2050600DE3830 /* food4Model.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F9450229C2050600DE3830 /* food4Model.m */; };
 		B0F9450A29C2056600DE3830 /* FoodHomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F9450929C2056600DE3830 /* FoodHomeModel.m */; };
 		B0FE5F29294C94540070E755 /* NSDate+Rising.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FE5F1F294C94540070E755 /* NSDate+Rising.m */; };
 		B0FE5F2A294C94540070E755 /* RisingFoundationExtention.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FE5F20294C94540070E755 /* RisingFoundationExtention.m */; };
@@ -1762,6 +1762,15 @@
 		AAE87796286B304E0091656B /* PrivacyTipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyTipView.swift; sourceTree = "<group>"; };
 		AAFD87CE24F50DB800CBBD11 /* FakeTabBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FakeTabBarView.h; sourceTree = "<group>"; };
 		AAFD87CF24F50DB800CBBD11 /* FakeTabBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FakeTabBarView.m; sourceTree = "<group>"; };
+		B01D3ED029C2E62500FCE3F1 /* FoodRefreshModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoodRefreshModel.h; sourceTree = "<group>"; };
+		B01D3ED129C2E62500FCE3F1 /* FoodRefreshModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoodRefreshModel.m; sourceTree = "<group>"; };
+		B01D3ED429C2E6B400FCE3F1 /* FoodHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoodHeader.h; sourceTree = "<group>"; };
+		B01D3ED529C2EC8300FCE3F1 /* FoodResultModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoodResultModel.h; sourceTree = "<group>"; };
+		B01D3ED629C2EC8300FCE3F1 /* FoodResultModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoodResultModel.m; sourceTree = "<group>"; };
+		B01D3ED829C2EDF300FCE3F1 /* FoodPraiseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoodPraiseModel.h; sourceTree = "<group>"; };
+		B01D3ED929C2EDF300FCE3F1 /* FoodPraiseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoodPraiseModel.m; sourceTree = "<group>"; };
+		B01D3EDB29C2FD0600FCE3F1 /* popUpInformationVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = popUpInformationVC.h; sourceTree = "<group>"; };
+		B01D3EDC29C2FD0600FCE3F1 /* popUpInformationVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = popUpInformationVC.m; sourceTree = "<group>"; };
 		B030B360299BE99A0035B500 /* AmusementParkVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AmusementParkVC.h; sourceTree = "<group>"; };
 		B030B361299BE99A0035B500 /* AmusementParkVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AmusementParkVC.m; sourceTree = "<group>"; };
 		B030B366299BF1590035B500 /* FoodVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoodVC.h; sourceTree = "<group>"; };
@@ -1800,14 +1809,6 @@
 		B0F944F629C203D500DE3830 /* UDScrollAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDScrollAnimationView.m; sourceTree = "<group>"; };
 		B0F944F829C203FC00DE3830 /* FootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FootViewController.h; sourceTree = "<group>"; };
 		B0F944F929C203FD00DE3830 /* FootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FootViewController.m; sourceTree = "<group>"; };
-		B0F944FC29C2050200DE3830 /* food3Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = food3Model.h; sourceTree = "<group>"; };
-		B0F944FD29C2050200DE3830 /* food2Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = food2Model.m; sourceTree = "<group>"; };
-		B0F944FE29C2050300DE3830 /* food1Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = food1Model.m; sourceTree = "<group>"; };
-		B0F944FF29C2050400DE3830 /* food3Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = food3Model.m; sourceTree = "<group>"; };
-		B0F9450029C2050400DE3830 /* food4Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = food4Model.h; sourceTree = "<group>"; };
-		B0F9450129C2050500DE3830 /* food1Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = food1Model.h; sourceTree = "<group>"; };
-		B0F9450229C2050600DE3830 /* food4Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = food4Model.m; sourceTree = "<group>"; };
-		B0F9450329C2050600DE3830 /* food2Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = food2Model.h; sourceTree = "<group>"; };
 		B0F9450829C2056600DE3830 /* FoodHomeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoodHomeModel.h; sourceTree = "<group>"; };
 		B0F9450929C2056600DE3830 /* FoodHomeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoodHomeModel.m; sourceTree = "<group>"; };
 		B0FE5F1B294C94540070E755 /* RisingExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RisingExtension.h; sourceTree = "<group>"; };
@@ -4677,7 +4678,6 @@
 		7A64BFF22892826F007CCB1E /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				7A64BFF32892826F007CCB1E /* NewQAHeader.h */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -5781,6 +5781,15 @@
 			path = ArticleRemarkPraise;
 			sourceTree = "<group>";
 		};
+		B01D3ED329C2E67B00FCE3F1 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				7A64BFF32892826F007CCB1E /* NewQAHeader.h */,
+				B01D3ED429C2E6B400FCE3F1 /* FoodHeader.h */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
 		B030B35B299BE8BA0035B500 /* Old */ = {
 			isa = PBXGroup;
 			children = (
@@ -5797,6 +5806,7 @@
 		B030B35C299BE8D60035B500 /* New */ = {
 			isa = PBXGroup;
 			children = (
+				B01D3ED329C2E67B00FCE3F1 /* Source */,
 				B030B364299BF12F0035B500 /* Main */,
 				B030B363299BF1210035B500 /* Food */,
 			);
@@ -5833,10 +5843,12 @@
 		B030B365299BF13E0035B500 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B0F944F829C203FC00DE3830 /* FootViewController.h */,
-				B0F944F929C203FD00DE3830 /* FootViewController.m */,
 				B030B366299BF1590035B500 /* FoodVC.h */,
 				B030B367299BF1590035B500 /* FoodVC.m */,
+				B0F944F829C203FC00DE3830 /* FootViewController.h */,
+				B0F944F929C203FD00DE3830 /* FootViewController.m */,
+				B01D3EDB29C2FD0600FCE3F1 /* popUpInformationVC.h */,
+				B01D3EDC29C2FD0600FCE3F1 /* popUpInformationVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -5980,16 +5992,14 @@
 		B0F944FB29C204EB00DE3830 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B0F9450129C2050500DE3830 /* food1Model.h */,
-				B0F944FE29C2050300DE3830 /* food1Model.m */,
-				B0F9450329C2050600DE3830 /* food2Model.h */,
-				B0F944FD29C2050200DE3830 /* food2Model.m */,
-				B0F944FC29C2050200DE3830 /* food3Model.h */,
-				B0F944FF29C2050400DE3830 /* food3Model.m */,
-				B0F9450029C2050400DE3830 /* food4Model.h */,
-				B0F9450229C2050600DE3830 /* food4Model.m */,
 				B0F9450829C2056600DE3830 /* FoodHomeModel.h */,
 				B0F9450929C2056600DE3830 /* FoodHomeModel.m */,
+				B01D3ED029C2E62500FCE3F1 /* FoodRefreshModel.h */,
+				B01D3ED129C2E62500FCE3F1 /* FoodRefreshModel.m */,
+				B01D3ED529C2EC8300FCE3F1 /* FoodResultModel.h */,
+				B01D3ED629C2EC8300FCE3F1 /* FoodResultModel.m */,
+				B01D3ED829C2EDF300FCE3F1 /* FoodPraiseModel.h */,
+				B01D3ED929C2EDF300FCE3F1 /* FoodPraiseModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -6751,7 +6761,7 @@
 				};
 			};
 			buildConfigurationList = 1A9B7662235F50A600725937 /* Build configuration list for PBXProject "CyxbsMobile2019_iOS" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -6931,6 +6941,7 @@
 				73AAA1D726C918250084E44D /* DetailsCustomizeNavigationBar.m in Sources */,
 				AA7ABAA02873EA5400BA6790 /* ReportModel.m in Sources */,
 				AA7AB95D2873E5EA00BA6790 /* SZHHotSearchView.m in Sources */,
+				B01D3ED229C2E62500FCE3F1 /* FoodRefreshModel.m in Sources */,
 				B0F08FE028A2497F00986EB6 /* SportAttendanceHeadView.m in Sources */,
 				14981FF627FEA8F200AD2A29 /* JWZXNewsAnnexModel.m in Sources */,
 				187DF4BB260310DD000BCDE9 /* UIScrollView+Empty.m in Sources */,
@@ -7011,7 +7022,6 @@
 				AA7ABA9F2873EA5400BA6790 /* HotSearchModel.m in Sources */,
 				FE2C136527AEF629001CF7AF /* TodoDateTool.m in Sources */,
 				AA289B1524F29F7600FDF70C /* ClassSchedulPresentingAnimater.m in Sources */,
-				B0F9450529C2050600DE3830 /* food1Model.m in Sources */,
 				B51C501028A5FFC00011465E /* ForgetPwdVC.m in Sources */,
 				AA7AB9632873E5EA00BA6790 /* CYSearchEndKnowledgeDetailModel.m in Sources */,
 				18CDF68D257F91BD006E8E5C /* CQUPTMapPresenter.m in Sources */,
@@ -7030,6 +7040,7 @@
 				18CDF6B8257F91BD006E8E5C /* ScoreViewController.m in Sources */,
 				18CDF6AC257F91BD006E8E5C /* SCTool.m in Sources */,
 				14B73F80281BED7B00D08ADD /* MessagePresentView.m in Sources */,
+				B01D3EDD29C2FD0600FCE3F1 /* popUpInformationVC.m in Sources */,
 				DB34EACD239BD4550052B65E /* WYCClassBookViewController.m in Sources */,
 				AA7ABAAB2873EA5500BA6790 /* MGDClickParams.m in Sources */,
 				DB4064FE2466D889006CE5BC /* DLNextButton.m in Sources */,
@@ -7110,7 +7121,6 @@
 				18CDF694257F91BD006E8E5C /* CQUPTMapSearchItem.m in Sources */,
 				AAC7CA3B25F89C9D00E6B5D5 /* MainPageModel.m in Sources */,
 				4931630E26CD7B6800140412 /* StampCenterSecondHeaderView.m in Sources */,
-				B0F9450729C2050600DE3830 /* food4Model.m in Sources */,
 				18CDF71F257F91BE006E8E5C /* VolunteerInfoView.m in Sources */,
 				18CDF722257F91BE006E8E5C /* FinderToolViewItem.m in Sources */,
 				FE2C136827AEF629001CF7AF /* TodoSyncMsg.m in Sources */,
@@ -7206,10 +7216,10 @@
 				DB34EADB239BD4550052B65E /* LessonRemindNotification.m in Sources */,
 				AA0DDB7A286C8B1A00802324 /* IDModel.m in Sources */,
 				D0101D5E2433C885004337ED /* SDMaskModel.m in Sources */,
-				B0F9450629C2050600DE3830 /* food3Model.m in Sources */,
 				1404746C27F446DF00307209 /* DiscoverADBannerView.m in Sources */,
 				AAFD87D024F50DB800CBBD11 /* FakeTabBarView.m in Sources */,
 				18CDF6A3257F91BD006E8E5C /* CQUPTMapDetailTagsCollectionViewCell.m in Sources */,
+				B01D3EDA29C2EDF300FCE3F1 /* FoodPraiseModel.m in Sources */,
 				AA0DDB71286C8B1A00802324 /* UserInformationIntorductionView.m in Sources */,
 				AA0DDB6E286C8B1A00802324 /* PMPDatePicker.m in Sources */,
 				AA7ABAA52873EA5400BA6790 /* PostTableViewCell.m in Sources */,
@@ -7349,6 +7359,7 @@
 				AA0DDB54286C8B1900802324 /* MineSignView.m in Sources */,
 				DB34EB3D239BD4550052B65E /* ORWInputTextView.m in Sources */,
 				14FBBD41280505CC00D5B05D /* SSRTextCycleView.m in Sources */,
+				B01D3ED729C2EC8300FCE3F1 /* FoodResultModel.m in Sources */,
 				18CDF66F257F91BD006E8E5C /* FinderView.m in Sources */,
 				AA7ABA982873EA5400BA6790 /* PostItem.m in Sources */,
 				DB34EB23239BD4550052B65E /* TimeChooseViewController.m in Sources */,
@@ -7449,7 +7460,6 @@
 				AA7ABAC12873EA5500BA6790 /* MGDStatusBarHeight.m in Sources */,
 				B0F08FE328A2497F00986EB6 /* SportAttendanceViewController.m in Sources */,
 				735BC53226D38EA600F22678 /* HistoricalFeedBackTableView.m in Sources */,
-				B0F9450429C2050600DE3830 /* food2Model.m in Sources */,
 				B0FE5F2A294C94540070E755 /* RisingFoundationExtention.m in Sources */,
 				AA536DDA258C3F7C00F69E73 /* TopBarBasicViewController.m in Sources */,
 				73AAA1CC26C918250084E44D /* DetailsGoodsModel.m in Sources */,

@@ -72,7 +72,7 @@
     if (!_learnBtn) {
         _learnBtn = [[UIButton alloc] init];
         [_learnBtn setImage:[UIImage imageNamed:@"learnmore"] forState:UIControlStateNormal];
-        [_learnBtn addTarget:self action:@selector(learnAbout) forControlEvents:UIControlEventTouchUpInside];
+        [_learnBtn addTarget:self action:@selector(popInformation) forControlEvents:UIControlEventTouchUpInside];
     }
     return _learnBtn;
 }

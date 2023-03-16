@@ -9,7 +9,7 @@
 #import "UDScrollAnimationView.h"
 
 @interface FootViewController ()
-@property (nonatomic, strong)UIButton *loginButton;
+@property (nonatomic, strong)UIButton *checkBtn;
 @property (nonatomic, strong) UDScrollAnimationView *v;
 
 @end
@@ -20,7 +20,7 @@
     [super viewDidLoad];
     
     [self.view addSubview:self.v];
-    [self.view addSubview:self.loginButton];
+    [self.view addSubview:self.checkBtn];
 }
 
 - (UDScrollAnimationView *)v{
@@ -36,26 +36,26 @@
 }
 
 
-- (void)buttonClick{
+- (void)buttonClick {
     int i = arc4random_uniform((int)self.v.textArr.count);
     NSString *str = [NSString stringWithFormat:@"%@", self.v.textArr[i]];
     _v.finalText = str;
     [self.v startAnimation];
 }
 
-- (UIButton *)loginButton{
-    if (_loginButton == nil) {
-        _loginButton = [[UIButton alloc]init];
-        _loginButton.frame =CGRectMake(200, 0, 91, 34);
+- (UIButton *)checkBtn{
+    if (_checkBtn == nil) {
+        _checkBtn = [[UIButton alloc]init];
+        _checkBtn.frame =CGRectMake(200, 0, 91, 34);
         //给控件加圆角
-        _loginButton.layer.cornerRadius = 15;
-        [_loginButton addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
-        [_loginButton setTitle:@"随机生成" forState:UIControlStateNormal];
-        _loginButton.titleLabel.font = [UIFont fontWithName:PingFangSCMedium size:14];
+        _checkBtn.layer.cornerRadius = 15;
+        [_checkBtn addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
+        [_checkBtn setTitle:@"随机生成" forState:UIControlStateNormal];
+        _checkBtn.titleLabel.font = [UIFont fontWithName:PingFangSCMedium size:14];
 //        [_loginButton setTitle:@"生成中..." forState:UIControlStateHighlighted];
-        _loginButton.backgroundColor = [UIColor colorWithRed: 0.365 green: 0.365 blue: 0.969 alpha: 1];
+        _checkBtn.backgroundColor = [UIColor colorWithRed: 0.365 green: 0.365 blue: 0.969 alpha: 1];
     }
-    return _loginButton;
+    return _checkBtn;
 }
 
 @end

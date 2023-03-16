@@ -10,15 +10,15 @@
 #import "BTCollectionViewCell.h"
 #import "FootViewController.h"
 #import "FoodHomeModel.h"
+#import "popUpInformationVC.h"
 
 @interface FoodVC ()<
 UICollectionViewDelegate,
-UICollectionViewDataSource
+UICollectionViewDataSource,
+UICollectionViewDelegateFlowLayout
 >
 
 @property (nonatomic, strong) UICollectionView *collectionView;
-// 数组1
-@property (nonatomic, strong) NSMutableArray *Ary1;
 
 ///头视图
 @property (nonatomic, strong) UIView *topView;
@@ -29,6 +29,9 @@ UICollectionViewDataSource
 ///返回条
 @property (nonatomic, strong) UIView *backgroundView;
 @property (nonatomic, strong) UILabel *titleLabel;
+
+/// 弹出弹窗之后的一层黑色的遮罩层
+@property (nonatomic, strong) UIView *maskView;
 
 @end
 
@@ -71,16 +74,47 @@ UICollectionViewDataSource
     
     // 区头
     if (kind == UICollectionElementKindSectionHeader) {
-        UICollectionReusableView *view = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"header" forIndexPath:indexPath];
-        view.backgroundColor = UIColor.redColor;
-        UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 80, 30)];
-        lab.text = [NSString stringWithFormat:@"%ld",(long)indexPath.section];
-        lab.backgroundColor = UIColor.systemBlueColor;
-        [view addSubview:lab];
-        return view;
+        UICollectionReusableView *topView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"header" forIndexPath:indexPath];
+        
+        UILabel *firstLab = [[UILabel alloc] initWithFrame:CGRectMake(15, 26, 56, 20)];
+        firstLab.font = [UIFont fontWithName:PingFangSCMedium size:14];
+        firstLab.textColor = [UIColor colorWithHexString:@"#15315B"];
+        
+        UILabel *secondLab = [[UILabel alloc] initWithFrame:CGRectMake(94, 29, 60, 14)];
+        secondLab.font = [UIFont fontWithName:PingFangSCMedium size:10];
+        secondLab.textColor = [UIColor colorWithHexString:@"#15315B" alpha:0.4];
+        
+        UIImageView *remindImg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"提醒"]];
+        remindImg.frame = CGRectMake(78, 29.5, 11, 13);
+        
+        switch (indexPath.section) {
+            case 0:
+                firstLab.text = @"就餐区域";
+                secondLab.text = @"可多选";
+                break;
+            case 1:
+                firstLab.text = @"就餐人数";
+                secondLab.text = @"仅可选择一个";
+                break;
+            case 2:
+                firstLab.text = @"餐饮特征";
+                secondLab.text = @"可多选";
+                break;
+            default:
+                break;
+        }
+        
+        [topView addSubview:firstLab];
+        [topView addSubview:remindImg];
+        [topView addSubview:secondLab];
+        return topView;
     }
     
     return nil;
+}
+
+- (void)buttonClick{
+    NSLog(@"111");
 }
 
 #pragma mark - <UICollectionViewDelegate>
@@ -89,14 +123,15 @@ UICollectionViewDataSource
     NSLog(@"选择了%ld - %ld: %@", indexPath.section, indexPath.item, self._getAry[indexPath.section][indexPath.item]);
     
     //点击向数组添加
-    if (indexPath.section == 0){
-        [self.Ary1 addObject:self._getAry[indexPath.section][indexPath.item]];
-    }
+//    if (indexPath.section == 0){
+//        [self.Ary1 addObject:self._getAry[indexPath.section][indexPath.item]];
+//    }
     
-    //部分单选
-    if (indexPath.section != 1)
+    //设置单选
+    //只有section 1是多选
+    if (indexPath.section != 1) {
         return;
-    
+    }
     NSArray<NSIndexPath*>* selectedIndexes = collectionView.indexPathsForSelectedItems;
     for (int i = 0; i < selectedIndexes.count; i++) {
         NSIndexPath* currentIndex = selectedIndexes[i];
@@ -110,25 +145,33 @@ UICollectionViewDataSource
     NSLog(@"取消了%ld - %ld: %@", indexPath.section, indexPath.item, self._getAry[indexPath.section][indexPath.item]);
     
     //再次点击移除
-    if (indexPath.section == 0){
-        [self.Ary1 removeObject:self._getAry[indexPath.section][indexPath.item]];
-    }
+//    if (indexPath.section == 0){
+//        [self.Ary1 removeObject:self._getAry[indexPath.section][indexPath.item]];
+//    }
 }
 
 #pragma mark - <UICollectionViewDelegateFlowLayout>
-
+// 设置每个cell的尺寸高度
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    CGSize size = CGSizeMake(74, 29);//每个cell的宽高
+    CGSize size = CGSizeMake(74, 29);
     return size;
 }
 
-// 设置区头尺寸高度
+// 设置区头的尺寸高度
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-    CGSize size = CGSizeMake(SCREEN_WIDTH, 60);
+    CGSize size = CGSizeMake(SCREEN_WIDTH, 58);
     return size;
 }
 
 #pragma mark - Method
+//查看更多
+- (void)learnAbout{
+    popUpInformationVC *vc = [[popUpInformationVC alloc] init];
+    vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    //填充全屏(原视图不会消失)
+    vc.modalPresentationStyle = UIModalPresentationOverFullScreen;
+    [self.navigationController presentViewController:vc animated:YES completion:nil];
+}
 
 - (void)loadHomeData {
     [self.homeModel requestSuccess:^{
@@ -144,10 +187,9 @@ UICollectionViewDataSource
     [self addTopView];
     [self.view addSubview:self.collectionView];
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.backgroundView.mas_bottom);
+        make.top.equalTo(self.backgroundView.mas_bottom).offset(150);
         make.bottom.equalTo(self.view);
-        make.left.equalTo(self.view).offset(15);
-        make.right.equalTo(self.view).offset(-30);
+        make.width.equalTo(self.view);
     }];
     //添加脚视图
     [self addFootView];
@@ -182,23 +224,36 @@ UICollectionViewDataSource
 #pragma mark - 返回条
 //自定义的Tabbar
 - (void)addCustomTabbarView {
-    UIView *backgroundView;
-    backgroundView = [[UIView alloc]initWithFrame:CGRectMake(0, NVGBARHEIGHT, SCREEN_WIDTH, STATUSBARHEIGHT)];
-    self.backgroundView = backgroundView;
-    backgroundView.backgroundColor = [UIColor dm_colorWithLightColor:[UIColor colorWithHexString:@"#FFFFFF" alpha:0] darkColor:[UIColor colorWithHexString:@"#1D1D1D" alpha:0]];
-    [self.view addSubview:backgroundView];
+    //只切下面的圆角(利用贝塞尔曲线)
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.backgroundView.bounds byRoundingCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight cornerRadii:CGSizeMake(16, 16)];
+    //设置圆角
+    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+    maskLayer.frame = self.backgroundView.bounds;
+    maskLayer.path = maskPath.CGPath;
+    self.backgroundView.layer.mask = maskLayer;
+    
+    self.backgroundView.backgroundColor = [UIColor colorWithHexString:@"#FFFFFF" alpha:0];
+    
+    //设置阴影???
+    //阴影透明度
+    self.backgroundView.layer.shadowOpacity = 0.33f;
+    //阴影偏移量
+    self.backgroundView.layer.shadowOffset = CGSizeMake(0, 5);
+    
+    [self.view addSubview:self.backgroundView];
+    
     //addTitleView
     UILabel *titleLabel = [[UILabel alloc]init];
     self.titleLabel = titleLabel;
     titleLabel.text = @"美食咨询处";
     titleLabel.font = [UIFont fontWithName:PingFangSCBold size:20];
-    titleLabel.textColor = [UIColor dm_colorWithLightColor:[UIColor colorWithHexString:@"#112C53"] darkColor:[UIColor colorWithHexString:@"#DFDFE3"]];
+    titleLabel.textColor = [UIColor colorWithHexString:@"#112C53"];
     [self.backgroundView addSubview:titleLabel];
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view).offset(37);
         make.centerY.equalTo(self.backgroundView);
     }];
-    titleLabel.textColor = [UIColor dm_colorWithLightColor:[UIColor colorWithHexString:@"#15315B" alpha:1] darkColor:[UIColor colorWithHexString:@"#DFDFE3" alpha:1]];
+    titleLabel.textColor = [UIColor colorWithHexString:@"#15315B" alpha:1];
 
     //添加返回按钮
     [self addBackButton];
@@ -223,19 +278,9 @@ UICollectionViewDataSource
      [self.navigationController popViewControllerAnimated:YES];
 }
 
-#pragma mark - Getter
-- (NSMutableArray *)Ary1 {
-    if (!_Ary1) {
-        _Ary1 = [[NSMutableArray alloc] init];
-    }
-    return _Ary1;
-}
-
-
-
 #pragma mark - Lazy
 - (NSArray <NSArray *> *)_getAry {
-    if (_homeAry == nil) {
+    if (!_homeAry) {
         _homeAry = @[
             self.homeModel.eat_areaAry,
             self.homeModel.eat_numAry,
@@ -250,6 +295,7 @@ UICollectionViewDataSource
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
         //最小列间距
         layout.minimumLineSpacing = 10;
+        layout.sectionInset = UIEdgeInsetsMake(0, 15, 0, 34);
         //最小行间距
         layout.minimumInteritemSpacing = 10;
         layout.scrollDirection = UICollectionViewScrollDirectionVertical;
@@ -283,6 +329,13 @@ UICollectionViewDataSource
         _homeModel = [[FoodHomeModel alloc] init];
     }
     return _homeModel;
+}
+
+- (UIView *)backgroundView {
+    if(!_backgroundView) {
+        _backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, NVGBARHEIGHT, SCREEN_WIDTH, STATUSBARHEIGHT)];
+    }
+    return _backgroundView;
 }
 
 @end

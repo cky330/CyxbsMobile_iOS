@@ -116,11 +116,4 @@
 //获取用户服务协议
 #define Mine_POST_getAboutUsMsg_API [CyxbsMobileBaseURL_1 stringByAppendingString:@"magipoke-text/text/get"]
 
-
-
-
-
-
-
-
 #endif /* MineHeader_h */

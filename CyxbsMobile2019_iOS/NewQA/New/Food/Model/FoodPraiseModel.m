@@ -1,26 +1,25 @@
 //
-//  food3Model.m
+//  FoodPraiseModel.m
 //  CyxbsMobile2019_iOS
 //
-//  Created by 潘申冰 on 2023/1/25.
+//  Created by 潘申冰 on 2023/3/16.
 //  Copyright © 2023 Redrock. All rights reserved.
 //
 
-#import "food3Model.h"
+#import "FoodPraiseModel.h"
+#import "FoodHeader.h"
 
-@implementation food3Model
+@implementation FoodPraiseModel
 
-- (void)geteat_area_num_prop:(NSArray *)eat_areaArr geteat_num:(NSArray *)eat_numArr geteat_prop:(NSArray *)eat_propertyArr requestSuccess:(void (^)(void))success failure:(void (^)(NSError * _Nonnull))failure{
+- (void)getName:(NSString *)name requestSuccess:(void (^)(void))success failure:(void (^)(NSError * _Nonnull))failure{
     
     NSDictionary *paramters = @{
-        @"eat_area":eat_areaArr,
-        @"eat_num":eat_numArr,
-        @"eat_property":eat_propertyArr
+        @"name":name
     };
     
     [HttpTool.shareTool
-     request:Discover_GET_GPA_API
-     type:HttpToolRequestTypeGet
+     request:NewQA_POST_FoodPraise_API
+     type:HttpToolRequestTypePost
      serializer:HttpToolRequestSerializerJSON
      bodyParameters:paramters
      progress:nil
@@ -46,8 +45,6 @@
         }
     }];
     
-    
-    
-    
 }
+
 @end

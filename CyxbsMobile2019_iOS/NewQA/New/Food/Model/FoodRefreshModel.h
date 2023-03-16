@@ -1,8 +1,8 @@
 //
-//  food2Model.h
+//  FoodRefreshModel.h
 //  CyxbsMobile2019_iOS
 //
-//  Created by 潘申冰 on 2023/1/25.
+//  Created by 潘申冰 on 2023/3/16.
 //  Copyright © 2023 Redrock. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface food2Model : NSObject
+@interface FoodRefreshModel : NSObject
 //状态码
 @property (nonatomic, assign) NSInteger status;
 

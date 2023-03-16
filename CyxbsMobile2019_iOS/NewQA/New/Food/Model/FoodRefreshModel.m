@@ -1,24 +1,24 @@
 //
-//  food4Model.m
+//  FoodRefreshModel.m
 //  CyxbsMobile2019_iOS
 //
-//  Created by 潘申冰 on 2023/1/25.
+//  Created by 潘申冰 on 2023/3/16.
 //  Copyright © 2023 Redrock. All rights reserved.
 //
 
-#import "food4Model.h"
+#import "FoodRefreshModel.h"
+#import "FoodHeader.h"
 
-@implementation food4Model
+@implementation FoodRefreshModel
 
-- (void)getname:(NSString *)name requestSuccess:(void (^)(void))success failure:(void (^)(NSError * _Nonnull))failure{
-    
+- (void)geteat_area:(NSArray *)eat_areaArr geteat_num:(NSArray *)eat_numArr requestSuccess:(void (^)(void))success failure:(void (^)(NSError * _Nonnull))failure{
     NSDictionary *paramters = @{
-        @"name":name
-    };
+        @"eat_area":eat_areaArr,
+        @"eat_num":eat_numArr};
     
     [HttpTool.shareTool
-     request:Discover_GET_GPA_API
-     type:HttpToolRequestTypeGet
+     request:NewQA_POST_FoodRefresh_API
+     type:HttpToolRequestTypePost
      serializer:HttpToolRequestSerializerJSON
      bodyParameters:paramters
      progress:nil
@@ -27,11 +27,7 @@
         self.status = [object[@"status"] intValue];
         if (self.status == 10000) {
             NSDictionary *data = object[@"data"];
-            self.name = [data[@"name"] stringValue];
-            self.pictureURL = [data[@"picture"] stringValue];
-            self.introduce = [data[@"introduce"] stringValue];
-            self.praise_num = [data[@"praise_num"] intValue];
-            self.praise_is = [data[@"praise_is"] boolValue];
+            self.eat_propertyAry = data[@"eat_property"];
         }
         if (success) {
             success();
@@ -43,7 +39,5 @@
             failure(error);
         }
     }];
-    
 }
-
 @end

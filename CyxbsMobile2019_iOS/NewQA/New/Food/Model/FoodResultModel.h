@@ -1,8 +1,8 @@
 //
-//  food4Model.h
+//  FoodResultModel.h
 //  CyxbsMobile2019_iOS
 //
-//  Created by 潘申冰 on 2023/1/25.
+//  Created by 潘申冰 on 2023/3/16.
 //  Copyright © 2023 Redrock. All rights reserved.
 //
 
@@ -10,7 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface food4Model : NSObject
+@interface FoodResultModel : NSObject
+
 //状态码
 @property (nonatomic, assign) NSInteger status;
 
@@ -26,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 //是否点赞
 @property (nonatomic, assign) bool praise_is;
 
-- (void)getname:(NSString*)name requestSuccess:(void (^)(void))success failure:(void (^)(NSError *error))failure;
+- (void)getEat_area_num_prop:(NSArray*)eat_areaArr getEat_num:(NSArray*)eat_numArr getEat_prop:(NSArray*)eat_propertyArr requestSuccess:(void (^)(void))success failure:(void (^)(NSError *error))failure;
 
 @end
 
