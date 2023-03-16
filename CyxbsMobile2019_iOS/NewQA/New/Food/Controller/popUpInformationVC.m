@@ -38,49 +38,31 @@
     }];
     [contentView addTarget:self action:@selector(cancelLearnAbout) forControlEvents:UIControlEventTouchUpInside];
 
-    UIView *learnView = [[UIView alloc]init];
-    //设置圆角
-    learnView.layer.cornerRadius = 16;
-    learnView.backgroundColor = [UIColor colorWithHexString:@"#FFFFFF" alpha:1];
-    [self.view addSubview:learnView];
-    [learnView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.equalTo(self.view);
-        make.left.equalTo(self.view).offset(60);
-        make.right.equalTo(self.view).offset(-60);
-        make.height.equalTo(@487);
-    }];
-    
-    //标题
-    UILabel *titLab = [[UILabel alloc] init];
-    [learnView addSubview:titLab];
-    titLab.text = @"温馨提示";
-    titLab.font = [UIFont fontWithName:PingFangSCBold size:18];
-    titLab.textColor = [UIColor colorWithHexString:@"#15315B" alpha:1];
-    [titLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(learnView);
-        make.top.equalTo(learnView).offset(20);
-    }];
-    
     //内容
     UILabel *contentLab = [[UILabel alloc] init];
-    [learnView addSubview:contentLab];
     contentLab.text = self.contentText;
     contentLab.font = [UIFont fontWithName:PingFangSCMedium size: 14];
     contentLab.numberOfLines = 0;
     contentLab.textAlignment = NSTextAlignmentCenter;
     contentLab.textColor = [UIColor colorWithHexString:@"#15315B" alpha:0.6];
-    [contentLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(learnView).offset(18);
-        make.top.equalTo(titLab.mas_bottom).offset(10);
-        make.right.equalTo(learnView).offset(-18);
-    }];
+    contentLab.frame = CGRectMake(0, 0, 219, 0);
+    [contentLab sizeToFit];//计算高度
     
-    //确定
-    UIButton *button = [[UIButton alloc] init];
-    [learnView addSubview:button];
+    UIView *learnView = [[UIView alloc]init];
+    //设置圆角
+    learnView.layer.cornerRadius = 16;
+    learnView.backgroundColor = [UIColor colorWithHexString:@"#FFFFFF" alpha:1];
+    
+    //标题
+    UILabel *titLab = [[UILabel alloc] init];
+    titLab.text = @"温馨提示";
+    titLab.font = [UIFont fontWithName:PingFangSCBold size:18];
+    titLab.textColor = [UIColor colorWithHexString:@"#15315B" alpha:1];
+    
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 130, 37)];
     //背景渐变色
     CAGradientLayer *gl = [CAGradientLayer layer];
-    gl.frame = button.frame;
+    gl.frame = button.bounds;
     //起点和终点表示的坐标系位置，（0，0)表示左上角，（1，1）表示右下角
     gl.startPoint = CGPointMake(0, 1);
     gl.endPoint = CGPointMake(1, 0);
@@ -95,13 +77,39 @@
     button.titleLabel.textColor = [UIColor colorWithHexString:@"#FFFFFF"];
     button.titleLabel.font = [UIFont fontWithName:PingFangSCBold size: 16];
     button.layer.cornerRadius = 16;
+    button.layer.masksToBounds = YES;
+    [button addTarget:self action:@selector(cancelLearnAbout) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:learnView];
+    [learnView addSubview:titLab];
+    [learnView addSubview:contentLab];
+    [learnView addSubview:button];
+    
+    [learnView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self.view);
+        make.left.equalTo(self.view).offset(60);
+        make.right.equalTo(self.view).offset(-60);
+        make.height.equalTo(@(132 + contentLab.size.height));
+    }];
+    
+    [titLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(learnView);
+        make.top.equalTo(learnView).offset(20);
+    }];
+    
+    [contentLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(learnView).offset(18);
+        make.top.equalTo(titLab.mas_bottom).offset(10);
+        make.right.equalTo(learnView).offset(-18);
+    }];
+    
     [button mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(learnView);
         make.top.equalTo(contentLab.mas_bottom).offset(26);
         make.width.equalTo(@130);
         make.height.equalTo(@37);
     }];
-    [button addTarget:self action:@selector(cancelLearnAbout) forControlEvents:UIControlEventTouchUpInside];
+    
 }
 
 - (void)cancelLearnAbout {
