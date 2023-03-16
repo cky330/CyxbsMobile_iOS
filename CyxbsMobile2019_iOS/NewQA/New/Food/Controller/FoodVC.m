@@ -20,18 +20,15 @@ UICollectionViewDelegateFlowLayout
 
 @property (nonatomic, strong) UICollectionView *collectionView;
 
-///头视图
+/// 头视图
 @property (nonatomic, strong) UIView *topView;
 
 /// Home数据模型
 @property (nonatomic, strong) FoodHomeModel *homeModel;
 
-///返回条
+/// 返回条
 @property (nonatomic, strong) UIView *backgroundView;
 @property (nonatomic, strong) UILabel *titleLabel;
-
-/// 弹出弹窗之后的一层黑色的遮罩层
-@property (nonatomic, strong) UIView *maskView;
 
 @end
 
