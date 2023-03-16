@@ -215,8 +215,9 @@ UICollectionViewDelegateFlowLayout
     
     self.backgroundView.backgroundColor = [UIColor colorWithHexString:@"#FFFFFF"];
     
-    UIView *view = [[UIView alloc] initWithFrame:self.backgroundView.bounds];
-    view.backgroundColor = self.backgroundView.backgroundColor;
+    //设置阴影
+    UIView *tempView = [[UIView alloc] initWithFrame:self.backgroundView.bounds];
+    tempView.backgroundColor = self.backgroundView.backgroundColor;
     self.backgroundView.backgroundColor = UIColor.clearColor;
     self.backgroundView.layer.shadowRadius = 16;
     self.backgroundView.layer.shadowColor = [UIColor Light:UIColor.lightGrayColor Dark:UIColor.darkGrayColor].CGColor;
@@ -224,13 +225,11 @@ UICollectionViewDelegateFlowLayout
     
     //只切下面的圆角(利用贝塞尔曲线)
     UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.backgroundView.bounds byRoundingCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight cornerRadii:CGSizeMake(16, 16)];
-    
     CAShapeLayer *shapeLayer = [[CAShapeLayer alloc] init];
-    shapeLayer.frame = view.bounds;
+    shapeLayer.frame = tempView.bounds;
     shapeLayer.path = maskPath.CGPath;
-    view.layer.mask = shapeLayer;
-    
-    [self.backgroundView insertSubview:view atIndex:0];
+    tempView.layer.mask = shapeLayer;
+    [self.backgroundView insertSubview:tempView atIndex:0];
 
     [self.view addSubview:self.backgroundView];
     

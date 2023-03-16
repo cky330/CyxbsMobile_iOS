@@ -23,7 +23,7 @@
     [self.view addSubview:self.checkBtn];
 }
 
-- (UDScrollAnimationView *)v{
+- (UDScrollAnimationView *)v {
     if(!_v) {
         _v = [[UDScrollAnimationView alloc] initWithFrame:CGRectMake(0, 0, 238, 51) TextArry:[[NSArray alloc] initWithObjects:@"ni",@"hao",@"1",@"2",@"3", nil] FinalText:@"ni"];
         _v.layer.cornerRadius = 8;
