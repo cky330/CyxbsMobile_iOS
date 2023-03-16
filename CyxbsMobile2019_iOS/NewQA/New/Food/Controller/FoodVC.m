@@ -81,8 +81,8 @@ UICollectionViewDelegateFlowLayout
         secondLab.font = [UIFont fontWithName:PingFangSCMedium size:10];
         secondLab.textColor = [UIColor colorWithHexString:@"#15315B" alpha:0.4];
         
-        UIImageView *remindImg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"提醒"]];
-        remindImg.frame = CGRectMake(78, 29.5, 11, 13);
+        UIImageView *remindImgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"提醒"]];
+        remindImgView.frame = CGRectMake(78, 29.5, 11, 13);
         
         switch (indexPath.section) {
             case 0:
@@ -102,7 +102,7 @@ UICollectionViewDelegateFlowLayout
         }
         
         [topView addSubview:firstLab];
-        [topView addSubview:remindImg];
+        [topView addSubview:remindImgView];
         [topView addSubview:secondLab];
         return topView;
     }
@@ -161,15 +161,6 @@ UICollectionViewDelegateFlowLayout
 }
 
 #pragma mark - Method
-//查看更多
-- (void)learnAbout{
-    popUpInformationVC *vc = [[popUpInformationVC alloc] init];
-    vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    //填充全屏(原视图不会消失)
-    vc.modalPresentationStyle = UIModalPresentationOverFullScreen;
-    [self.navigationController presentViewController:vc animated:YES completion:nil];
-}
-
 - (void)loadHomeData {
     [self.homeModel requestSuccess:^{
         //加载主页数据
@@ -184,7 +175,7 @@ UICollectionViewDelegateFlowLayout
     [self addTopView];
     [self.view addSubview:self.collectionView];
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.backgroundView.mas_bottom).offset(150);
+        make.top.equalTo(self.backgroundView.mas_bottom);
         make.bottom.equalTo(self.view);
         make.width.equalTo(self.view);
     }];
@@ -221,22 +212,26 @@ UICollectionViewDelegateFlowLayout
 #pragma mark - 返回条
 //自定义的Tabbar
 - (void)addCustomTabbarView {
+    
+    self.backgroundView.backgroundColor = [UIColor colorWithHexString:@"#FFFFFF"];
+    
+    UIView *view = [[UIView alloc] initWithFrame:self.backgroundView.bounds];
+    view.backgroundColor = self.backgroundView.backgroundColor;
+    self.backgroundView.backgroundColor = UIColor.clearColor;
+    self.backgroundView.layer.shadowRadius = 16;
+    self.backgroundView.layer.shadowColor = [UIColor Light:UIColor.lightGrayColor Dark:UIColor.darkGrayColor].CGColor;
+    self.backgroundView.layer.shadowOpacity = 0.7;
+    
     //只切下面的圆角(利用贝塞尔曲线)
     UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.backgroundView.bounds byRoundingCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight cornerRadii:CGSizeMake(16, 16)];
-    //设置圆角
-    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
-    maskLayer.frame = self.backgroundView.bounds;
-    maskLayer.path = maskPath.CGPath;
-    self.backgroundView.layer.mask = maskLayer;
     
-    self.backgroundView.backgroundColor = [UIColor colorWithHexString:@"#FFFFFF" alpha:0];
+    CAShapeLayer *shapeLayer = [[CAShapeLayer alloc] init];
+    shapeLayer.frame = view.bounds;
+    shapeLayer.path = maskPath.CGPath;
+    view.layer.mask = shapeLayer;
     
-    //设置阴影???
-    //阴影透明度
-    self.backgroundView.layer.shadowOpacity = 0.33f;
-    //阴影偏移量
-    self.backgroundView.layer.shadowOffset = CGSizeMake(0, 5);
-    
+    [self.backgroundView insertSubview:view atIndex:0];
+
     [self.view addSubview:self.backgroundView];
     
     //addTitleView
@@ -248,12 +243,15 @@ UICollectionViewDelegateFlowLayout
     [self.backgroundView addSubview:titleLabel];
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view).offset(37);
-        make.centerY.equalTo(self.backgroundView);
+        make.top.equalTo(self.view).offset(50);
     }];
     titleLabel.textColor = [UIColor colorWithHexString:@"#15315B" alpha:1];
 
     //添加返回按钮
     [self addBackButton];
+    
+    //添加说明按钮
+    [self addLearnMoreButton];
 }
 
 //添加退出的按钮
@@ -275,6 +273,29 @@ UICollectionViewDelegateFlowLayout
      [self.navigationController popViewControllerAnimated:YES];
 }
 
+//添加查看更多的按钮
+- (void)addLearnMoreButton {
+    UIButton *learnMoreButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [self.backgroundView addSubview:learnMoreButton];
+    [learnMoreButton setImage:[UIImage imageNamed:@"提醒"] forState:UIControlStateNormal];
+    [learnMoreButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.view).offset(-15);
+        make.centerY.equalTo(self.titleLabel);
+        make.width.equalTo(@20);
+        make.height.equalTo(@21);
+    }];
+    [learnMoreButton addTarget:self action: @selector(learnAbout) forControlEvents:UIControlEventTouchUpInside];
+}
+
+//查看更多的方法
+- (void)learnAbout{
+    popUpInformationVC *vc = [[popUpInformationVC alloc] init];
+    vc.contentText = @"美食咨询处的设置，一是为了帮助各位选择综合症的邮子们更好的选择自己的需要的美食，对选择综合症说拜拜！二是为了各位初来学校的新生学子更好的体验学校各处的美食！按照要求通过标签进行选择，卷卷会帮助你选择最符合要求的美食哦！";
+    vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    //填充全屏(原视图不会消失)
+    vc.modalPresentationStyle = UIModalPresentationOverFullScreen;
+    [self.navigationController presentViewController:vc animated:YES completion:nil];
+}
 #pragma mark - Lazy
 - (NSArray <NSArray *> *)_getAry {
     if (!_homeAry) {
@@ -330,7 +351,7 @@ UICollectionViewDelegateFlowLayout
 
 - (UIView *)backgroundView {
     if(!_backgroundView) {
-        _backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, NVGBARHEIGHT, SCREEN_WIDTH, STATUSBARHEIGHT)];
+        _backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, NVGBARHEIGHT + STATUSBARHEIGHT)];
     }
     return _backgroundView;
 }

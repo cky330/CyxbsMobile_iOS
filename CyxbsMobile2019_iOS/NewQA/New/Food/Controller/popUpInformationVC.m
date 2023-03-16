@@ -19,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor colorWithHexString:@"#000000" alpha:0];
+    self.view.backgroundColor = [UIColor colorWithHexString:@"#FFFFFF" alpha:0];
     [self popInformation];
 }
 
@@ -32,93 +32,88 @@
     contentView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
     contentView.alpha = 0;
 
+    [UIView animateWithDuration:0.3 animations:^{
+        contentView.alpha = 1;
+        self.tabBarController.tabBar.userInteractionEnabled = NO;
+    }];
     [contentView addTarget:self action:@selector(cancelLearnAbout) forControlEvents:UIControlEventTouchUpInside];
 
     UIView *learnView = [[UIView alloc]init];
     //设置圆角
     learnView.layer.cornerRadius = 16;
-    learnView.backgroundColor = [UIColor dm_colorWithLightColor:[UIColor colorWithHexString:@"#FFFFFF" alpha:1] darkColor:[UIColor colorWithHexString:@"#1D1D1D" alpha:1]];
-    [contentView addSubview:learnView];
+    learnView.backgroundColor = [UIColor colorWithHexString:@"#FFFFFF" alpha:1];
+    [self.view addSubview:learnView];
     [learnView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(self.view);
-        make.left.equalTo(self.view).offset(15);
-        make.right.equalTo(self.view).offset(-15);
+        make.left.equalTo(self.view).offset(60);
+        make.right.equalTo(self.view).offset(-60);
         make.height.equalTo(@487);
     }];
     
+    //标题
     UILabel *titLab = [[UILabel alloc] init];
     [learnView addSubview:titLab];
-    titLab.text = @"体育打卡信息说明";
-    titLab.font = [UIFont fontWithName:PingFangSCBold size:19];
-    titLab.textColor = [UIColor dm_colorWithLightColor:[UIColor colorWithHexString:@"#15315B" alpha:1] darkColor:[UIColor colorWithHexString:@"#F0F0F2" alpha:1]];
+    titLab.text = @"温馨提示";
+    titLab.font = [UIFont fontWithName:PingFangSCBold size:18];
+    titLab.textColor = [UIColor colorWithHexString:@"#15315B" alpha:1];
     [titLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(learnView);
-        make.top.equalTo(learnView).offset(26);
+        make.top.equalTo(learnView).offset(20);
     }];
     
-    UILabel *firstLab = [[UILabel alloc] init];
-    [learnView addSubview:firstLab];
-    firstLab.text = @"1.关于信息来源：";
-    firstLab.font = [UIFont fontWithName:PingFangSCBold size: 16.5];
-    firstLab.textColor = [UIColor dm_colorWithLightColor:[UIColor colorWithHexString:@"#15315B" alpha:1] darkColor:[UIColor colorWithHexString:@"#F0F0F2" alpha:1]];
-    [firstLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(learnView).offset(26);
-        make.top.equalTo(titLab.mas_bottom).offset(20);
+    //内容
+    UILabel *contentLab = [[UILabel alloc] init];
+    [learnView addSubview:contentLab];
+    contentLab.text = self.contentText;
+    contentLab.font = [UIFont fontWithName:PingFangSCMedium size: 14];
+    contentLab.numberOfLines = 0;
+    contentLab.textAlignment = NSTextAlignmentCenter;
+    contentLab.textColor = [UIColor colorWithHexString:@"#15315B" alpha:0.6];
+    [contentLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(learnView).offset(18);
+        make.top.equalTo(titLab.mas_bottom).offset(10);
+        make.right.equalTo(learnView).offset(-18);
     }];
     
-    UILabel *secondLab = [[UILabel alloc] init];
-    [learnView addSubview:secondLab];
-    secondLab.text = @"所有信息来源于教务在线，实际请以教务在线为准。";
-    secondLab.textAlignment = NSTextAlignmentJustified;
-    secondLab.numberOfLines = 0;
-    secondLab.font = [UIFont fontWithName:PingFangSC size: 14.5];
-    secondLab.textColor = [UIColor dm_colorWithLightColor:[UIColor colorWithHexString:@"#15315B" alpha:1] darkColor:[UIColor colorWithHexString:@"#F0F0F2" alpha:1]];
-    [secondLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(learnView);
-        make.left.equalTo(firstLab);
-        make.top.equalTo(firstLab.mas_bottom).offset(8);
-    }];
-    
-    UILabel *thirdLab = [[UILabel alloc] init];
-    [learnView addSubview:thirdLab];
-    thirdLab.text = @"2.关于剩余次数：";
-    thirdLab.font = [UIFont fontWithName:PingFangSCBold size: 16.5];
-    thirdLab.textColor = [UIColor dm_colorWithLightColor:[UIColor colorWithHexString:@"#15315B" alpha:1] darkColor:[UIColor colorWithHexString:@"#F0F0F2" alpha:1]];
-    [thirdLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(firstLab);
-        make.top.equalTo(secondLab.mas_bottom).offset(16);
-    }];
-    
-    UILabel *fourthLab = [[UILabel alloc] init];
-    [learnView addSubview:fourthLab];
-    fourthLab.text = @"根据重庆邮电大学体育打卡规定，跑步锻炼可以替代其他锻炼次数。所以关于主页面显示的其他剩余次数减少原因可能时由于其他锻炼造成，也有可能是由跑步锻炼造成。但是其他锻炼不可以代替跑步。";
-    fourthLab.textAlignment = NSTextAlignmentJustified;
-    fourthLab.numberOfLines = 0;
-    fourthLab.font = [UIFont fontWithName:PingFangSC size: 14.5];
-    fourthLab.textColor = [UIColor dm_colorWithLightColor:[UIColor colorWithHexString:@"#15315B" alpha:1] darkColor:[UIColor colorWithHexString:@"#F0F0F2" alpha:1]];
-    [fourthLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(learnView);
-        make.left.equalTo(firstLab);
-        make.top.equalTo(thirdLab.mas_bottom).offset(8);
-    }];
-
+    //确定
     UIButton *button = [[UIButton alloc] init];
     [learnView addSubview:button];
-    button.backgroundColor = [UIColor colorWithHexString:@"#4A44E4" alpha:1];
-    [button setTitle:@"确认" forState:normal];
-    button.titleLabel.font = [UIFont fontWithName:PingFangSC size: 14];
+    //背景渐变色
+    CAGradientLayer *gl = [CAGradientLayer layer];
+    gl.frame = button.frame;
+    //起点和终点表示的坐标系位置，（0，0)表示左上角，（1，1）表示右下角
+    gl.startPoint = CGPointMake(0, 1);
+    gl.endPoint = CGPointMake(1, 0);
+    gl.colors = @[
+        (__bridge id)[UIColor colorWithHexString:@"#4841E2"].CGColor,
+        (__bridge id)[UIColor colorWithHexString:@"#5D5DF7"].CGColor
+    ];
+    gl.locations = @[@(0),@(1.0f)];
+    [button.layer addSublayer: gl];
+    
+    [button setTitle:@"知道了" forState:normal];
+    button.titleLabel.textColor = [UIColor colorWithHexString:@"#FFFFFF"];
+    button.titleLabel.font = [UIFont fontWithName:PingFangSCBold size: 16];
     button.layer.cornerRadius = 16;
     [button mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(learnView);
-        make.bottom.equalTo(learnView).offset(-26);
-        make.width.equalTo(@129);
-        make.height.equalTo(@34);
+        make.top.equalTo(contentLab.mas_bottom).offset(26);
+        make.width.equalTo(@130);
+        make.height.equalTo(@37);
     }];
     [button addTarget:self action:@selector(cancelLearnAbout) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)cancelLearnAbout {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)setTitleText:(NSString *)titleText {
+    _titleText = titleText;
+}
+
+- (void)setContentText:(NSString *)contentText {
+    _contentText = contentText;
 }
 
 @end
