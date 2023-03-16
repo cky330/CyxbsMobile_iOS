@@ -6,8 +6,8 @@
 //
 
 #import "BTCollectionViewCell.h"
-#define ZLUnselectedColor [UIColor colorWithRed:(241)/255.0 green:(242)/255.0 blue:(243)/255.0 alpha:1.0]
-#define ZLSelectedColor [UIColor colorWithRed:(74)/255.0 green:(68)/255.0 blue:(228)/255.0 alpha:1.0]
+#define UnselectedColor [UIColor colorWithHexString:@"#15315B" alpha:0.4]
+#define SelectedColor [UIColor colorWithHexString:@"#4A44E4" alpha:1]
 NSString *DemoCollectionViewCellReuseIdentifier = @"DemoCollectionViewCell";
 
 @implementation BTCollectionViewCell
@@ -16,28 +16,27 @@ NSString *DemoCollectionViewCellReuseIdentifier = @"DemoCollectionViewCell";
     self = [super initWithFrame:frame];
     if (self) {
         [self.contentView addSubview:self.lab];
+        UIImageView *img = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"selected"]];
+        [self.lab addSubview:img];
     }
+    
     return self;
 }
-
-//- (void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes {
-//    self.lab.frame = CGRectMake(0, 0, layoutAttributes.size.width, layoutAttributes.size.height);
-//}
 
 - (UILabel *)lab{
     if(!_lab){
         _lab = [[UILabel alloc] initWithFrame:CGRectMake(0,0,74,29)];
         _lab.textAlignment = NSTextAlignmentCenter;//居中
         //默认底色
-        _lab.backgroundColor = ZLUnselectedColor;
+        _lab.backgroundColor = [UIColor colorWithHexString:@"#F5F6F8" alpha:1];
         
         //按钮的边框弧度
         _lab.layer.cornerRadius = 8;
         _lab.layer.masksToBounds = YES;
         //设置字体
         _lab.font = [UIFont boldSystemFontOfSize:14];
-        _lab.font = [UIFont fontWithName:@"PingFangSC-Medium" size:12];
-        _lab.textColor = [UIColor colorWithRed:(21)/255.0 green:(49)/255.0 blue:(91)/255.0 alpha:0.4];
+        _lab.font = [UIFont fontWithName:PingFangSCMedium size:12];
+        _lab.textColor = UnselectedColor;
     }
     return _lab;
 }
@@ -45,10 +44,12 @@ NSString *DemoCollectionViewCellReuseIdentifier = @"DemoCollectionViewCell";
 -(void)setSelected:(BOOL)selected{
     [super setSelected:selected];
     if(selected) {
-        self.lab.textColor = ZLSelectedColor;
+        self.lab.textColor = SelectedColor;
     }else{
-        self.lab.textColor = [UIColor colorWithRed:(21)/255.0 green:(49)/255.0 blue:(91)/255.0 alpha:0.4];
+        self.lab.textColor = UnselectedColor;
+
     }
+    
 }
 
 @end

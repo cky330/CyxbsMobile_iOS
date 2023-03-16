@@ -28,7 +28,7 @@
         _v = [[UDScrollAnimationView alloc] initWithFrame:CGRectMake(0, 0, 238, 51) TextArry:[[NSArray alloc] initWithObjects:@"ni",@"hao",@"1",@"2",@"3", nil] FinalText:@"ni"];
         _v.layer.cornerRadius = 8;
         _v.layer.masksToBounds = YES;
-        _v.font = [UIFont fontWithName:@"PingFangSC-Medium" size:16];
+        _v.font = [UIFont fontWithName:PingFangSCMedium size:16];
         _v.textColor = [UIColor colorWithRed:0.184 green: 0.314 blue: 0.522 alpha: 1];
         _v.labColor = [UIColor colorWithRed: 0.937 green: 0.957 blue: 1 alpha: 1];
     }
@@ -51,7 +51,7 @@
         _loginButton.layer.cornerRadius = 15;
         [_loginButton addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
         [_loginButton setTitle:@"随机生成" forState:UIControlStateNormal];
-        _loginButton.titleLabel.font = [UIFont fontWithName:@"PingFangSC-Medium" size:14];
+        _loginButton.titleLabel.font = [UIFont fontWithName:PingFangSCMedium size:14];
 //        [_loginButton setTitle:@"生成中..." forState:UIControlStateHighlighted];
         _loginButton.backgroundColor = [UIColor colorWithRed: 0.365 green: 0.365 blue: 0.969 alpha: 1];
     }
