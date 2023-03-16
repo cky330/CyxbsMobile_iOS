@@ -6,6 +6,7 @@
 //  Copyright © 2023 Redrock. All rights reserved.
 //
 
+// 此类为邮乐园顶部的提示“来到邮乐园的第几天“的提示框
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN

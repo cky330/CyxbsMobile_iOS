@@ -19,6 +19,9 @@
 /// 虚化模糊效果Array
 @property (nonatomic, copy) NSArray <UIImageView *> *blurImgViewArray;
 
+/// 有多少功能页（目前有两个：表态和美食）
+@property(nonatomic, assign) NSInteger detailsCount;
+
 @end
 
 @implementation CenterVC
@@ -50,6 +53,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.centerView];
+    self.detailsCount = 2;
+    // 获取姓名
+    [self getName];
+    // 网络请求天数和封面
     [self requestDaysAndFrontCoverImgView];
 }
 
@@ -69,14 +76,23 @@
 
 #pragma mark - Method
 
-// 网络请求天数，封面图片
+/// 获取人名
+- (void)getName {
+    UserItem *item = [[UserItem alloc] init];
+    self.centerView.centerPromptBoxView.nameLab.text = [NSString stringWithFormat:@"Hi，%@", item.realName];
+}
+
+/// 网络请求天数，封面图片
 - (void)requestDaysAndFrontCoverImgView {
     // 天数
+    NSDictionary *params = @{
+        @"token": [UserItemTool defaultItem].token
+    };
 //    [HttpTool.shareTool
 //     request:<#(NSString * _Nonnull)#>
 //     type:HttpToolRequestTypeGet
 //     serializer:HttpToolRequestSerializerHTTP
-//     bodyParameters:<#(id _Nullable)#>
+//     bodyParameters:params
 //     progress:nil
 //     success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable object) {
 //        NSLog(@"🦞%@", object[@"data"]);
@@ -107,7 +123,38 @@
 //    }];
 }
 
+/// 按钮设置方法
+- (void)setDetailBtns {
+    // 目前是两个界面：表态和美食
+    for (int i = 0; i < self.detailsCount; i++) {
+        UIButton *detailBtn = [[UIButton alloc] init];
+        detailBtn.tag = i;
+        [detailBtn addTarget:self action:@selector(pushDetailVC:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:detailBtn];
+        // TODO: 位置
+    }
+    
+}
+
+// MARK: SEL
+
+/// 按钮触碰事件
+- (void)pushDetailVC:(UIButton *)sender {
+    switch (sender.tag) {
+        case 0:
+//            [self.navigationController pushViewController:<#(nonnull UIViewController *)#> animated:YES];
+            break;
+        case 1:
+//            [self.navigationController pushViewController:<#(nonnull UIViewController *)#> animated:YES];
+            break;
+        default:
+            break;
+    }
+}
+
+
 // MARK: 毛玻璃
+// TODO: 如果有需要，考虑去封装？
 
 - (void)toolBar {
     CGRect rect = CGRectMake(0, 0, (self.tabBarController.tabBar.frame.size.width)/3, self.tabBarController.tabBar.frame.size.height);

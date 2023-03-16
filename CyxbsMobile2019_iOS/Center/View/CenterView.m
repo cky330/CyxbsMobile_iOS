@@ -15,7 +15,6 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.detailsBtnsArray = [NSMutableArray array];
         [self addSubview:self.frontCoverImgView];
         [self addSubview:self.centerPromptBoxView];
         
@@ -42,6 +41,8 @@
 - (UIImageView *)frontCoverImgView {
     if (_frontCoverImgView == nil) {
         _frontCoverImgView = [[UIImageView alloc] initWithFrame:self.bounds];
+        _frontCoverImgView.clipsToBounds = YES;
+        [_frontCoverImgView setContentMode:UIViewContentModeScaleAspectFill];
     }
     return _frontCoverImgView;
 }
@@ -55,11 +56,4 @@
     return _centerPromptBoxView;
 }
 
-- (UIButton *)detailsBtn {
-    if (_detailsBtn == nil) {
-        _detailsBtn = [[UIButton alloc] init];
-        _detailsBtn.backgroundColor = UIColor.clearColor;
-    }
-    return _detailsBtn;
-}
 @end
