@@ -20,9 +20,12 @@ UICollectionViewDataSource
 // 数组1
 @property (nonatomic, strong) NSMutableArray *Ary1;
 
+///头视图
 @property (nonatomic, strong) UIView *topView;
+
 /// Home数据模型
 @property (nonatomic, strong) FoodHomeModel *homeModel;
+
 ///返回条
 @property (nonatomic, strong) UIView *backgroundView;
 @property (nonatomic, strong) UILabel *titleLabel;

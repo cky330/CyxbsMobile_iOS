@@ -10,20 +10,28 @@
 #define SelectedColor [UIColor colorWithHexString:@"#4A44E4" alpha:1]
 NSString *DemoCollectionViewCellReuseIdentifier = @"DemoCollectionViewCell";
 
+@interface BTCollectionViewCell ()
+
+@property(nonatomic, strong) UIImageView *selectedImg;
+
+@end
+
 @implementation BTCollectionViewCell
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         [self.contentView addSubview:self.lab];
-        UIImageView *img = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"selected"]];
-        [self.lab addSubview:img];
+        _selectedImg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"selected"]];
+        [self.lab addSubview:_selectedImg];
+        //默认隐藏选中图片
+        _selectedImg.hidden = YES;
     }
     
     return self;
 }
 
-- (UILabel *)lab{
+- (UILabel *)lab {
     if(!_lab){
         _lab = [[UILabel alloc] initWithFrame:CGRectMake(0,0,74,29)];
         _lab.textAlignment = NSTextAlignmentCenter;//居中
@@ -41,15 +49,15 @@ NSString *DemoCollectionViewCellReuseIdentifier = @"DemoCollectionViewCell";
     return _lab;
 }
 
--(void)setSelected:(BOOL)selected{
+-(void)setSelected:(BOOL)selected {
     [super setSelected:selected];
     if(selected) {
         self.lab.textColor = SelectedColor;
+        _selectedImg.hidden = NO;
     }else{
         self.lab.textColor = UnselectedColor;
-
+        _selectedImg.hidden = YES;
     }
-    
 }
 
 @end
