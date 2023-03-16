@@ -35,7 +35,7 @@
     FoodVC * vc = [[FoodVC alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
     //隐藏navBar,之后自定义返回键
-//    self.navigationController.navigationBar.hidden = YES;
+    self.navigationController.navigationBar.hidden = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

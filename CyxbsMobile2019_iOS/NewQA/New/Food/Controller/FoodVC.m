@@ -23,6 +23,9 @@ UICollectionViewDataSource
 @property (nonatomic, strong) UIView *topView;
 /// Home数据模型
 @property (nonatomic, strong) FoodHomeModel *homeModel;
+///返回条
+@property (nonatomic, strong) UIView *backgroundView;
+@property (nonatomic, strong) UILabel *titleLabel;
 
 @end
 
@@ -36,7 +39,7 @@ UICollectionViewDataSource
     [super viewDidLoad];
     
     self.view.backgroundColor = UIColor.whiteColor;
-    
+    [self addCustomTabbarView];
     //获取主页数据,成功加载主页 失败加载失败页
     [self loadHomeData];
     
@@ -137,6 +140,12 @@ UICollectionViewDataSource
     //添加头视图
     [self addTopView];
     [self.view addSubview:self.collectionView];
+    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.backgroundView.mas_bottom);
+        make.bottom.equalTo(self.view);
+        make.left.equalTo(self.view).offset(15);
+        make.right.equalTo(self.view).offset(-30);
+    }];
     //添加脚视图
     [self addFootView];
 }
@@ -159,7 +168,6 @@ UICollectionViewDataSource
     [self.view addSubview:vc.view];
 }
 
-
 - (void)chooseMark:(UIButton *)sender {
     BTCollectionViewCell *cell = [[BTCollectionViewCell alloc] init];
     for (NSIndexPath *a in self.collectionView.indexPathsForSelectedItems) {
@@ -168,6 +176,49 @@ UICollectionViewDataSource
     }
 }
 
+#pragma mark - 返回条
+//自定义的Tabbar
+- (void)addCustomTabbarView {
+    UIView *backgroundView;
+    backgroundView = [[UIView alloc]initWithFrame:CGRectMake(0, NVGBARHEIGHT, SCREEN_WIDTH, STATUSBARHEIGHT)];
+    self.backgroundView = backgroundView;
+    backgroundView.backgroundColor = [UIColor dm_colorWithLightColor:[UIColor colorWithHexString:@"#FFFFFF" alpha:0] darkColor:[UIColor colorWithHexString:@"#1D1D1D" alpha:0]];
+    [self.view addSubview:backgroundView];
+    //addTitleView
+    UILabel *titleLabel = [[UILabel alloc]init];
+    self.titleLabel = titleLabel;
+    titleLabel.text = @"美食咨询处";
+    titleLabel.font = [UIFont fontWithName:PingFangSCBold size:20];
+    titleLabel.textColor = [UIColor dm_colorWithLightColor:[UIColor colorWithHexString:@"#112C53"] darkColor:[UIColor colorWithHexString:@"#DFDFE3"]];
+    [self.backgroundView addSubview:titleLabel];
+    [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view).offset(37);
+        make.centerY.equalTo(self.backgroundView);
+    }];
+    titleLabel.textColor = [UIColor dm_colorWithLightColor:[UIColor colorWithHexString:@"#15315B" alpha:1] darkColor:[UIColor colorWithHexString:@"#DFDFE3" alpha:1]];
+
+    //添加返回按钮
+    [self addBackButton];
+}
+
+//添加退出的按钮
+- (void)addBackButton {
+    UIButton *backButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [self.backgroundView addSubview:backButton];
+    [backButton setImage:[UIImage imageNamed:@"空教室返回"] forState:UIControlStateNormal];
+    [backButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view).offset(17);
+        make.centerY.equalTo(self.titleLabel);
+        make.width.equalTo(@9);
+        make.height.equalTo(@19);
+    }];
+    [backButton addTarget:self action: @selector(back) forControlEvents:UIControlEventTouchUpInside];
+}
+
+//返回的方法
+- (void) back {
+     [self.navigationController popViewControllerAnimated:YES];
+}
 
 #pragma mark - Getter
 - (NSMutableArray *)Ary1 {
@@ -200,7 +251,7 @@ UICollectionViewDataSource
         layout.minimumInteritemSpacing = 10;
         layout.scrollDirection = UICollectionViewScrollDirectionVertical;
         
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(15, 0, self.view.frame.size.width - 25, SCREEN_HEIGHT) collectionViewLayout:layout];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) collectionViewLayout:layout];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         _collectionView.bounces = NO;
