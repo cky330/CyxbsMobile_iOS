@@ -52,7 +52,6 @@
         [_checkBtn addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
         [_checkBtn setTitle:@"随机生成" forState:UIControlStateNormal];
         _checkBtn.titleLabel.font = [UIFont fontWithName:PingFangSCMedium size:14];
-//        [_loginButton setTitle:@"生成中..." forState:UIControlStateHighlighted];
         _checkBtn.backgroundColor = [UIColor colorWithRed: 0.365 green: 0.365 blue: 0.969 alpha: 1];
     }
     return _checkBtn;

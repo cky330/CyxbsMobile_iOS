@@ -28,7 +28,7 @@
         self.status = [object[@"status"] intValue];
         if (self.status == 10000) {
             NSDictionary *data = object[@"data"];
-            self.pictureURL = [data[@"picture"] stringValue];
+            self.pictureURL = data[@"picture"];
             self.eat_areaAry = data[@"eat_area"];
             self.eat_numAry = data[@"eat_num"];
             self.eat_propertyAry = data[@"eat_property"];

@@ -96,6 +96,7 @@
     [self addAllTimeBackImage];
     [self addHintLabel];
 }
+
 - (void)addSeperateLine {
     UIView *line = [[UIView alloc]init];
     if (@available(iOS 11.0, *)) {
@@ -109,6 +110,7 @@
         make.height.equalTo(@1);
     }];
 }
+
 - (void)addHintLabel {
     UILabel *hintLabel = [[UILabel alloc]init];
     self.hintLabel = hintLabel;

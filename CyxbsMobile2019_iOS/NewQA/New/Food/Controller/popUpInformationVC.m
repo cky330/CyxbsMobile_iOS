@@ -80,10 +80,18 @@
     button.layer.masksToBounds = YES;
     [button addTarget:self action:@selector(cancelLearnAbout) forControlEvents:UIControlEventTouchUpInside];
     
+    UIView *line = [[UIView alloc]init];
+    if (@available(iOS 11.0, *)) {
+        line.backgroundColor = [UIColor dm_colorWithLightColor:[UIColor colorWithHexString:@"#2A4E84" alpha:0.1] darkColor:[UIColor colorWithHexString:@"#2D2D2D" alpha:0.5]];
+    } else {
+        line.backgroundColor = [UIColor colorWithRed:232/255.0 green:223/255.0 blue:241/255.0 alpha:1];
+    }
+    
     [self.view addSubview:learnView];
     [learnView addSubview:titLab];
     [learnView addSubview:contentLab];
     [learnView addSubview:button];
+    [learnView addSubview:line];
     
     [learnView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(self.view);
@@ -101,6 +109,12 @@
         make.left.equalTo(learnView).offset(18);
         make.top.equalTo(titLab.mas_bottom).offset(10);
         make.right.equalTo(learnView).offset(-18);
+    }];
+    
+    [line mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(learnView);
+        make.height.equalTo(@1);
+        make.top.equalTo(contentLab.mas_bottom).offset(10);
     }];
     
     [button mas_makeConstraints:^(MASConstraintMaker *make) {

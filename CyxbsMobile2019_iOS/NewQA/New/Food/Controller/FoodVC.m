@@ -11,6 +11,7 @@
 #import "FootViewController.h"
 #import "FoodHomeModel.h"
 #import "popUpInformationVC.h"
+#import "FoodRefreshModel.h"
 
 @interface FoodVC ()<
 UICollectionViewDelegate,
@@ -27,13 +28,16 @@ UICollectionViewDelegateFlowLayout
 @property (nonatomic, strong) FoodHomeModel *homeModel;
 
 /// 返回条
-@property (nonatomic, strong) UIView *backgroundView;
+@property (nonatomic, strong) UIView *goBackView;
 @property (nonatomic, strong) UILabel *titleLabel;
+
+//选中的参数
+
 
 @end
 
 @implementation FoodVC{
-    NSArray <NSArray *> *_homeAry;
+    NSMutableArray <NSArray *> *_homeMary;
 }
 
 #pragma mark - ViewController
@@ -81,9 +85,13 @@ UICollectionViewDelegateFlowLayout
         secondLab.font = [UIFont fontWithName:PingFangSCMedium size:10];
         secondLab.textColor = [UIColor colorWithHexString:@"#15315B" alpha:0.4];
         
-        UIImageView *remindImgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"提醒"]];
+        UIImageView *remindImgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"todo提醒的小铃铛"]];
         remindImgView.frame = CGRectMake(78, 29.5, 11, 13);
         
+        UIButton *refreshBtn = [[UIButton alloc] init];
+        [refreshBtn setImage:[UIImage imageNamed:@"刷新"] forState:UIControlStateNormal];
+        refreshBtn.frame = CGRectMake(SCREEN_WIDTH - 30, 29.5, 15, 14);
+        [refreshBtn addTarget:self action: @selector(refresh) forControlEvents:UIControlEventTouchUpInside];
         switch (indexPath.section) {
             case 0:
                 firstLab.text = @"就餐区域";
@@ -96,6 +104,7 @@ UICollectionViewDelegateFlowLayout
             case 2:
                 firstLab.text = @"餐饮特征";
                 secondLab.text = @"可多选";
+                [topView addSubview:refreshBtn];
                 break;
             default:
                 break;
@@ -118,12 +127,7 @@ UICollectionViewDelegateFlowLayout
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"选择了%ld - %ld: %@", indexPath.section, indexPath.item, self._getAry[indexPath.section][indexPath.item]);
-    
-    //点击向数组添加
-//    if (indexPath.section == 0){
-//        [self.Ary1 addObject:self._getAry[indexPath.section][indexPath.item]];
-//    }
-    
+
     //设置单选
     //只有section 1是多选
     if (indexPath.section != 1) {
@@ -140,11 +144,6 @@ UICollectionViewDelegateFlowLayout
 
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"取消了%ld - %ld: %@", indexPath.section, indexPath.item, self._getAry[indexPath.section][indexPath.item]);
-    
-    //再次点击移除
-//    if (indexPath.section == 0){
-//        [self.Ary1 removeObject:self._getAry[indexPath.section][indexPath.item]];
-//    }
 }
 
 #pragma mark - <UICollectionViewDelegateFlowLayout>
@@ -175,18 +174,18 @@ UICollectionViewDelegateFlowLayout
     [self addTopView];
     [self.view addSubview:self.collectionView];
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.backgroundView.mas_bottom);
+        make.top.equalTo(self.goBackView.mas_bottom);
         make.bottom.equalTo(self.view);
         make.width.equalTo(self.view);
     }];
     //添加脚视图
     [self addFootView];
+    [self.view bringSubviewToFront:self.goBackView];
 }
 
 - (void)addTopView {
     //头视图
     self.collectionView.contentInset = UIEdgeInsetsMake(self.topView.frame.size.height, 0, 0, 0);
-    
     CGRect originFrame = self.topView.frame;
     originFrame.origin.y = - self.topView.frame.size.height;
     self.topView.frame = originFrame;
@@ -205,33 +204,66 @@ UICollectionViewDelegateFlowLayout
     BTCollectionViewCell *cell = [[BTCollectionViewCell alloc] init];
     for (NSIndexPath *a in self.collectionView.indexPathsForSelectedItems) {
         cell = (BTCollectionViewCell *) [self.collectionView cellForItemAtIndexPath:a];
+        switch (a.section) {
+            case 0:
+                NSLog(@"第一行选择了%@",cell.lab.text);
+                break;
+            case 1:
+                NSLog(@"第二份选择了%@",cell.lab.text);
+                break;
+            case 2:
+                NSLog(@"第三选择了%@",cell.lab.text);
+                break;
+            default:
+                break;
+        }
         NSLog(@"选择了%@",cell.lab.text);
     }
+}
+
+- (void)getSelection {
+    
+}
+
+- (void)refresh {
+    NSLog(@"刷新餐饮特征");
+    
+    
+    
+    
+    
+    FoodRefreshModel *refresh = [[FoodRefreshModel alloc] init];
+    
+//    refresh geteat_area:<#(nonnull NSArray *)#> geteat_num:<#(nonnull NSArray *)#> requestSuccess:<#^(void)success#> failure:<#^(NSError * _Nonnull error)failure#>
+    
+    
+    [self._getAry removeLastObject];
+    [self.collectionView reloadData];
 }
 
 #pragma mark - 返回条
 //自定义的Tabbar
 - (void)addCustomTabbarView {
     
-    self.backgroundView.backgroundColor = [UIColor colorWithHexString:@"#FFFFFF"];
+    self.goBackView.backgroundColor = [UIColor colorWithHexString:@"#FFFFFF"];
     
     //设置阴影
-    UIView *tempView = [[UIView alloc] initWithFrame:self.backgroundView.bounds];
-    tempView.backgroundColor = self.backgroundView.backgroundColor;
-    self.backgroundView.backgroundColor = UIColor.clearColor;
-    self.backgroundView.layer.shadowRadius = 16;
-    self.backgroundView.layer.shadowColor = [UIColor Light:UIColor.lightGrayColor Dark:UIColor.darkGrayColor].CGColor;
-    self.backgroundView.layer.shadowOpacity = 0.7;
+    UIView *tempView = [[UIView alloc] initWithFrame:self.goBackView.bounds];
+    tempView.backgroundColor = self.goBackView.backgroundColor;
+    self.goBackView.backgroundColor = UIColor.clearColor;
+    self.goBackView.layer.shadowRadius = 8;
+    self.goBackView.layer.shadowColor = [UIColor Light:UIColor.lightGrayColor Dark:UIColor.darkGrayColor].CGColor;
+    self.goBackView.layer.shadowOpacity = 0.3;
     
     //只切下面的圆角(利用贝塞尔曲线)
-    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.backgroundView.bounds byRoundingCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight cornerRadii:CGSizeMake(16, 16)];
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.goBackView.bounds byRoundingCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight cornerRadii:CGSizeMake(16, 16)];
     CAShapeLayer *shapeLayer = [[CAShapeLayer alloc] init];
     shapeLayer.frame = tempView.bounds;
     shapeLayer.path = maskPath.CGPath;
     tempView.layer.mask = shapeLayer;
-    [self.backgroundView insertSubview:tempView atIndex:0];
+    [self.goBackView insertSubview:tempView atIndex:0];
 
-    [self.view addSubview:self.backgroundView];
+    [self.view addSubview:self.goBackView];
     
     //addTitleView
     UILabel *titleLabel = [[UILabel alloc]init];
@@ -239,7 +271,7 @@ UICollectionViewDelegateFlowLayout
     titleLabel.text = @"美食咨询处";
     titleLabel.font = [UIFont fontWithName:PingFangSCBold size:20];
     titleLabel.textColor = [UIColor colorWithHexString:@"#112C53"];
-    [self.backgroundView addSubview:titleLabel];
+    [self.goBackView addSubview:titleLabel];
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view).offset(37);
         make.top.equalTo(self.view).offset(50);
@@ -255,8 +287,8 @@ UICollectionViewDelegateFlowLayout
 
 //添加退出的按钮
 - (void)addBackButton {
-    UIButton *backButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [self.backgroundView addSubview:backButton];
+    UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.goBackView addSubview:backButton];
     [backButton setImage:[UIImage imageNamed:@"空教室返回"] forState:UIControlStateNormal];
     [backButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view).offset(17);
@@ -274,8 +306,8 @@ UICollectionViewDelegateFlowLayout
 
 //添加查看更多的按钮
 - (void)addLearnMoreButton {
-    UIButton *learnMoreButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [self.backgroundView addSubview:learnMoreButton];
+    UIButton *learnMoreButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.goBackView addSubview:learnMoreButton];
     [learnMoreButton setImage:[UIImage imageNamed:@"提醒"] forState:UIControlStateNormal];
     [learnMoreButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.view).offset(-15);
@@ -289,22 +321,22 @@ UICollectionViewDelegateFlowLayout
 //查看更多的方法
 - (void)learnAbout{
     popUpInformationVC *vc = [[popUpInformationVC alloc] init];
-    vc.contentText = @"美食咨询处的设置，一是为了帮助各位选择综合症的邮子们更好的选择自己的需要的美食，对选择综合症说拜拜！二是为了各位初来学校的新生学子更好的体验学校各处的美食！按照要求通过标签进行选择，卷卷会帮助你选择最符合要求的美食哦！";
+    vc.contentText = @"美食咨询处的设置，一是为了帮助\n各位选择综合症的邮子们更好的选\n择自己的需要的美食，对选择综合\n症说拜拜！二是为了各位初来学校\n的新生学子更好的体验学校各处的\n美食！按照要求通过标签进行选\n择，卷卷会帮助你选择最符合要求\n的美食哦！";
     vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     //填充全屏(原视图不会消失)
     vc.modalPresentationStyle = UIModalPresentationOverFullScreen;
     [self.navigationController presentViewController:vc animated:YES completion:nil];
 }
 #pragma mark - Lazy
-- (NSArray <NSArray *> *)_getAry {
-    if (!_homeAry) {
-        _homeAry = @[
+- (NSMutableArray <NSArray *> *)_getAry {
+    if (!_homeMary) {
+        _homeMary = [[NSMutableArray alloc] initWithArray:@[
             self.homeModel.eat_areaAry,
             self.homeModel.eat_numAry,
             self.homeModel.eat_propertyAry
-        ];
+        ]];
     }
-    return _homeAry;
+    return _homeMary;
 }
 
 - (UICollectionView *)collectionView {
@@ -321,7 +353,7 @@ UICollectionViewDelegateFlowLayout
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         _collectionView.bounces = NO;
-        
+        _collectionView.backgroundColor = UIColor.whiteColor;
         _collectionView.allowsMultipleSelection = YES;
         
         [_collectionView registerClass:BTCollectionViewCell.class forCellWithReuseIdentifier:DemoCollectionViewCellReuseIdentifier];
@@ -348,11 +380,11 @@ UICollectionViewDelegateFlowLayout
     return _homeModel;
 }
 
-- (UIView *)backgroundView {
-    if(!_backgroundView) {
-        _backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, NVGBARHEIGHT + STATUSBARHEIGHT)];
+- (UIView *)goBackView {
+    if(!_goBackView) {
+        _goBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, NVGBARHEIGHT + STATUSBARHEIGHT)];
     }
-    return _backgroundView;
+    return _goBackView;
 }
 
 @end
