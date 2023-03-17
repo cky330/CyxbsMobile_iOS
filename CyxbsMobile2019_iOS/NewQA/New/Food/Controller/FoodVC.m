@@ -7,11 +7,12 @@
 //
 
 #import "FoodVC.h"
-#import "BTCollectionViewCell.h"
+#import "FoodMainPageCollectionViewCell.h"
 #import "FootViewController.h"
 #import "FoodHomeModel.h"
 #import "popUpInformationVC.h"
 #import "FoodRefreshModel.h"
+#import "FoodHeaderCollectionReusableView.h"
 
 @interface FoodVC ()<
 UICollectionViewDelegate,
@@ -64,7 +65,7 @@ UICollectionViewDelegateFlowLayout
 
 //具体数据
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    BTCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:DemoCollectionViewCellReuseIdentifier forIndexPath:indexPath];
+    FoodMainPageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:FoodMainPageCollectionViewCellReuseIdentifier forIndexPath:indexPath];
     
     [cell.lab setText:[NSString stringWithFormat:@"%@", self._getAry[indexPath.section][indexPath.item]]];
     
@@ -72,48 +73,33 @@ UICollectionViewDelegateFlowLayout
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    UICollectionReusableView *reusableView = nil;
     
     // 区头
     if (kind == UICollectionElementKindSectionHeader) {
-        UICollectionReusableView *topView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"header" forIndexPath:indexPath];
-        
-        UILabel *firstLab = [[UILabel alloc] initWithFrame:CGRectMake(15, 26, 56, 20)];
-        firstLab.font = [UIFont fontWithName:PingFangSCMedium size:14];
-        firstLab.textColor = [UIColor colorWithHexString:@"#15315B"];
-        
-        UILabel *secondLab = [[UILabel alloc] initWithFrame:CGRectMake(94, 29, 60, 14)];
-        secondLab.font = [UIFont fontWithName:PingFangSCMedium size:10];
-        secondLab.textColor = [UIColor colorWithHexString:@"#15315B" alpha:0.4];
-        
-        UIImageView *remindImgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"todo提醒的小铃铛"]];
-        remindImgView.frame = CGRectMake(78, 29.5, 11, 13);
-        
-        UIButton *refreshBtn = [[UIButton alloc] init];
-        [refreshBtn setImage:[UIImage imageNamed:@"刷新"] forState:UIControlStateNormal];
-        refreshBtn.frame = CGRectMake(SCREEN_WIDTH - 30, 29.5, 15, 14);
-        [refreshBtn addTarget:self action: @selector(refresh) forControlEvents:UIControlEventTouchUpInside];
+        FoodHeaderCollectionReusableView *headerView = (FoodHeaderCollectionReusableView *) [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header" forIndexPath:indexPath];
         switch (indexPath.section) {
             case 0:
-                firstLab.text = @"就餐区域";
-                secondLab.text = @"可多选";
+                headerView.titleText = @"就餐区域";
+                headerView.otherText = @"可多选";
+                headerView.refreshBtn.hidden = YES;
                 break;
             case 1:
-                firstLab.text = @"就餐人数";
-                secondLab.text = @"仅可选择一个";
+                headerView.titleText = @"就餐人数";
+                headerView.otherText = @"仅可选择一个";
+                headerView.refreshBtn.hidden = YES;
                 break;
             case 2:
-                firstLab.text = @"餐饮特征";
-                secondLab.text = @"可多选";
-                [topView addSubview:refreshBtn];
+                headerView.titleText = @"餐饮特征";
+                headerView.otherText = @"可多选";
+                headerView.refreshBtn.hidden = NO;
+                [headerView.refreshBtn addTarget:self action: @selector(refresh) forControlEvents:UIControlEventTouchUpInside];
                 break;
             default:
                 break;
         }
-        
-        [topView addSubview:firstLab];
-        [topView addSubview:remindImgView];
-        [topView addSubview:secondLab];
-        return topView;
+        reusableView = headerView;
+        return reusableView;
     }
     
     return nil;
@@ -201,9 +187,9 @@ UICollectionViewDelegateFlowLayout
 }
 
 - (void)chooseMark:(UIButton *)sender {
-    BTCollectionViewCell *cell = [[BTCollectionViewCell alloc] init];
+    FoodMainPageCollectionViewCell *cell = [[FoodMainPageCollectionViewCell alloc] init];
     for (NSIndexPath *a in self.collectionView.indexPathsForSelectedItems) {
-        cell = (BTCollectionViewCell *) [self.collectionView cellForItemAtIndexPath:a];
+        cell = (FoodMainPageCollectionViewCell *) [self.collectionView cellForItemAtIndexPath:a];
         switch (a.section) {
             case 0:
                 NSLog(@"第一行选择了%@",cell.lab.text);
@@ -226,19 +212,37 @@ UICollectionViewDelegateFlowLayout
 }
 
 - (void)refresh {
-    NSLog(@"刷新餐饮特征");
+    NSMutableArray *areaMarry = [[NSMutableArray alloc] init];
+    NSMutableArray *numMarry = [[NSMutableArray alloc] init];
     
+    FoodMainPageCollectionViewCell *cell = [[FoodMainPageCollectionViewCell alloc] init];
+    for (NSIndexPath *a in self.collectionView.indexPathsForSelectedItems) {
+        cell = (FoodMainPageCollectionViewCell *) [self.collectionView cellForItemAtIndexPath:a];
+        switch (a.section) {
+            case 0:
+                NSLog(@"第一行选择了%@",cell.lab.text);
+                [areaMarry addObject:cell.lab.text];
+                break;
+            case 1:
+                NSLog(@"第二份选择了%@",cell.lab.text);
+                [numMarry addObject:cell.lab.text];
+                break;
+            default:
+                break;
+        }
+    }
     
-    
-    
-    
-    FoodRefreshModel *refresh = [[FoodRefreshModel alloc] init];
-    
-//    refresh geteat_area:<#(nonnull NSArray *)#> geteat_num:<#(nonnull NSArray *)#> requestSuccess:<#^(void)success#> failure:<#^(NSError * _Nonnull error)failure#>
-    
-    
-    [self._getAry removeLastObject];
-    [self.collectionView reloadData];
+    FoodRefreshModel *refreshModel = [[FoodRefreshModel alloc] init];
+    [refreshModel geteat_area:areaMarry geteat_num:numMarry requestSuccess:^{
+        [self._getAry removeLastObject];
+        [self._getAry addObject:refreshModel.eat_propertyAry];
+//        [self.collectionView reloadData];
+        NSIndexSet *indexSet=[[NSIndexSet alloc]initWithIndex:2];
+        [self.collectionView reloadSections:indexSet];
+        
+    } failure:^(NSError * _Nonnull error) {
+        NSLog(@"美食特征刷新失败");
+    }];
 }
 
 #pragma mark - 返回条
@@ -356,9 +360,9 @@ UICollectionViewDelegateFlowLayout
         _collectionView.backgroundColor = UIColor.whiteColor;
         _collectionView.allowsMultipleSelection = YES;
         
-        [_collectionView registerClass:BTCollectionViewCell.class forCellWithReuseIdentifier:DemoCollectionViewCellReuseIdentifier];
+        [_collectionView registerClass:FoodMainPageCollectionViewCell.class forCellWithReuseIdentifier:FoodMainPageCollectionViewCellReuseIdentifier];
         // 注册区头
-        [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header"];
+        [_collectionView registerClass:[FoodHeaderCollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header"];
     }
     return _collectionView;
 }

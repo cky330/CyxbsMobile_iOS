@@ -35,7 +35,6 @@
     return _v;
 }
 
-
 - (void)buttonClick {
     int i = arc4random_uniform((int)self.v.textArr.count);
     NSString *str = [NSString stringWithFormat:@"%@", self.v.textArr[i]];

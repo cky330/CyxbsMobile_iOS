@@ -10,11 +10,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /// 复用标志
-UIKIT_EXTERN NSString *DemoCollectionViewCellReuseIdentifier;
+UIKIT_EXTERN NSString *FoodMainPageCollectionViewCellReuseIdentifier;
 
-@interface BTCollectionViewCell : UICollectionViewCell
+@interface FoodMainPageCollectionViewCell : UICollectionViewCell
 
-//@property(nonatomic, strong) UIButton *btn;
 @property(nonatomic, strong) UILabel *lab;
 
 @end

@@ -5,18 +5,19 @@
 //  Created by 潘申冰 on 2023/2/3.
 //
 
-#import "BTCollectionViewCell.h"
+#import "FoodMainPageCollectionViewCell.h"
 #define UnselectedColor [UIColor colorWithHexString:@"#15315B" alpha:0.4]
 #define SelectedColor [UIColor colorWithHexString:@"#4A44E4" alpha:1]
-NSString *DemoCollectionViewCellReuseIdentifier = @"DemoCollectionViewCell";
 
-@interface BTCollectionViewCell ()
+NSString *FoodMainPageCollectionViewCellReuseIdentifier = @"FoodMainPageCollectionViewCell";
+
+@interface FoodMainPageCollectionViewCell ()
 
 @property(nonatomic, strong) UIImageView *selectedImg;
 
 @end
 
-@implementation BTCollectionViewCell
+@implementation FoodMainPageCollectionViewCell
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];

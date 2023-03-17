@@ -538,6 +538,7 @@
 		B030B362299BE99A0035B500 /* AmusementParkVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B030B361299BE99A0035B500 /* AmusementParkVC.m */; };
 		B030B368299BF1590035B500 /* FoodVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B030B367299BF1590035B500 /* FoodVC.m */; };
 		B033366E294C971D004D141D /* HttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = B033366D294C971D004D141D /* HttpTool.m */; };
+		B09676CF29C4CA66003DAFA5 /* FoodHeaderCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B09676CE29C4CA66003DAFA5 /* FoodHeaderCollectionReusableView.m */; };
 		B0F08FDD28A2497F00986EB6 /* SportAttendanceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F08FCE28A2497F00986EB6 /* SportAttendanceModel.m */; };
 		B0F08FDE28A2497F00986EB6 /* SportAttendanceItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F08FD128A2497F00986EB6 /* SportAttendanceItem.m */; };
 		B0F08FDF28A2497F00986EB6 /* SportAttendanceItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F08FD228A2497F00986EB6 /* SportAttendanceItemModel.m */; };
@@ -551,7 +552,7 @@
 		B0F08FFA28A24F9000986EB6 /* IdsBindingView.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F08FF728A24F9000986EB6 /* IdsBindingView.m */; };
 		B0F08FFD28A2509900986EB6 /* RisingRouter+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F08FFB28A2509800986EB6 /* RisingRouter+Extension.m */; };
 		B0F0900128A2605E00986EB6 /* popUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F0900028A2605E00986EB6 /* popUpViewController.m */; };
-		B0F944F429C203CE00DE3830 /* BTCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F944F329C203CE00DE3830 /* BTCollectionViewCell.m */; };
+		B0F944F429C203CE00DE3830 /* FoodMainPageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F944F329C203CE00DE3830 /* FoodMainPageCollectionViewCell.m */; };
 		B0F944F729C203D500DE3830 /* UDScrollAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F944F629C203D500DE3830 /* UDScrollAnimationView.m */; };
 		B0F944FA29C203FD00DE3830 /* FootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F944F929C203FD00DE3830 /* FootViewController.m */; };
 		B0F9450A29C2056600DE3830 /* FoodHomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F9450929C2056600DE3830 /* FoodHomeModel.m */; };
@@ -1776,6 +1777,8 @@
 		B030B366299BF1590035B500 /* FoodVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoodVC.h; sourceTree = "<group>"; };
 		B030B367299BF1590035B500 /* FoodVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoodVC.m; sourceTree = "<group>"; };
 		B033366D294C971D004D141D /* HttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpTool.m; sourceTree = "<group>"; };
+		B09676CD29C4CA66003DAFA5 /* FoodHeaderCollectionReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoodHeaderCollectionReusableView.h; sourceTree = "<group>"; };
+		B09676CE29C4CA66003DAFA5 /* FoodHeaderCollectionReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoodHeaderCollectionReusableView.m; sourceTree = "<group>"; };
 		B0F08FCC28A2497F00986EB6 /* SportAttendanceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SportAttendanceModel.h; sourceTree = "<group>"; };
 		B0F08FCD28A2497F00986EB6 /* SportAttendanceItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SportAttendanceItemModel.h; sourceTree = "<group>"; };
 		B0F08FCE28A2497F00986EB6 /* SportAttendanceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SportAttendanceModel.m; sourceTree = "<group>"; };
@@ -1803,8 +1806,8 @@
 		B0F08FFC28A2509800986EB6 /* RisingRouter+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RisingRouter+Extension.h"; sourceTree = "<group>"; };
 		B0F08FFF28A2605E00986EB6 /* popUpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = popUpViewController.h; sourceTree = "<group>"; };
 		B0F0900028A2605E00986EB6 /* popUpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = popUpViewController.m; sourceTree = "<group>"; };
-		B0F944F229C203CD00DE3830 /* BTCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTCollectionViewCell.h; sourceTree = "<group>"; };
-		B0F944F329C203CE00DE3830 /* BTCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTCollectionViewCell.m; sourceTree = "<group>"; };
+		B0F944F229C203CD00DE3830 /* FoodMainPageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodMainPageCollectionViewCell.h; sourceTree = "<group>"; };
+		B0F944F329C203CE00DE3830 /* FoodMainPageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodMainPageCollectionViewCell.m; sourceTree = "<group>"; };
 		B0F944F529C203D400DE3830 /* UDScrollAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDScrollAnimationView.h; sourceTree = "<group>"; };
 		B0F944F629C203D500DE3830 /* UDScrollAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDScrollAnimationView.m; sourceTree = "<group>"; };
 		B0F944F829C203FC00DE3830 /* FootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FootViewController.h; sourceTree = "<group>"; };
@@ -5983,8 +5986,10 @@
 			children = (
 				B0F944F529C203D400DE3830 /* UDScrollAnimationView.h */,
 				B0F944F629C203D500DE3830 /* UDScrollAnimationView.m */,
-				B0F944F229C203CD00DE3830 /* BTCollectionViewCell.h */,
-				B0F944F329C203CE00DE3830 /* BTCollectionViewCell.m */,
+				B0F944F229C203CD00DE3830 /* FoodMainPageCollectionViewCell.h */,
+				B0F944F329C203CE00DE3830 /* FoodMainPageCollectionViewCell.m */,
+				B09676CD29C4CA66003DAFA5 /* FoodHeaderCollectionReusableView.h */,
+				B09676CE29C4CA66003DAFA5 /* FoodHeaderCollectionReusableView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -7186,7 +7191,7 @@
 				AA0DD8FB286C50E500802324 /* MineMsgCntView.m in Sources */,
 				AA536DF5258C4F7600F69E73 /* IgnoreViewController.m in Sources */,
 				18CDF66C257F91BD006E8E5C /* DiscoverADModel.m in Sources */,
-				B0F944F429C203CE00DE3830 /* BTCollectionViewCell.m in Sources */,
+				B0F944F429C203CE00DE3830 /* FoodMainPageCollectionViewCell.m in Sources */,
 				18CDF685257F91BD006E8E5C /* EmptyClassTableViewCell.m in Sources */,
 				18CDF663257F91BD006E8E5C /* ElectricFeeItem.m in Sources */,
 				AA289B0F24EF9CFA00FDF70C /* NoteDataModel.m in Sources */,
@@ -7460,6 +7465,7 @@
 				AA7ABAC12873EA5500BA6790 /* MGDStatusBarHeight.m in Sources */,
 				B0F08FE328A2497F00986EB6 /* SportAttendanceViewController.m in Sources */,
 				735BC53226D38EA600F22678 /* HistoricalFeedBackTableView.m in Sources */,
+				B09676CF29C4CA66003DAFA5 /* FoodHeaderCollectionReusableView.m in Sources */,
 				B0FE5F2A294C94540070E755 /* RisingFoundationExtention.m in Sources */,
 				AA536DDA258C3F7C00F69E73 /* TopBarBasicViewController.m in Sources */,
 				73AAA1CC26C918250084E44D /* DetailsGoodsModel.m in Sources */,
