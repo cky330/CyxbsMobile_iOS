@@ -160,7 +160,7 @@ UICollectionViewDelegateFlowLayout
     [self addTopView];
     [self.view addSubview:self.collectionView];
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.goBackView.mas_bottom);
+        make.top.equalTo(self.goBackView.mas_bottom).offset(24);
         make.bottom.equalTo(self.view);
         make.width.equalTo(self.view);
     }];
@@ -236,7 +236,6 @@ UICollectionViewDelegateFlowLayout
     [refreshModel geteat_area:areaMarry geteat_num:numMarry requestSuccess:^{
         [self._getAry removeLastObject];
         [self._getAry addObject:refreshModel.eat_propertyAry];
-//        [self.collectionView reloadData];
         NSIndexSet *indexSet=[[NSIndexSet alloc]initWithIndex:2];
         [self.collectionView reloadSections:indexSet];
         
@@ -278,7 +277,7 @@ UICollectionViewDelegateFlowLayout
     [self.goBackView addSubview:titleLabel];
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view).offset(37);
-        make.top.equalTo(self.view).offset(50);
+        make.top.equalTo(self.goBackView).offset(NVGBARHEIGHT/2 + STATUSBARHEIGHT);
     }];
     titleLabel.textColor = [UIColor colorWithHexString:@"#15315B" alpha:1];
 
@@ -356,7 +355,8 @@ UICollectionViewDelegateFlowLayout
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) collectionViewLayout:layout];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
-        _collectionView.bounces = NO;
+//        _collectionView.bounces = NO;
+        _collectionView.alwaysBounceVertical = YES;
         _collectionView.backgroundColor = UIColor.whiteColor;
         _collectionView.allowsMultipleSelection = YES;
         
@@ -369,8 +369,8 @@ UICollectionViewDelegateFlowLayout
 
 - (UIView *)topView {
     if (_topView == nil) {
-        _topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH * 0.245)];
-        UIImageView *imgView = [[UIImageView alloc] initWithFrame:_topView.frame];
+        _topView = [[UIView alloc] initWithFrame:CGRectMake(15, 0, SCREEN_WIDTH - 45, (SCREEN_WIDTH - 45) * 0.2789)];
+        UIImageView *imgView = [[UIImageView alloc] initWithFrame:_topView.bounds];
         [imgView sd_setImageWithURL:[NSURL URLWithString:self.homeModel.pictureURL]];
         [_topView addSubview:imgView];
     }
@@ -386,7 +386,7 @@ UICollectionViewDelegateFlowLayout
 
 - (UIView *)goBackView {
     if(!_goBackView) {
-        _goBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, NVGBARHEIGHT + STATUSBARHEIGHT)];
+        _goBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH * 0.304)];
     }
     return _goBackView;
 }
