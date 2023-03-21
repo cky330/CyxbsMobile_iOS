@@ -181,7 +181,7 @@ UICollectionViewDelegateFlowLayout
 - (void)layoutSubviews {
     //设置为真实高度
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.goBackView).offset(24);
+        make.top.equalTo(self.goBackView.mas_bottom).offset(24);
         make.height.equalTo(@(self.collectionView.collectionViewLayout.collectionViewContentSize.height + self.topView.frame.size.height));
         make.width.equalTo(self.view);
     }];
