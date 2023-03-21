@@ -14,26 +14,28 @@
 #import "FoodRefreshModel.h"
 #import "FoodHeaderCollectionReusableView.h"
 
+#define SLIDING_HEIGHT 600
+
 @interface FoodVC ()<
+UIScrollViewDelegate,
 UICollectionViewDelegate,
 UICollectionViewDataSource,
 UICollectionViewDelegateFlowLayout
 >
 
-@property (nonatomic, strong) UICollectionView *collectionView;
+//背景滚动
+@property (nonatomic, strong) UIScrollView *scrollContentView;
+@property (nonatomic, strong) FootViewController *footVC;
 
 /// 头视图
 @property (nonatomic, strong) UIView *topView;
-
+@property (nonatomic, strong) UICollectionView *collectionView;
 /// Home数据模型
 @property (nonatomic, strong) FoodHomeModel *homeModel;
 
 /// 返回条
 @property (nonatomic, strong) UIView *goBackView;
 @property (nonatomic, strong) UILabel *titleLabel;
-
-//选中的参数
-
 
 @end
 
@@ -47,11 +49,17 @@ UICollectionViewDelegateFlowLayout
     [super viewDidLoad];
     
     self.view.backgroundColor = UIColor.whiteColor;
+    [self addContentView];
     [self addCustomTabbarView];
     //获取主页数据,成功加载主页 失败加载失败页
     [self loadHomeData];
     
 }
+
+- (void)addContentView {
+    [self.view addSubview:self.scrollContentView];
+}
+
 
 #pragma mark - <UICollectionViewDataSource>
 
@@ -101,11 +109,10 @@ UICollectionViewDelegateFlowLayout
         reusableView = headerView;
         return reusableView;
     }
-    
     return nil;
 }
 
-- (void)buttonClick{
+- (void)buttonClick {
     NSLog(@"111");
 }
 
@@ -158,15 +165,13 @@ UICollectionViewDelegateFlowLayout
 - (void)addHomePage {
     //添加头视图
     [self addTopView];
-    [self.view addSubview:self.collectionView];
-    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.goBackView.mas_bottom).offset(24);
-        make.bottom.equalTo(self.view);
-        make.width.equalTo(self.view);
-    }];
+    //添加主要数据
+    [self.scrollContentView addSubview:self.collectionView];
     //添加脚视图
     [self addFootView];
+    //将返回条移至最前
     [self.view bringSubviewToFront:self.goBackView];
+    [self layoutSubviews];
 }
 
 - (void)addTopView {
@@ -181,9 +186,31 @@ UICollectionViewDelegateFlowLayout
 
 - (void)addFootView {
     FootViewController *vc = [[FootViewController alloc] init];
-    vc.view.frame = CGRectMake(0, 700, SCREEN_WIDTH, 103);
-    [self addChildViewController:vc];
-    [self.view addSubview:vc.view];
+    self.footVC = vc;
+    [self addChildViewController:self.footVC];
+    [self.scrollContentView addSubview:self.footVC.view];
+}
+
+- (void)layoutSubviews {
+    [self.scrollContentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.goBackView.mas_bottom);
+        make.left.right.equalTo(self.view);
+        make.bottom.equalTo(self.view);
+    }];
+    
+    //设置为真实高度
+    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.scrollContentView).offset(24);
+        make.height.equalTo(@(self.collectionView.collectionViewLayout.collectionViewContentSize.height + self.topView.frame.size.height));
+        make.width.equalTo(self.view);
+    }];
+    
+    [self.footVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(self.view);
+        make.top.equalTo(self.self.collectionView.mas_bottom).offset(51);
+        make.height.equalTo(@120);
+    }];
+    
 }
 
 - (void)chooseMark:(UIButton *)sender {
@@ -244,7 +271,7 @@ UICollectionViewDelegateFlowLayout
     }];
 }
 
-#pragma mark - 返回条
+#pragma mark - 自定义返回条
 //自定义的Tabbar
 - (void)addCustomTabbarView {
     
@@ -270,10 +297,10 @@ UICollectionViewDelegateFlowLayout
     
     //addTitleView
     UILabel *titleLabel = [[UILabel alloc]init];
-    self.titleLabel = titleLabel;
     titleLabel.text = @"美食咨询处";
     titleLabel.font = [UIFont fontWithName:PingFangSCBold size:20];
     titleLabel.textColor = [UIColor colorWithHexString:@"#112C53"];
+    self.titleLabel = titleLabel;
     [self.goBackView addSubview:titleLabel];
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view).offset(37);
@@ -322,7 +349,7 @@ UICollectionViewDelegateFlowLayout
 }
 
 //查看更多的方法
-- (void)learnAbout{
+- (void)learnAbout {
     popUpInformationVC *vc = [[popUpInformationVC alloc] init];
     vc.contentText = @"美食咨询处的设置，一是为了帮助\n各位选择综合症的邮子们更好的选\n择自己的需要的美食，对选择综合\n症说拜拜！二是为了各位初来学校\n的新生学子更好的体验学校各处的\n美食！按照要求通过标签进行选\n择，卷卷会帮助你选择最符合要求\n的美食哦！";
     vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
@@ -355,8 +382,8 @@ UICollectionViewDelegateFlowLayout
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) collectionViewLayout:layout];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
-//        _collectionView.bounces = NO;
-        _collectionView.alwaysBounceVertical = YES;
+        _collectionView.bounces = NO;
+        _collectionView.scrollEnabled = NO;
         _collectionView.backgroundColor = UIColor.whiteColor;
         _collectionView.allowsMultipleSelection = YES;
         
@@ -386,9 +413,21 @@ UICollectionViewDelegateFlowLayout
 
 - (UIView *)goBackView {
     if(!_goBackView) {
-        _goBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH * 0.304)];
+        _goBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT * 0.15)];
     }
     return _goBackView;
+}
+
+- (UIScrollView *)scrollContentView {
+    if(!_scrollContentView) {
+        _scrollContentView = [[UIScrollView alloc] init];
+        _scrollContentView.delegate = self;
+        _scrollContentView.backgroundColor = UIColor.whiteColor;
+        _scrollContentView.showsVerticalScrollIndicator = NO;
+        _scrollContentView.alwaysBounceVertical = YES;
+        self.scrollContentView.contentSize = CGSizeMake(SCREEN_WIDTH, SLIDING_HEIGHT);
+    }
+    return _scrollContentView;
 }
 
 @end
