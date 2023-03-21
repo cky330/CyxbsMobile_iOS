@@ -14,17 +14,12 @@
 #import "FoodRefreshModel.h"
 #import "FoodHeaderCollectionReusableView.h"
 
-#define SLIDING_HEIGHT 600
-
 @interface FoodVC ()<
-UIScrollViewDelegate,
 UICollectionViewDelegate,
 UICollectionViewDataSource,
 UICollectionViewDelegateFlowLayout
 >
 
-//背景滚动
-@property (nonatomic, strong) UIScrollView *scrollContentView;
 @property (nonatomic, strong) FootViewController *footVC;
 
 /// 头视图
@@ -47,19 +42,11 @@ UICollectionViewDelegateFlowLayout
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.view.backgroundColor = UIColor.whiteColor;
-    [self addContentView];
-    [self addCustomTabbarView];
+    [self addGoBackView];
     //获取主页数据,成功加载主页 失败加载失败页
     [self loadHomeData];
-    
 }
-
-- (void)addContentView {
-    [self.view addSubview:self.scrollContentView];
-}
-
 
 #pragma mark - <UICollectionViewDataSource>
 
@@ -166,7 +153,7 @@ UICollectionViewDelegateFlowLayout
     //添加头视图
     [self addTopView];
     //添加主要数据
-    [self.scrollContentView addSubview:self.collectionView];
+    [self.view addSubview:self.collectionView];
     //添加脚视图
     [self addFootView];
     //将返回条移至最前
@@ -188,19 +175,13 @@ UICollectionViewDelegateFlowLayout
     FootViewController *vc = [[FootViewController alloc] init];
     self.footVC = vc;
     [self addChildViewController:self.footVC];
-    [self.scrollContentView addSubview:self.footVC.view];
+    [self.view addSubview:self.footVC.view];
 }
 
 - (void)layoutSubviews {
-    [self.scrollContentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.goBackView.mas_bottom);
-        make.left.right.equalTo(self.view);
-        make.bottom.equalTo(self.view);
-    }];
-    
     //设置为真实高度
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.scrollContentView).offset(24);
+        make.top.equalTo(self.goBackView).offset(24);
         make.height.equalTo(@(self.collectionView.collectionViewLayout.collectionViewContentSize.height + self.topView.frame.size.height));
         make.width.equalTo(self.view);
     }];
@@ -273,7 +254,7 @@ UICollectionViewDelegateFlowLayout
 
 #pragma mark - 自定义返回条
 //自定义的Tabbar
-- (void)addCustomTabbarView {
+- (void)addGoBackView {
     
     self.goBackView.backgroundColor = [UIColor colorWithHexString:@"#FFFFFF"];
     
@@ -304,7 +285,7 @@ UICollectionViewDelegateFlowLayout
     [self.goBackView addSubview:titleLabel];
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view).offset(37);
-        make.top.equalTo(self.goBackView).offset(NVGBARHEIGHT/2 + STATUSBARHEIGHT);
+        make.top.equalTo(self.goBackView).offset(TOTAL_TOP_HEIGHT / 2);
     }];
     titleLabel.textColor = [UIColor colorWithHexString:@"#15315B" alpha:1];
 
@@ -413,21 +394,10 @@ UICollectionViewDelegateFlowLayout
 
 - (UIView *)goBackView {
     if(!_goBackView) {
-        _goBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT * 0.15)];
+        _goBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, STATUSBARHEIGHT + 48)];
     }
     return _goBackView;
 }
 
-- (UIScrollView *)scrollContentView {
-    if(!_scrollContentView) {
-        _scrollContentView = [[UIScrollView alloc] init];
-        _scrollContentView.delegate = self;
-        _scrollContentView.backgroundColor = UIColor.whiteColor;
-        _scrollContentView.showsVerticalScrollIndicator = NO;
-        _scrollContentView.alwaysBounceVertical = YES;
-        self.scrollContentView.contentSize = CGSizeMake(SCREEN_WIDTH, SLIDING_HEIGHT);
-    }
-    return _scrollContentView;
-}
 
 @end

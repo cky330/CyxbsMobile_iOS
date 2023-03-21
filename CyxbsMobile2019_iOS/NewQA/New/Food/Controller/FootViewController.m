@@ -21,11 +21,17 @@
     
     [self.view addSubview:self.v];
     [self.view addSubview:self.checkBtn];
+
+    
+    [self.checkBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.view);
+        make.top.equalTo(self.v.mas_bottom);
+    }];
 }
 
 - (UDScrollAnimationView *)v {
     if(!_v) {
-        _v = [[UDScrollAnimationView alloc] initWithFrame:CGRectMake(0, 0, 238, 51) TextArry:[[NSArray alloc] initWithObjects:@"ni",@"hao",@"1",@"2",@"3", nil] FinalText:@"ni"];
+        _v = [[UDScrollAnimationView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-119-50, 0, 238, 51) TextArry:[[NSArray alloc] initWithObjects:@"ni",@"hao",@"1",@"2",@"3", nil] FinalText:@"ni"];
         _v.layer.cornerRadius = 8;
         _v.layer.masksToBounds = YES;
         _v.font = [UIFont fontWithName:PingFangSCMedium size:16];
