@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 //是否点赞
 @property (nonatomic, assign) bool praise_is;
 
-- (void)getEat_area_num_prop:(NSArray*)eat_areaArr getEat_num:(NSArray*)eat_numArr getEat_prop:(NSArray*)eat_propertyArr requestSuccess:(void (^)(void))success failure:(void (^)(NSError *error))failure;
+- (void)getEat_area:(NSArray*)eat_areaArr getEat_num:(NSArray*)eat_numArr getEat_property:(NSArray*)eat_propertyArr requestSuccess:(void (^)(void))success failure:(void (^)(NSError *error))failure;
 
 @end
 

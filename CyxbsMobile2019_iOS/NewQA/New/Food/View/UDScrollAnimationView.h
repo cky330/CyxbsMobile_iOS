@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 //禁用其他
 - (instancetype)init NS_UNAVAILABLE;
-- (instancetype)initWithFrame:(CGRect)frame NS_UNAVAILABLE;
+//- (instancetype)initWithFrame:(CGRect)frame NS_UNAVAILABLE;
 - (instancetype)initWithCoder:(NSCoder *)aDecoder NS_UNAVAILABLE;
 //只能使用这一种
 - (instancetype)initWithFrame:(CGRect)frame TextArry:(NSArray *)textArr FinalText:(NSString *)finalText;

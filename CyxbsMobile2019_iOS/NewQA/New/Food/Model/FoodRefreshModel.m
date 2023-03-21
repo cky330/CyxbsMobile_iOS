@@ -11,7 +11,7 @@
 
 @implementation FoodRefreshModel
 
-- (void)geteat_area:(NSArray *)eat_areaArr geteat_num:(NSArray *)eat_numArr requestSuccess:(void (^)(void))success failure:(void (^)(NSError * _Nonnull))failure{
+- (void)getEat_area:(NSArray *)eat_areaArr getEat_num:(NSArray *)eat_numArr requestSuccess:(void (^)(void))success failure:(void (^)(NSError * _Nonnull))failure{
     NSDictionary *paramters = @{
         @"eat_area":eat_areaArr,
         @"eat_num":eat_numArr};

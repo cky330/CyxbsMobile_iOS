@@ -11,7 +11,7 @@
 
 @implementation FoodResultModel
 
-- (void)getEat_area_num_prop:(NSArray *)eat_areaArr getEat_num:(NSArray *)eat_numArr getEat_prop:(NSArray *)eat_propertyArr requestSuccess:(void (^)(void))success failure:(void (^)(NSError * _Nonnull))failure{
+- (void)getEat_area:(NSArray *)eat_areaArr getEat_num:(NSArray *)eat_numArr getEat_property:(NSArray *)eat_propertyArr requestSuccess:(void (^)(void))success failure:(void (^)(NSError * _Nonnull))failure{
     
     NSDictionary *paramters = @{
         @"eat_area":eat_areaArr,

@@ -27,6 +27,15 @@
     return self;
 }
 
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self commonInit];
+        [self prepareAnimations];
+    }
+    return self;
+}
+
 #pragma mark - Public Methods
 
 - (void)reloadView {
@@ -47,7 +56,7 @@
 - (void)commonInit {
     self.duration = 0.8;
     self.isUp = NO;
-    
+    _finalText = @"";
     _scrollLayers = [NSMutableArray array];
     _scrollLabels = [NSMutableArray array];
 }
@@ -80,8 +89,9 @@
     for (NSInteger i = 0; i < _textArr.count; i++) {
         [scrollText addObject:_textArr[i]];
     }
-    
-    [scrollText addObject:finalText];
+    if(_finalText){
+        [scrollText addObject:finalText];
+    }
     // 修改局部变量的值需要使用 __block 修饰符
     __block CGFloat height = 0;
     // NSEnumerationReverse 倒序排列

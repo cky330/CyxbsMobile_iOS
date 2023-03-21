@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 //餐饮特征，返回数量固定八个
 @property (nonatomic, copy) NSArray* eat_propertyAry;
 
-- (void)geteat_area:(NSArray*)eat_areaArr geteat_num:(NSArray*)eat_numArr requestSuccess:(void (^)(void))success failure:(void (^)(NSError *error))failure;
+- (void)getEat_area:(NSArray*)eat_areaArr getEat_num:(NSArray*)eat_numArr requestSuccess:(void (^)(void))success failure:(void (^)(NSError *error))failure;
 
 @end
 

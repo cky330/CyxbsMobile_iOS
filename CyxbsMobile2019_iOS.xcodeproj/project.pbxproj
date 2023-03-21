@@ -554,7 +554,6 @@
 		B0F0900128A2605E00986EB6 /* popUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F0900028A2605E00986EB6 /* popUpViewController.m */; };
 		B0F944F429C203CE00DE3830 /* FoodMainPageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F944F329C203CE00DE3830 /* FoodMainPageCollectionViewCell.m */; };
 		B0F944F729C203D500DE3830 /* UDScrollAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F944F629C203D500DE3830 /* UDScrollAnimationView.m */; };
-		B0F944FA29C203FD00DE3830 /* FootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F944F929C203FD00DE3830 /* FootViewController.m */; };
 		B0F9450A29C2056600DE3830 /* FoodHomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F9450929C2056600DE3830 /* FoodHomeModel.m */; };
 		B0FE5F29294C94540070E755 /* NSDate+Rising.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FE5F1F294C94540070E755 /* NSDate+Rising.m */; };
 		B0FE5F2A294C94540070E755 /* RisingFoundationExtention.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FE5F20294C94540070E755 /* RisingFoundationExtention.m */; };
@@ -1810,8 +1809,6 @@
 		B0F944F329C203CE00DE3830 /* FoodMainPageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodMainPageCollectionViewCell.m; sourceTree = "<group>"; };
 		B0F944F529C203D400DE3830 /* UDScrollAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDScrollAnimationView.h; sourceTree = "<group>"; };
 		B0F944F629C203D500DE3830 /* UDScrollAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDScrollAnimationView.m; sourceTree = "<group>"; };
-		B0F944F829C203FC00DE3830 /* FootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FootViewController.h; sourceTree = "<group>"; };
-		B0F944F929C203FD00DE3830 /* FootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FootViewController.m; sourceTree = "<group>"; };
 		B0F9450829C2056600DE3830 /* FoodHomeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoodHomeModel.h; sourceTree = "<group>"; };
 		B0F9450929C2056600DE3830 /* FoodHomeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoodHomeModel.m; sourceTree = "<group>"; };
 		B0FE5F1B294C94540070E755 /* RisingExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RisingExtension.h; sourceTree = "<group>"; };
@@ -5848,8 +5845,6 @@
 			children = (
 				B030B366299BF1590035B500 /* FoodVC.h */,
 				B030B367299BF1590035B500 /* FoodVC.m */,
-				B0F944F829C203FC00DE3830 /* FootViewController.h */,
-				B0F944F929C203FD00DE3830 /* FootViewController.m */,
 				B01D3EDB29C2FD0600FCE3F1 /* popUpInformationVC.h */,
 				B01D3EDC29C2FD0600FCE3F1 /* popUpInformationVC.m */,
 			);
@@ -7002,7 +6997,6 @@
 				AA57588924EE739F002F6F6D /* TimeBtnSelectedBackView.m in Sources */,
 				4931630D26CD7B6800140412 /* StampCenterCollectionHeaderView.m in Sources */,
 				B0FE5F29294C94540070E755 /* NSDate+Rising.m in Sources */,
-				B0F944FA29C203FD00DE3830 /* FootViewController.m in Sources */,
 				18CDF675257F91BD006E8E5C /* PointAndDottedLineView.m in Sources */,
 				AA0DDB69286C8B1A00802324 /* FansAndFollowingSegmentView.m in Sources */,
 				D0101D592433C885004337ED /* SDMaskController.m in Sources */,
@@ -7732,7 +7726,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
-				DEVELOPMENT_TEAM = 727CVV9PLJ;
+				DEVELOPMENT_TEAM = 8A7TGYQNRC;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/CyxbsMobile2019_iOS/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
@@ -7791,7 +7785,7 @@
 				CODE_SIGN_ENTITLEMENTS = "CyxbsMobile2019_iOS/掌上重邮.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
-				DEVELOPMENT_TEAM = 727CVV9PLJ;
+				DEVELOPMENT_TEAM = 8A7TGYQNRC;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/CyxbsMobile2019_iOS/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
@@ -7847,7 +7841,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D67VC378K4;
+				DEVELOPMENT_TEAM = 8A7TGYQNRC;
 				INFOPLIST_FILE = CyxbsMobile2019_iOSTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -7872,7 +7866,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D67VC378K4;
+				DEVELOPMENT_TEAM = 8A7TGYQNRC;
 				INFOPLIST_FILE = CyxbsMobile2019_iOSTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -7894,7 +7888,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D67VC378K4;
+				DEVELOPMENT_TEAM = 8A7TGYQNRC;
 				INFOPLIST_FILE = CyxbsMobile2019_iOSUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -7913,7 +7907,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D67VC378K4;
+				DEVELOPMENT_TEAM = 8A7TGYQNRC;
 				INFOPLIST_FILE = CyxbsMobile2019_iOSUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

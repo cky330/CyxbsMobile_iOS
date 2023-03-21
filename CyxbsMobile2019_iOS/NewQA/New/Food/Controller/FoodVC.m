@@ -8,11 +8,14 @@
 
 #import "FoodVC.h"
 #import "FoodMainPageCollectionViewCell.h"
-#import "FootViewController.h"
-#import "FoodHomeModel.h"
-#import "popUpInformationVC.h"
-#import "FoodRefreshModel.h"
 #import "FoodHeaderCollectionReusableView.h"
+#import "FoodHomeModel.h"
+#import "FoodRefreshModel.h"
+#import "FoodResultModel.h"
+#import "FoodPraiseModel.h"
+#import "popUpInformationVC.h"
+#import "UDScrollAnimationView.h"
+
 
 @interface FoodVC ()<
 UICollectionViewDelegate,
@@ -20,17 +23,28 @@ UICollectionViewDataSource,
 UICollectionViewDelegateFlowLayout
 >
 
-@property (nonatomic, strong) FootViewController *footVC;
+//@property (nonatomic, strong) FootViewController *footVC;
 
 /// 头视图
 @property (nonatomic, strong) UIView *topView;
 @property (nonatomic, strong) UICollectionView *collectionView;
+
 /// Home数据模型
 @property (nonatomic, strong) FoodHomeModel *homeModel;
+/// 美食结果模型
+@property (nonatomic, strong) FoodResultModel *resultModel;
+/// 美食点赞模型
+@property (nonatomic, strong) FoodPraiseModel *praiseModel;
 
 /// 返回条
 @property (nonatomic, strong) UIView *goBackView;
 @property (nonatomic, strong) UILabel *titleLabel;
+
+/// 随机滚动视图
+@property (nonatomic, strong) UDScrollAnimationView *resultView;
+@property (nonatomic, strong) UIButton *getResultBtn;
+@property (nonatomic, strong) UIButton *getInfoBtn;
+@property (nonatomic, strong) UIButton *getOtherBtn;
 
 @end
 
@@ -97,10 +111,6 @@ UICollectionViewDelegateFlowLayout
         return reusableView;
     }
     return nil;
-}
-
-- (void)buttonClick {
-    NSLog(@"111");
 }
 
 #pragma mark - <UICollectionViewDelegate>
@@ -172,10 +182,8 @@ UICollectionViewDelegateFlowLayout
 }
 
 - (void)addFootView {
-    FootViewController *vc = [[FootViewController alloc] init];
-    self.footVC = vc;
-    [self addChildViewController:self.footVC];
-    [self.view addSubview:self.footVC.view];
+    [self.view addSubview:self.resultView];
+    [self.view addSubview:self.getResultBtn];
 }
 
 - (void)layoutSubviews {
@@ -186,44 +194,32 @@ UICollectionViewDelegateFlowLayout
         make.width.equalTo(self.view);
     }];
     
-    [self.footVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.equalTo(self.view);
-        make.top.equalTo(self.self.collectionView.mas_bottom).offset(51);
-        make.height.equalTo(@120);
+    [self.resultView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.view);
+        IS_IPHONEX ? make.top.equalTo(self.collectionView.mas_bottom).offset(51) : make.top.equalTo(self.collectionView.mas_bottom).offset(21);
+        make.height.equalTo(@51);
+        make.width.equalTo(@238);
     }];
     
+    [self.getResultBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.resultView.mas_bottom).offset(18);
+        make.centerX.equalTo(self.view);
+        make.height.equalTo(@34);
+        make.width.equalTo(@91);
+    }];
+
 }
 
 - (void)chooseMark:(UIButton *)sender {
+
+}
+
+- (NSDictionary *)getSelection {
     FoodMainPageCollectionViewCell *cell = [[FoodMainPageCollectionViewCell alloc] init];
-    for (NSIndexPath *a in self.collectionView.indexPathsForSelectedItems) {
-        cell = (FoodMainPageCollectionViewCell *) [self.collectionView cellForItemAtIndexPath:a];
-        switch (a.section) {
-            case 0:
-                NSLog(@"第一行选择了%@",cell.lab.text);
-                break;
-            case 1:
-                NSLog(@"第二份选择了%@",cell.lab.text);
-                break;
-            case 2:
-                NSLog(@"第三选择了%@",cell.lab.text);
-                break;
-            default:
-                break;
-        }
-        NSLog(@"选择了%@",cell.lab.text);
-    }
-}
 
-- (void)getSelection {
-    
-}
-
-- (void)refresh {
     NSMutableArray *areaMarry = [[NSMutableArray alloc] init];
     NSMutableArray *numMarry = [[NSMutableArray alloc] init];
-    
-    FoodMainPageCollectionViewCell *cell = [[FoodMainPageCollectionViewCell alloc] init];
+    NSMutableArray *propertyMarry = [[NSMutableArray alloc] init];
     for (NSIndexPath *a in self.collectionView.indexPathsForSelectedItems) {
         cell = (FoodMainPageCollectionViewCell *) [self.collectionView cellForItemAtIndexPath:a];
         switch (a.section) {
@@ -232,26 +228,72 @@ UICollectionViewDelegateFlowLayout
                 [areaMarry addObject:cell.lab.text];
                 break;
             case 1:
-                NSLog(@"第二份选择了%@",cell.lab.text);
+                NSLog(@"第二行选择了%@",cell.lab.text);
                 [numMarry addObject:cell.lab.text];
+                break;
+            case 2:
+                NSLog(@"第三选择了%@",cell.lab.text);
+                [propertyMarry addObject:cell.lab.text];
                 break;
             default:
                 break;
         }
     }
-    
+    NSDictionary *selection = @{
+        @"area":areaMarry,
+        @"num":numMarry,
+        @"property":propertyMarry
+    };
+    return selection;
+}
+
+- (void)refresh {
+    NSDictionary *selection = [self getSelection];
     FoodRefreshModel *refreshModel = [[FoodRefreshModel alloc] init];
-    [refreshModel geteat_area:areaMarry geteat_num:numMarry requestSuccess:^{
+    [refreshModel getEat_area:selection[@"area"] getEat_num:selection[@"num"] requestSuccess:^{
         [self._getAry removeLastObject];
         [self._getAry addObject:refreshModel.eat_propertyAry];
         NSIndexSet *indexSet=[[NSIndexSet alloc]initWithIndex:2];
         [self.collectionView reloadSections:indexSet];
-        
+        self.getResultBtn.hidden = NO;
     } failure:^(NSError * _Nonnull error) {
         NSLog(@"美食特征刷新失败");
     }];
 }
 
+- (void)buttonClick {
+    
+    [self.resultView reloadView];
+    [self.resultView startAnimation];
+}
+
+- (void)getResult {
+    NSLog(@"获取随机美食结果");
+    NSDictionary *selection = [self getSelection];
+    [self.resultModel getEat_area:selection[@"area"] getEat_num:selection[@"num"] getEat_property:selection[@"property"] requestSuccess:^{
+//        self.resultView.textArr = self.resultMode
+        [self.resultView reloadView];
+        [self.resultView startAnimation];
+    } failure:^(NSError * _Nonnull error) {
+        NSLog(@"获取随机美食结果失败");
+    }];
+    self.getResultBtn.hidden = YES;
+}
+
+- (CAGradientLayer *)blendColorsWithbounds:(CGRect)bounds {
+    //背景渐变色
+    CAGradientLayer *gl = [CAGradientLayer layer];
+    gl.frame = bounds;
+    //起点和终点表示的坐标系位置，（0，0)表示左上角，（1，1）表示右下角
+    gl.startPoint = CGPointMake(0, 1);
+    gl.endPoint = CGPointMake(1, 0);
+    gl.colors = @[
+        (__bridge id)[UIColor colorWithHexString:@"#4841E2"].CGColor,
+        (__bridge id)[UIColor colorWithHexString:@"#5D5DF7"].CGColor
+    ];
+    gl.locations = @[@(0),@(1.0f)];
+    return gl;
+}
 #pragma mark - 自定义返回条
 //自定义的Tabbar
 - (void)addGoBackView {
@@ -385,13 +427,6 @@ UICollectionViewDelegateFlowLayout
     return _topView;
 }
 
-- (FoodHomeModel *)homeModel{
-    if(!_homeModel) {
-        _homeModel = [[FoodHomeModel alloc] init];
-    }
-    return _homeModel;
-}
-
 - (UIView *)goBackView {
     if(!_goBackView) {
         _goBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, STATUSBARHEIGHT + 48)];
@@ -399,5 +434,65 @@ UICollectionViewDelegateFlowLayout
     return _goBackView;
 }
 
+- (FoodHomeModel *)homeModel{
+    if(!_homeModel) {
+        _homeModel = [[FoodHomeModel alloc] init];
+    }
+    return _homeModel;
+}
+
+- (FoodResultModel *)resultModel{
+    if(!_resultModel) {
+        _resultModel = [[FoodResultModel alloc] init];
+    }
+    return _resultModel;
+}
+
+- (FoodPraiseModel *)praiseModel{
+    if(!_praiseModel) {
+        _praiseModel = [[FoodPraiseModel alloc] init];
+    }
+    return _praiseModel;
+}
+
+- (UDScrollAnimationView *)resultView {
+    if(!_resultView) {
+        _resultView = [[UDScrollAnimationView alloc] initWithFrame:CGRectMake(0, 0, 238, 51)];
+        _resultView.layer.cornerRadius = 8;
+        _resultView.layer.masksToBounds = YES;
+        _resultView.font = [UIFont fontWithName:PingFangSCMedium size:16];
+        _resultView.textColor = [UIColor colorWithRed:0.184 green: 0.314 blue: 0.522 alpha: 1];
+        _resultView.labColor = [UIColor colorWithRed: 0.937 green: 0.957 blue: 1 alpha: 1];
+    }
+    return _resultView;
+}
+
+- (UIButton *)getResultBtn {
+    if (!_getResultBtn) {
+        _getResultBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 91, 34)];
+        [_getResultBtn.layer addSublayer:[self blendColorsWithbounds:_getResultBtn.bounds]];
+        //给控件加圆角
+        _getResultBtn.layer.cornerRadius = 16;
+        _getResultBtn.layer.masksToBounds = YES;
+        [_getResultBtn addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
+        [_getResultBtn setTitle:@"随机生成" forState:UIControlStateNormal];
+        _getResultBtn.titleLabel.font = [UIFont fontWithName:PingFangSCMedium size:14];
+    }
+    return _getResultBtn;
+}
+
+- (UIButton *)getInfoBtn {
+    if (!_getInfoBtn) {
+        _getInfoBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 91, 34)];
+        [_getInfoBtn.layer addSublayer:[self blendColorsWithbounds:_getInfoBtn.bounds]];
+        //给控件加圆角
+        _getInfoBtn.layer.cornerRadius = 16;
+        _getInfoBtn.layer.masksToBounds = YES;
+        [_getInfoBtn addTarget:self action:@selector(getResult) forControlEvents:UIControlEventTouchUpInside];
+        [_getInfoBtn setTitle:@"查看详情" forState:UIControlStateNormal];
+        _getInfoBtn.titleLabel.font = [UIFont fontWithName:PingFangSCMedium size:14];
+    }
+    return _getInfoBtn;
+}
 
 @end
