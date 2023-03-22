@@ -14,8 +14,8 @@
 #import "FoodResultModel.h"
 #import "FoodPraiseModel.h"
 #import "popUpInformationVC.h"
+#import "popFoodResultVC.h"
 #import "UDScrollAnimationView.h"
-
 
 @interface FoodVC ()<
 UICollectionViewDelegate,
@@ -53,7 +53,6 @@ UICollectionViewDelegateFlowLayout
 }
 
 #pragma mark - ViewController
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = UIColor.whiteColor;
@@ -63,7 +62,6 @@ UICollectionViewDelegateFlowLayout
 }
 
 #pragma mark - <UICollectionViewDataSource>
-
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return self._getAry.count;
 }
@@ -114,7 +112,6 @@ UICollectionViewDelegateFlowLayout
 }
 
 #pragma mark - <UICollectionViewDelegate>
-
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"选择了%ld - %ld: %@", indexPath.section, indexPath.item, self._getAry[indexPath.section][indexPath.item]);
 
@@ -261,23 +258,39 @@ UICollectionViewDelegateFlowLayout
     }];
 }
 
-- (void)buttonClick {
-    
-    [self.resultView reloadView];
-    [self.resultView startAnimation];
-}
-
 - (void)getResult {
     NSLog(@"获取随机美食结果");
     NSDictionary *selection = [self getSelection];
     [self.resultModel getEat_area:selection[@"area"] getEat_num:selection[@"num"] getEat_property:selection[@"property"] requestSuccess:^{
-//        self.resultView.textArr = self.resultMode
-        [self.resultView reloadView];
-        [self.resultView startAnimation];
+        if (self.resultModel.status == 10100) {
+            [self noFound];
+        }else if (self.resultModel.status == 10000){
+            //随机数(不重复)
+            NSInteger min = 0;
+            NSInteger max = 9;
+            NSInteger count = max + 1;
+            NSMutableOrderedSet *set = [NSMutableOrderedSet orderedSetWithCapacity:count];
+            while (set.count < count) {
+                NSInteger value = arc4random() % count;
+                [set addObject:[NSNumber numberWithInteger:value]];
+            }
+            
+            [self.resultView reloadView];
+            [self.resultView startAnimation];
+            self.getResultBtn.hidden = YES;
+        }
     } failure:^(NSError * _Nonnull error) {
         NSLog(@"获取随机美食结果失败");
     }];
-    self.getResultBtn.hidden = YES;
+}
+
+- (void)noFound {
+    popUpInformationVC *vc = [[popUpInformationVC alloc] init];
+    vc.contentText = @"你选择的标签卷卷这里暂时还未收\n录哦！";
+    vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    //填充全屏(原视图不会消失)
+    vc.modalPresentationStyle = UIModalPresentationOverFullScreen;
+    [self.navigationController presentViewController:vc animated:YES completion:nil];
 }
 
 - (CAGradientLayer *)blendColorsWithbounds:(CGRect)bounds {
@@ -373,7 +386,7 @@ UICollectionViewDelegateFlowLayout
 
 //查看更多的方法
 - (void)learnAbout {
-    popUpInformationVC *vc = [[popUpInformationVC alloc] init];
+    popFoodResultVC *vc = [[popFoodResultVC alloc] init];
     vc.contentText = @"美食咨询处的设置，一是为了帮助\n各位选择综合症的邮子们更好的选\n择自己的需要的美食，对选择综合\n症说拜拜！二是为了各位初来学校\n的新生学子更好的体验学校各处的\n美食！按照要求通过标签进行选\n择，卷卷会帮助你选择最符合要求\n的美食哦！";
     vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     //填充全屏(原视图不会消失)
@@ -474,7 +487,7 @@ UICollectionViewDelegateFlowLayout
         //给控件加圆角
         _getResultBtn.layer.cornerRadius = 16;
         _getResultBtn.layer.masksToBounds = YES;
-        [_getResultBtn addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
+        [_getResultBtn addTarget:self action:@selector(getResult) forControlEvents:UIControlEventTouchUpInside];
         [_getResultBtn setTitle:@"随机生成" forState:UIControlStateNormal];
         _getResultBtn.titleLabel.font = [UIFont fontWithName:PingFangSCMedium size:14];
     }

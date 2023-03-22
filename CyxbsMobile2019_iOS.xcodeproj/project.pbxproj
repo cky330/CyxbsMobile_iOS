@@ -538,6 +538,7 @@
 		B030B362299BE99A0035B500 /* AmusementParkVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B030B361299BE99A0035B500 /* AmusementParkVC.m */; };
 		B030B368299BF1590035B500 /* FoodVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B030B367299BF1590035B500 /* FoodVC.m */; };
 		B033366E294C971D004D141D /* HttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = B033366D294C971D004D141D /* HttpTool.m */; };
+		B061B1A229CAB35100EE64D0 /* popFoodResultVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B061B1A129CAB35100EE64D0 /* popFoodResultVC.m */; };
 		B09676CF29C4CA66003DAFA5 /* FoodHeaderCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B09676CE29C4CA66003DAFA5 /* FoodHeaderCollectionReusableView.m */; };
 		B0F08FDD28A2497F00986EB6 /* SportAttendanceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F08FCE28A2497F00986EB6 /* SportAttendanceModel.m */; };
 		B0F08FDE28A2497F00986EB6 /* SportAttendanceItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F08FD128A2497F00986EB6 /* SportAttendanceItem.m */; };
@@ -1776,6 +1777,8 @@
 		B030B366299BF1590035B500 /* FoodVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoodVC.h; sourceTree = "<group>"; };
 		B030B367299BF1590035B500 /* FoodVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoodVC.m; sourceTree = "<group>"; };
 		B033366D294C971D004D141D /* HttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpTool.m; sourceTree = "<group>"; };
+		B061B1A029CAB35100EE64D0 /* popFoodResultVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = popFoodResultVC.h; sourceTree = "<group>"; };
+		B061B1A129CAB35100EE64D0 /* popFoodResultVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = popFoodResultVC.m; sourceTree = "<group>"; };
 		B09676CD29C4CA66003DAFA5 /* FoodHeaderCollectionReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoodHeaderCollectionReusableView.h; sourceTree = "<group>"; };
 		B09676CE29C4CA66003DAFA5 /* FoodHeaderCollectionReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoodHeaderCollectionReusableView.m; sourceTree = "<group>"; };
 		B0F08FCC28A2497F00986EB6 /* SportAttendanceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SportAttendanceModel.h; sourceTree = "<group>"; };
@@ -5847,6 +5850,8 @@
 				B030B367299BF1590035B500 /* FoodVC.m */,
 				B01D3EDB29C2FD0600FCE3F1 /* popUpInformationVC.h */,
 				B01D3EDC29C2FD0600FCE3F1 /* popUpInformationVC.m */,
+				B061B1A029CAB35100EE64D0 /* popFoodResultVC.h */,
+				B061B1A129CAB35100EE64D0 /* popFoodResultVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -6938,6 +6943,7 @@
 				AA0DDB74286C8B1A00802324 /* PMPDynamicTableViewController.m in Sources */,
 				D0101D5B2433C885004337ED /* SDMaskGuidBGView.m in Sources */,
 				AAE3307225E367E400324750 /* MainPageTableViewCell.m in Sources */,
+				B061B1A229CAB35100EE64D0 /* popFoodResultVC.m in Sources */,
 				73AAA1D726C918250084E44D /* DetailsCustomizeNavigationBar.m in Sources */,
 				AA7ABAA02873EA5400BA6790 /* ReportModel.m in Sources */,
 				AA7AB95D2873E5EA00BA6790 /* SZHHotSearchView.m in Sources */,
