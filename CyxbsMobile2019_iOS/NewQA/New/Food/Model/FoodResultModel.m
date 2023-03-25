@@ -11,12 +11,12 @@
 
 @implementation FoodResultModel
 
-- (void)getEat_area:(NSArray *)eat_areaArr getEat_num:(NSArray *)eat_numArr getEat_property:(NSArray *)eat_propertyArr requestSuccess:(void (^)(void))success failure:(void (^)(NSError * _Nonnull))failure{
+- (void)getEat_area:(NSArray *)eat_areaArr getEat_num:(NSString *)eat_numArr getEat_property:(NSArray *)eat_propertyArr requestSuccess:(void (^)(void))success failure:(void (^)(NSError * _Nonnull))failure{
     
     NSDictionary *paramters = @{
-        @"eat_area":@"千喜鹤",
-        @"eat_num":@"1-2人",
-        @"eat_property":@"量大管饱"
+        @"eat_area":eat_areaArr,
+        @"eat_num":eat_numArr,
+        @"eat_property":eat_propertyArr
     };
     
     [HttpTool.shareTool
@@ -38,12 +38,19 @@
 //                       "PraiseIs": false
 //                   }
 //               ]
-            NSDictionary *data = object[@"data"];
-//            self.name = [data[@"name"] stringValue];
-//            self.pictureURL = [data[@"picture"] stringValue];
-//            self.introduce = [data[@"introduce"] stringValue];
-//            self.praise_num = [data[@"praise_num"] intValue];
-//            self.praise_is = [data[@"praise_is"] boolValue];
+            //数组<里面全是字典>
+            NSArray <NSDictionary *> *data = object[@"data"];
+            NSMutableArray <FoodResultModel *> *ma = NSMutableArray.array;
+            for (NSDictionary *a in data) {
+                FoodResultModel *result = [[FoodResultModel alloc] init];
+                result.name = [a[@"FoodName"] stringValue];
+                result.pictureURL = [a[@"Picture"] stringValue];
+                result.introduce = [a[@"Introduce"] stringValue];
+                result.praise_num = [a[@"PraiseNum"] intValue];
+                result.praise_is = [a[@"Praisels"] boolValue];
+                [ma addObject:result];
+            }
+            self.dataArr = ma.copy;
         }
         if (success) {
             success();
@@ -56,5 +63,5 @@
         }
     }];
 }
-    
+
 @end

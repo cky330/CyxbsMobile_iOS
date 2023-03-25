@@ -5986,6 +5986,7 @@
 			children = (
 				B0F944F529C203D400DE3830 /* UDScrollAnimationView.h */,
 				B0F944F629C203D500DE3830 /* UDScrollAnimationView.m */,
+				B01D3ED129C2E62500FCE3F1 /* FoodRefreshModel.m */,
 				B0F944F229C203CD00DE3830 /* FoodMainPageCollectionViewCell.h */,
 				B0F944F329C203CE00DE3830 /* FoodMainPageCollectionViewCell.m */,
 				B09676CD29C4CA66003DAFA5 /* FoodHeaderCollectionReusableView.h */,
@@ -6000,7 +6001,6 @@
 				B0F9450829C2056600DE3830 /* FoodHomeModel.h */,
 				B0F9450929C2056600DE3830 /* FoodHomeModel.m */,
 				B01D3ED029C2E62500FCE3F1 /* FoodRefreshModel.h */,
-				B01D3ED129C2E62500FCE3F1 /* FoodRefreshModel.m */,
 				B01D3ED529C2EC8300FCE3F1 /* FoodResultModel.h */,
 				B01D3ED629C2EC8300FCE3F1 /* FoodResultModel.m */,
 				B01D3ED829C2EDF300FCE3F1 /* FoodPraiseModel.h */,

@@ -16,7 +16,7 @@ UIKIT_EXTERN NSString *FoodHeaderCollectionReusableViewCellReuseIdentifier;
 @interface FoodHeaderCollectionReusableView : UICollectionReusableView
 @property (nonatomic, copy) NSString *titleText;
 @property (nonatomic, copy) NSString *otherText;
-@property(nonatomic, strong) UIButton *refreshBtn;
+@property (nonatomic, strong) UIButton *refreshBtn;
 @end
 
 NS_ASSUME_NONNULL_END

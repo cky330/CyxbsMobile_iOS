@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 //美食图片
 @property (nonatomic, copy) NSString *ImgURL;
 //点赞数量
-@property (nonatomic, copy) NSString *praiseNum;
+@property (nonatomic, assign) NSInteger praiseNum;
 //是否已经点赞
 @property (nonatomic, assign) BOOL isPraise;
 

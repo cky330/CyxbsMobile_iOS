@@ -14,13 +14,13 @@
 - (void)getName:(NSString *)name requestSuccess:(void (^)(void))success failure:(void (^)(NSError * _Nonnull))failure{
     
     NSDictionary *paramters = @{
-        @"name":name
+        @"name":@"千喜鹤烤盘饭"
     };
     
     [HttpTool.shareTool
      request:NewQA_POST_FoodPraise_API
      type:HttpToolRequestTypePost
-     serializer:HttpToolRequestSerializerJSON
+     serializer:HttpToolRequestSerializerHTTP
      bodyParameters:paramters
      progress:nil
      success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable object) {
@@ -46,5 +46,18 @@
     }];
     
 }
+
+- (instancetype)initWithDictionary:(NSDictionary *)data {
+    self = [super init];
+    if (self) {
+        self.name = [data[@"name"] stringValue];
+        self.pictureURL = [data[@"picture"] stringValue];
+        self.introduce = [data[@"introduce"] stringValue];
+        self.praise_num = [data[@"praise_num"] intValue];
+        self.praise_is = [data[@"praise_is"] boolValue];
+    }
+    return self;
+}
+
 
 @end

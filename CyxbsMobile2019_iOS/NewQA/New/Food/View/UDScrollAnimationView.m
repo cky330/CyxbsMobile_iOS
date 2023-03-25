@@ -27,15 +27,6 @@
     return self;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    if (self) {
-        [self commonInit];
-        [self prepareAnimations];
-    }
-    return self;
-}
-
 #pragma mark - Public Methods
 
 - (void)reloadView {
@@ -56,7 +47,7 @@
 - (void)commonInit {
     self.duration = 0.8;
     self.isUp = NO;
-    _finalText = @"";
+    self.backgroundColor = UIColor.whiteColor;
     _scrollLayers = [NSMutableArray array];
     _scrollLabels = [NSMutableArray array];
 }
@@ -75,7 +66,7 @@
 
 - (void)configScrollLayers {
     CAScrollLayer *layer = [CAScrollLayer layer];
-    layer.frame = self.frame;
+    layer.frame = self.bounds;
     [_scrollLayers addObject:layer];
     [self.layer addSublayer:layer];
     
@@ -100,7 +91,7 @@
         UILabel *label = [self createLabel:text];
         label.frame = CGRectMake(0, height, CGRectGetWidth(layer.frame), CGRectGetHeight(layer.frame));
 
-        (_labColor) ? (label.backgroundColor = self.labColor) : (label.backgroundColor = UIColor.whiteColor);
+        label.backgroundColor = UIColor.clearColor;
                 
         [layer addSublayer:label.layer];
         // 保存label，防止对象被回收
@@ -161,12 +152,6 @@
 
 - (void)setTextColor:(UIColor *)textColor {
     _textColor = textColor;
-    // 重新加载
-    [self reloadView];
-}
-
-- (void)setLabColor:(UIColor *)labColor {
-    _labColor = labColor;
     // 重新加载
     [self reloadView];
 }

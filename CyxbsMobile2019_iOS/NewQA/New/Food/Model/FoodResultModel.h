@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 //状态码
 @property (nonatomic, assign) NSInteger status;
 
+@property (nonatomic, strong) NSArray <FoodResultModel *>* dataArr;
 ///data中包含的
 //食物名字
 @property (nonatomic, copy) NSString* name;
@@ -27,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 //是否点赞
 @property (nonatomic, assign) bool praise_is;
 
-- (void)getEat_area:(NSArray*)eat_areaArr getEat_num:(NSArray*)eat_numArr getEat_property:(NSArray*)eat_propertyArr requestSuccess:(void (^)(void))success failure:(void (^)(NSError *error))failure;
+- (void)getEat_area:(NSArray *)eat_areaArr getEat_num:(NSString *)eat_numArr getEat_property:(NSArray *)eat_propertyArr requestSuccess:(void (^)(void))success failure:(void (^)(NSError *error))failure;
 
 @end
 

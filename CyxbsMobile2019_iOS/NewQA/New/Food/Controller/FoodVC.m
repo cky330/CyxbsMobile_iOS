@@ -1,4 +1,27 @@
 //
+/*
+ *                                                     __----~~~~~~~~~~~------___
+ *                                    .  .   ~~//====......          __--~ ~~
+ *                    -.            \_|//     |||\\  ~~~~~~::::... /~
+ *                 ___-==_       _-~o~  \/    |||  \\            _/~~-
+ *         __---~~~.==~||\=_    -_--~/_-~|-   |\\   \\        _/~
+ *     _-~~     .=~    |  \\-_    '-~7  /-   /  ||    \      /
+ *   .~       .~       |   \\ -_    /  /-   /   ||      \   /
+ *  /  ____  /         |     \\ ~-_/  /|- _/   .||       \ /
+ *  |~~    ~~|--~~~~--_ \     ~==-/   | \~--===~~        .\
+ *           '         ~-|      /|    |-~\~~       __--~~
+ *                       |-~~-_/ |    |   ~\_   _-~            /\
+ *                            /  \     \__   \/~                \__
+ *                        _--~ _/ | .-~~____--~-/                  ~~==.
+ *                       ((->/~   '.|||' -_|    ~~-/ ,              . _||
+ *                                  -_     ~\      ~~---l__i__i__i--~~_/
+ *                                  _-~-__   ~)  \--______________--~~
+ *                                //.-~~~-~_--~- |-------~~~~~~~~
+ *                                       //.-~~~--\
+ *                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ *
+ *                               神兽保佑            永无BUG
+ */
 //  FoodVC.m
 //  CyxbsMobile2019_iOS
 //
@@ -12,7 +35,6 @@
 #import "FoodHomeModel.h"
 #import "FoodRefreshModel.h"
 #import "FoodResultModel.h"
-#import "FoodPraiseModel.h"
 #import "popUpInformationVC.h"
 #import "popFoodResultVC.h"
 #import "UDScrollAnimationView.h"
@@ -23,8 +45,6 @@ UICollectionViewDataSource,
 UICollectionViewDelegateFlowLayout
 >
 
-//@property (nonatomic, strong) FootViewController *footVC;
-
 /// 头视图
 @property (nonatomic, strong) UIView *topView;
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -33,8 +53,6 @@ UICollectionViewDelegateFlowLayout
 @property (nonatomic, strong) FoodHomeModel *homeModel;
 /// 美食结果模型
 @property (nonatomic, strong) FoodResultModel *resultModel;
-/// 美食点赞模型
-@property (nonatomic, strong) FoodPraiseModel *praiseModel;
 
 /// 返回条
 @property (nonatomic, strong) UIView *goBackView;
@@ -45,13 +63,13 @@ UICollectionViewDelegateFlowLayout
 @property (nonatomic, strong) UIButton *getResultBtn;
 @property (nonatomic, strong) UIButton *getInfoBtn;
 @property (nonatomic, strong) UIButton *getOtherBtn;
-
+@property (nonatomic, strong) NSMutableOrderedSet *foodNumSet;
+@property (nonatomic, assign) NSInteger foodNum;
 @end
 
 @implementation FoodVC{
     NSMutableArray <NSArray *> *_homeMary;
 }
-
 #pragma mark - ViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -181,6 +199,8 @@ UICollectionViewDelegateFlowLayout
 - (void)addFootView {
     [self.view addSubview:self.resultView];
     [self.view addSubview:self.getResultBtn];
+    [self.view addSubview:self.getInfoBtn];
+    [self.view addSubview:self.getOtherBtn];
 }
 
 - (void)layoutSubviews {
@@ -205,17 +225,25 @@ UICollectionViewDelegateFlowLayout
         make.width.equalTo(@91);
     }];
 
-}
-
-- (void)chooseMark:(UIButton *)sender {
-
+    [self.getInfoBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.resultView.mas_bottom).offset(18);
+        make.right.equalTo(self.view.mas_centerX).offset(-6);
+        make.height.equalTo(@34);
+        make.width.equalTo(@91);
+    }];
+    
+    [self.getOtherBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.resultView.mas_bottom).offset(18);
+        make.left.equalTo(self.view.mas_centerX).offset(6);
+        make.height.equalTo(@34);
+        make.width.equalTo(@91);
+    }];
 }
 
 - (NSDictionary *)getSelection {
     FoodMainPageCollectionViewCell *cell = [[FoodMainPageCollectionViewCell alloc] init];
-
     NSMutableArray *areaMarry = [[NSMutableArray alloc] init];
-    NSMutableArray *numMarry = [[NSMutableArray alloc] init];
+    NSString *numStr = [[NSString alloc] init];
     NSMutableArray *propertyMarry = [[NSMutableArray alloc] init];
     for (NSIndexPath *a in self.collectionView.indexPathsForSelectedItems) {
         cell = (FoodMainPageCollectionViewCell *) [self.collectionView cellForItemAtIndexPath:a];
@@ -226,7 +254,8 @@ UICollectionViewDelegateFlowLayout
                 break;
             case 1:
                 NSLog(@"第二行选择了%@",cell.lab.text);
-                [numMarry addObject:cell.lab.text];
+//                [numMarry addObject:cell.lab.text];
+                numStr = cell.lab.text;
                 break;
             case 2:
                 NSLog(@"第三选择了%@",cell.lab.text);
@@ -238,7 +267,7 @@ UICollectionViewDelegateFlowLayout
     }
     NSDictionary *selection = @{
         @"area":areaMarry,
-        @"num":numMarry,
+        @"num":numStr,
         @"property":propertyMarry
     };
     return selection;
@@ -252,7 +281,6 @@ UICollectionViewDelegateFlowLayout
         [self._getAry addObject:refreshModel.eat_propertyAry];
         NSIndexSet *indexSet=[[NSIndexSet alloc]initWithIndex:2];
         [self.collectionView reloadSections:indexSet];
-        self.getResultBtn.hidden = NO;
     } failure:^(NSError * _Nonnull error) {
         NSLog(@"美食特征刷新失败");
     }];
@@ -260,33 +288,58 @@ UICollectionViewDelegateFlowLayout
 
 - (void)getResult {
     NSLog(@"获取随机美食结果");
+    self.getResultBtn.hidden = YES;
+    self.getInfoBtn.hidden = NO;
+    self.getOtherBtn.hidden = NO;
     NSDictionary *selection = [self getSelection];
     [self.resultModel getEat_area:selection[@"area"] getEat_num:selection[@"num"] getEat_property:selection[@"property"] requestSuccess:^{
         if (self.resultModel.status == 10100) {
             [self noFound];
         }else if (self.resultModel.status == 10000){
+            NSLog(@"%lu",(unsigned long)self.resultModel.dataArr.count);
+            NSMutableArray *textArr = [[NSMutableArray alloc] init];
+            for (FoodResultModel *a in self.resultModel.dataArr) {
+                [textArr addObject:a.name];
+            }
+            self.resultView.textArr = textArr;
             //随机数(不重复)
-            NSInteger min = 0;
-            NSInteger max = 9;
-            NSInteger count = max + 1;
+            NSInteger count = self.resultModel.dataArr.count;
             NSMutableOrderedSet *set = [NSMutableOrderedSet orderedSetWithCapacity:count];
             while (set.count < count) {
                 NSInteger value = arc4random() % count;
                 [set addObject:[NSNumber numberWithInteger:value]];
             }
-            
-            [self.resultView reloadView];
-            [self.resultView startAnimation];
+            self.foodNumSet = set;
+            [self getOther];
             self.getResultBtn.hidden = YES;
+            self.getInfoBtn.hidden = NO;
+            self.getOtherBtn.hidden = NO;
         }
     } failure:^(NSError * _Nonnull error) {
         NSLog(@"获取随机美食结果失败");
     }];
 }
 
+- (void)getOther {
+    
+    self.resultView.finalText = @"11";
+
+
+}
+
 - (void)noFound {
     popUpInformationVC *vc = [[popUpInformationVC alloc] init];
     vc.contentText = @"你选择的标签卷卷这里暂时还未收\n录哦！";
+    vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    //填充全屏(原视图不会消失)
+    vc.modalPresentationStyle = UIModalPresentationOverFullScreen;
+    [self.navigationController presentViewController:vc animated:YES completion:nil];
+}
+
+- (void)getInfo {
+    popFoodResultVC *vc = [[popFoodResultVC alloc] init];
+    vc.contentText = @"巴拉巴拉哔哩哔哩巴拉巴拉吧啦啦啦来了来了！";
+//    vc.ImgURL = self.resultModel.dataArr[0].pictureURL;
     vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     //填充全屏(原视图不会消失)
     vc.modalPresentationStyle = UIModalPresentationOverFullScreen;
@@ -386,7 +439,7 @@ UICollectionViewDelegateFlowLayout
 
 //查看更多的方法
 - (void)learnAbout {
-    popFoodResultVC *vc = [[popFoodResultVC alloc] init];
+    popUpInformationVC *vc = [[popUpInformationVC alloc] init];
     vc.contentText = @"美食咨询处的设置，一是为了帮助\n各位选择综合症的邮子们更好的选\n择自己的需要的美食，对选择综合\n症说拜拜！二是为了各位初来学校\n的新生学子更好的体验学校各处的\n美食！按照要求通过标签进行选\n择，卷卷会帮助你选择最符合要求\n的美食哦！";
     vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     //填充全屏(原视图不会消失)
@@ -461,21 +514,14 @@ UICollectionViewDelegateFlowLayout
     return _resultModel;
 }
 
-- (FoodPraiseModel *)praiseModel{
-    if(!_praiseModel) {
-        _praiseModel = [[FoodPraiseModel alloc] init];
-    }
-    return _praiseModel;
-}
-
 - (UDScrollAnimationView *)resultView {
     if(!_resultView) {
-        _resultView = [[UDScrollAnimationView alloc] initWithFrame:CGRectMake(0, 0, 238, 51)];
+        _resultView = [[UDScrollAnimationView alloc] initWithFrame:CGRectMake(0, 0, 238, 51)TextArry:[[NSArray alloc] initWithObjects:@"",nil] FinalText:@""];
         _resultView.layer.cornerRadius = 8;
         _resultView.layer.masksToBounds = YES;
         _resultView.font = [UIFont fontWithName:PingFangSCMedium size:16];
-        _resultView.textColor = [UIColor colorWithRed:0.184 green: 0.314 blue: 0.522 alpha: 1];
-        _resultView.labColor = [UIColor colorWithRed: 0.937 green: 0.957 blue: 1 alpha: 1];
+        _resultView.textColor = [UIColor colorWithHexString:@"#2F5085"];
+        _resultView.backgroundColor = [UIColor colorWithHexString:@"#EFF4FF"];
     }
     return _resultView;
 }
@@ -501,11 +547,31 @@ UICollectionViewDelegateFlowLayout
         //给控件加圆角
         _getInfoBtn.layer.cornerRadius = 16;
         _getInfoBtn.layer.masksToBounds = YES;
-        [_getInfoBtn addTarget:self action:@selector(getResult) forControlEvents:UIControlEventTouchUpInside];
+        [_getInfoBtn addTarget:self action:@selector(getInfo) forControlEvents:UIControlEventTouchUpInside];
         [_getInfoBtn setTitle:@"查看详情" forState:UIControlStateNormal];
-        _getInfoBtn.titleLabel.font = [UIFont fontWithName:PingFangSCMedium size:14];
+        [_getInfoBtn.titleLabel setFont:[UIFont fontWithName:PingFangSCMedium size:14]];
+        _getInfoBtn.hidden = YES;
     }
     return _getInfoBtn;
+}
+
+- (UIButton *)getOtherBtn {
+    if (!_getOtherBtn) {
+        _getOtherBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 91, 34)];
+        //给控件加边框
+        _getOtherBtn.layer.borderWidth = 1;
+        _getOtherBtn.layer.borderColor = [UIColor colorWithHexString:@"#5D5DF7"].CGColor;
+
+        //给控件加圆角
+        _getOtherBtn.layer.cornerRadius = 16;
+        _getOtherBtn.layer.masksToBounds = YES;
+        [_getOtherBtn addTarget:self action:@selector(getOther) forControlEvents:UIControlEventTouchUpInside];
+        [_getOtherBtn setTitle:@"换一个" forState:UIControlStateNormal];
+        [_getOtherBtn.titleLabel setFont:[UIFont fontWithName:PingFangSCMedium size:14]];
+        [_getOtherBtn setTitleColor:[UIColor colorWithHexString:@"#5C5CF6"] forState:UIControlStateNormal];
+        _getOtherBtn.hidden = YES;
+    }
+    return _getOtherBtn;
 }
 
 @end

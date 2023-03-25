@@ -7,11 +7,15 @@
 //
 
 #import "popFoodResultVC.h"
+#import "FoodPraiseModel.h"
 
 @interface popFoodResultVC ()
-
 ///信息说明的contentView，他是一个button，用来保证点击空白处可以取消
-@property (nonatomic, weak) UIButton * informationContentView;
+@property (nonatomic, weak) UIButton *informationContentView;
+@property(nonatomic, strong) UIButton *praiseBtn;
+@property(nonatomic, strong) UILabel *praiseLab;//flag:不可能有6位数的点赞,所以大小直接写死
+/// 美食点赞模型
+@property (nonatomic, strong) FoodPraiseModel *praiseModel;
 
 @end
 
@@ -20,12 +24,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithHexString:@"#FFFFFF" alpha:0];
+    self.foodNameText = @"千喜鹤烤肉饭";
+    self.contentText = @"吃腻了吗！来吃一花哥哥推荐的千喜鹤烤肉饭";
     [self popInformation];
 }
 
-//#pragma mark -弹出信息
+#pragma mark -弹出信息
 - (void)popInformation {
-#pragma mark - 灰色背景板
     //添加灰色背景板
     UIButton * contentView = [[UIButton alloc] initWithFrame:self.view.frame];
     self.informationContentView = contentView;
@@ -39,21 +44,25 @@
     }];
     [contentView addTarget:self action:@selector(cancelLearnAbout) forControlEvents:UIControlEventTouchUpInside];
 
-#pragma mark - 弹窗视图
     UIView *learnView = [[UIView alloc]init];
     //设置圆角
     learnView.layer.cornerRadius = 8;
     learnView.layer.contents = (__bridge id _Nullable)([UIImage imageNamed:@"美食背景"].CGImage);
 
-#pragma mark - 美食图片
-    
     UIImageView *foodImgView = [[UIImageView alloc] init];
-    [foodImgView sd_setImageWithURL:[NSURL URLWithString:self.ImgURL]];
+    foodImgView.image = [UIImage imageNamed:@"美食"];
+    foodImgView.layer.cornerRadius = 8;
+    foodImgView.layer.masksToBounds = YES;
     
-#pragma mark - 美食标题
+    UIImageView *praiseView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"美食点赞"]];
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, 83, 29) byRoundingCorners:UIRectCornerTopLeft | UIRectCornerBottomRight cornerRadii:CGSizeMake(8,8)];
+    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+    maskLayer.frame = CGRectMake(0, 0, 83, 29);
+    maskLayer.path = maskPath.CGPath;
+    praiseView.layer.mask = maskLayer;
+    praiseView.layer.masksToBounds = YES;
     
-    self.foodNameText = @"千喜鹤";
-    
+    self.praiseLab.text = [NSString stringWithFormat:@"%ld", (long)self.praiseNum];
     //标题
     UILabel *foodNameLab = [[UILabel alloc] init];
     foodNameLab.text = self.foodNameText;
@@ -62,7 +71,6 @@
     foodNameLab.frame = CGRectMake(0, 0, 0, 18);
     [foodNameLab sizeToFit];//计算高度
     
-#pragma mark - 内容
     //内容
     UILabel *contentLab = [[UILabel alloc] init];
     contentLab.text = self.contentText;
@@ -73,41 +81,31 @@
     contentLab.frame = CGRectMake(0, 0, 225, 0);
     [contentLab sizeToFit];//计算高度
     
-        
-#pragma mark - 取消按钮
     UIButton *cancelBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 93, 34)];
-    //背景渐变色
-    CAGradientLayer *gl = [CAGradientLayer layer];
-    gl.frame = cancelBtn.bounds;
-    //起点和终点表示的坐标系位置，（0，0)表示左上角，（1，1）表示右下角
-    gl.startPoint = CGPointMake(0, 1);
-    gl.endPoint = CGPointMake(1, 0);
-    gl.colors = @[
-        (__bridge id)[UIColor colorWithHexString:@"#4841E2"].CGColor,
-        (__bridge id)[UIColor colorWithHexString:@"#5D5DF7"].CGColor
-    ];
-    gl.locations = @[@(0),@(1.0f)];
-    [cancelBtn.layer addSublayer: gl];
-    
-    [cancelBtn setTitle:@"点赞" forState:normal];
-    cancelBtn.titleLabel.textColor = [UIColor colorWithHexString:@"#5C5CF6"];
-    cancelBtn.titleLabel.font = [UIFont fontWithName:PingFangSCBold size: 14];
+    //给控件加边框
+    cancelBtn.layer.borderWidth = 1;
+    cancelBtn.layer.borderColor = [UIColor colorWithHexString:@"#5D5DF7"].CGColor;
     cancelBtn.layer.cornerRadius = 16;
     cancelBtn.layer.masksToBounds = YES;
+    [cancelBtn setTitle:@"取消" forState:normal];
+    [cancelBtn setTitleColor:[UIColor colorWithHexString:@"#5C5CF6"] forState:UIControlStateNormal];
+    [cancelBtn.titleLabel setFont:[UIFont fontWithName:PingFangSCBold size: 14]];
     [cancelBtn addTarget:self action:@selector(cancelLearnAbout) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:learnView];
     [learnView addSubview:foodImgView];
+    [foodImgView addSubview:praiseView];
     [learnView addSubview:foodNameLab];
     [learnView addSubview:contentLab];
     [learnView addSubview:cancelBtn];
+    [learnView addSubview:self.praiseBtn];
+    [praiseView addSubview:self.praiseLab];
     
-#pragma mark - 布局
     [learnView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(self.view);
         make.left.equalTo(self.view).offset(60);
         make.right.equalTo(self.view).offset(-60);
-        make.height.equalTo(@(271 + contentLab.size.height));
+        make.height.equalTo(@(293 + contentLab.size.height));
     }];
     
     [foodImgView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -128,16 +126,58 @@
         make.right.equalTo(learnView).offset(-15);
     }];
     
+    [praiseView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(foodImgView);
+        make.left.equalTo(foodImgView);
+        make.height.equalTo(@29);
+        make.width.equalTo(@83);
+    }];
+    
     [cancelBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(learnView);
-        make.top.equalTo(contentLab.mas_bottom);
+        make.right.equalTo(learnView.mas_centerX).offset(-6);
+        make.top.equalTo(contentLab.mas_bottom).offset(22);
         make.width.equalTo(@93);
         make.height.equalTo(@34);
     }];
     
+    [_praiseBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(learnView.mas_centerX).offset(6);
+        make.top.equalTo(contentLab.mas_bottom).offset(22);
+        make.width.equalTo(@93);
+        make.height.equalTo(@34);
+    }];
+    
+    [_praiseLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(praiseView).offset(33);
+        make.top.equalTo(praiseView).offset(2);
+        make.width.equalTo(@47);
+        make.height.equalTo(@25);
+    }];
 }
 
-#pragma mark - Lazy
+- (UIButton *)praiseBtn {
+    if (!_praiseBtn) {
+        _praiseBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 93, 34)];
+        _praiseBtn.layer.cornerRadius = 16;
+        _praiseBtn.layer.masksToBounds = YES;
+        
+        [_praiseBtn setTitle:@"点赞" forState:normal];
+        [_praiseBtn.titleLabel setFont:[UIFont fontWithName:PingFangSCBold size: 14]];
+        [_praiseBtn addTarget:self action:@selector(praiseFood) forControlEvents:UIControlEventTouchUpInside];
+    }
+
+    return _praiseBtn;
+}
+
+- (void)praiseFood {
+    self.praiseNum++;
+    [self.praiseModel getName:_foodNameText requestSuccess:^{
+//        self.praiseNum = self.praiseModel.praise_num;
+    } failure:^(NSError * _Nonnull error) {
+        NSLog(@"美食点赞失败");
+    }];
+}
+
 - (void)cancelLearnAbout {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -154,7 +194,37 @@
     _ImgURL = ImgURL;
 }
 
-- (void)setPraiseNum:(NSString *)praiseNum {
+- (void)setPraiseNum:(NSInteger)praiseNum {
     _praiseNum = praiseNum;
+    _praiseLab.text = [NSString stringWithFormat:@"%ld",(long)praiseNum];;
 }
+
+- (void)setIsPraise:(BOOL)isPraise {
+    _isPraise = isPraise;
+    if (_isPraise) {
+        _praiseBtn.backgroundColor = [UIColor colorWithHexString:@"#C3D4EE"];
+        [_praiseBtn removeAllTargets];
+    }else {
+        _praiseBtn.backgroundColor = UIColor.blueColor;
+        [_praiseBtn addTarget:self action:@selector(praiseFood) forControlEvents:UIControlEventTouchUpInside];
+    }
+}
+
+- (UILabel *)praiseLab {
+    if(!_praiseLab) {
+        _praiseLab = [[UILabel alloc] init];
+        _praiseLab.font = [UIFont fontWithName:PingFangSCMedium size:14];
+        _praiseLab.textColor = [UIColor colorWithHexString:@"#FFFFFF"];
+        _praiseLab.textAlignment = NSTextAlignmentCenter;
+    }
+    return _praiseLab;
+}
+
+- (FoodPraiseModel *)praiseModel {
+    if(!_praiseModel) {
+        _praiseModel = [[FoodPraiseModel alloc] init];
+    }
+    return _praiseModel;
+}
+
 @end
