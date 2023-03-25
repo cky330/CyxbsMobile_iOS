@@ -535,6 +535,7 @@
 		B01D3ED729C2EC8300FCE3F1 /* FoodResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B01D3ED629C2EC8300FCE3F1 /* FoodResultModel.m */; };
 		B01D3EDA29C2EDF300FCE3F1 /* FoodPraiseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B01D3ED929C2EDF300FCE3F1 /* FoodPraiseModel.m */; };
 		B01D3EDD29C2FD0600FCE3F1 /* popUpInformationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B01D3EDC29C2FD0600FCE3F1 /* popUpInformationVC.m */; };
+		B02410A529CEDB5800F25758 /* FoodDetailsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B02410A429CEDB5800F25758 /* FoodDetailsModel.m */; };
 		B030B362299BE99A0035B500 /* AmusementParkVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B030B361299BE99A0035B500 /* AmusementParkVC.m */; };
 		B030B368299BF1590035B500 /* FoodVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B030B367299BF1590035B500 /* FoodVC.m */; };
 		B033366E294C971D004D141D /* HttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = B033366D294C971D004D141D /* HttpTool.m */; };
@@ -1772,6 +1773,8 @@
 		B01D3ED929C2EDF300FCE3F1 /* FoodPraiseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoodPraiseModel.m; sourceTree = "<group>"; };
 		B01D3EDB29C2FD0600FCE3F1 /* popUpInformationVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = popUpInformationVC.h; sourceTree = "<group>"; };
 		B01D3EDC29C2FD0600FCE3F1 /* popUpInformationVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = popUpInformationVC.m; sourceTree = "<group>"; };
+		B02410A329CEDB5800F25758 /* FoodDetailsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoodDetailsModel.h; sourceTree = "<group>"; };
+		B02410A429CEDB5800F25758 /* FoodDetailsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoodDetailsModel.m; sourceTree = "<group>"; };
 		B030B360299BE99A0035B500 /* AmusementParkVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AmusementParkVC.h; sourceTree = "<group>"; };
 		B030B361299BE99A0035B500 /* AmusementParkVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AmusementParkVC.m; sourceTree = "<group>"; };
 		B030B366299BF1590035B500 /* FoodVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoodVC.h; sourceTree = "<group>"; };
@@ -5986,7 +5989,6 @@
 			children = (
 				B0F944F529C203D400DE3830 /* UDScrollAnimationView.h */,
 				B0F944F629C203D500DE3830 /* UDScrollAnimationView.m */,
-				B01D3ED129C2E62500FCE3F1 /* FoodRefreshModel.m */,
 				B0F944F229C203CD00DE3830 /* FoodMainPageCollectionViewCell.h */,
 				B0F944F329C203CE00DE3830 /* FoodMainPageCollectionViewCell.m */,
 				B09676CD29C4CA66003DAFA5 /* FoodHeaderCollectionReusableView.h */,
@@ -6001,10 +6003,13 @@
 				B0F9450829C2056600DE3830 /* FoodHomeModel.h */,
 				B0F9450929C2056600DE3830 /* FoodHomeModel.m */,
 				B01D3ED029C2E62500FCE3F1 /* FoodRefreshModel.h */,
+				B01D3ED129C2E62500FCE3F1 /* FoodRefreshModel.m */,
 				B01D3ED529C2EC8300FCE3F1 /* FoodResultModel.h */,
 				B01D3ED629C2EC8300FCE3F1 /* FoodResultModel.m */,
 				B01D3ED829C2EDF300FCE3F1 /* FoodPraiseModel.h */,
 				B01D3ED929C2EDF300FCE3F1 /* FoodPraiseModel.m */,
+				B02410A329CEDB5800F25758 /* FoodDetailsModel.h */,
+				B02410A429CEDB5800F25758 /* FoodDetailsModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -7201,6 +7206,7 @@
 				14CED37E288A594600BADA8B /* RisingRouterResponse.m in Sources */,
 				7311328926CCEC2400EF88C1 /* PopupView.m in Sources */,
 				AA0DDB7B286C8B1A00802324 /* PMPInfoModel.m in Sources */,
+				B02410A529CEDB5800F25758 /* FoodDetailsModel.m in Sources */,
 				AA0DDB64286C8B1A00802324 /* SQLCodeCreater.m in Sources */,
 				1A15DF97238D03B3005E0843 /* CheckInContentView.m in Sources */,
 				AA7ABAF12873EA6D00BA6790 /* DynamicDetailCommentTableCellModel.m in Sources */,

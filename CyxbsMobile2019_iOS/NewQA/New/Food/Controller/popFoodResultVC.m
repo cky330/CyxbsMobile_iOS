@@ -24,8 +24,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithHexString:@"#FFFFFF" alpha:0];
-    self.foodNameText = @"千喜鹤烤肉饭";
-    self.contentText = @"吃腻了吗！来吃一花哥哥推荐的千喜鹤烤肉饭";
+//    self.foodNameText = @"千喜鹤烤肉饭";
+//    self.contentText = @"吃腻了吗！来吃一花哥哥推荐的千喜鹤烤肉饭";
     [self popInformation];
 }
 
@@ -50,7 +50,8 @@
     learnView.layer.contents = (__bridge id _Nullable)([UIImage imageNamed:@"美食背景"].CGImage);
 
     UIImageView *foodImgView = [[UIImageView alloc] init];
-    foodImgView.image = [UIImage imageNamed:@"美食"];
+//    foodImgView.image = [UIImage imageNamed:@"美食"];
+    [foodImgView sd_setImageWithURL:[NSURL URLWithString:self.ImgURL]];
     foodImgView.layer.cornerRadius = 8;
     foodImgView.layer.masksToBounds = YES;
     
@@ -172,7 +173,10 @@
 - (void)praiseFood {
     self.praiseNum++;
     [self.praiseModel getName:_foodNameText requestSuccess:^{
-//        self.praiseNum = self.praiseModel.praise_num;
+        if (self.praiseModel.status == 10000){
+            self.praiseNum = self.praiseModel.praise_num;
+            self.isPraise = self.praiseModel.praise_is;
+        }
     } failure:^(NSError * _Nonnull error) {
         NSLog(@"美食点赞失败");
     }];
@@ -196,17 +200,17 @@
 
 - (void)setPraiseNum:(NSInteger)praiseNum {
     _praiseNum = praiseNum;
-    _praiseLab.text = [NSString stringWithFormat:@"%ld",(long)praiseNum];;
+    self.praiseLab.text = [NSString stringWithFormat:@"%ld",(long)praiseNum];;
 }
 
 - (void)setIsPraise:(BOOL)isPraise {
     _isPraise = isPraise;
     if (_isPraise) {
-        _praiseBtn.backgroundColor = [UIColor colorWithHexString:@"#C3D4EE"];
+        self.praiseBtn.backgroundColor = [UIColor colorWithHexString:@"#C3D4EE"];
         [_praiseBtn removeAllTargets];
     }else {
-        _praiseBtn.backgroundColor = UIColor.blueColor;
-        [_praiseBtn addTarget:self action:@selector(praiseFood) forControlEvents:UIControlEventTouchUpInside];
+        self.praiseBtn.backgroundColor = [UIColor colorWithHexString:@"#4A44E4"];
+        [self.praiseBtn addTarget:self action:@selector(praiseFood) forControlEvents:UIControlEventTouchUpInside];
     }
 }
 

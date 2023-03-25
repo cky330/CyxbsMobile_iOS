@@ -29,26 +29,12 @@
         NSLog(@"🟢%@:\n%@", self.class, object);
         self.status = [object[@"status"] intValue];
         if (self.status == 10000) {
-//            "data": [
-//                   {
-//                       "Picture": "https://www.baidu.com/img/bd_logo1.png",
-//                       "Introduce": "在校内为数不多拥有烧烤风味的食物！",
-//                       "PraiseNum": 111,
-//                       "FoodName": "千喜鹤烤盘饭",
-//                       "PraiseIs": false
-//                   }
-//               ]
             //数组<里面全是字典>
             NSArray <NSDictionary *> *data = object[@"data"];
-            NSMutableArray <FoodResultModel *> *ma = NSMutableArray.array;
-            for (NSDictionary *a in data) {
-                FoodResultModel *result = [[FoodResultModel alloc] init];
-                result.name = [a[@"FoodName"] stringValue];
-                result.pictureURL = [a[@"Picture"] stringValue];
-                result.introduce = [a[@"Introduce"] stringValue];
-                result.praise_num = [a[@"PraiseNum"] intValue];
-                result.praise_is = [a[@"Praisels"] boolValue];
-                [ma addObject:result];
+            NSMutableArray <FoodDetailsModel *> *ma = NSMutableArray.array;
+            for (NSDictionary *dic in data ) {
+                FoodDetailsModel *foodModel = [[FoodDetailsModel alloc] initWithDictionary:dic];
+                [ma addObject:foodModel];
             }
             self.dataArr = ma.copy;
         }

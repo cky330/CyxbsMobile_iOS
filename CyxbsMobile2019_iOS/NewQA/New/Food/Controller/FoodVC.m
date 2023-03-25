@@ -35,6 +35,7 @@
 #import "FoodHomeModel.h"
 #import "FoodRefreshModel.h"
 #import "FoodResultModel.h"
+#import "FoodDetailsModel.h"
 #import "popUpInformationVC.h"
 #import "popFoodResultVC.h"
 #import "UDScrollAnimationView.h"
@@ -288,20 +289,17 @@ UICollectionViewDelegateFlowLayout
 
 - (void)getResult {
     NSLog(@"获取随机美食结果");
-    self.getResultBtn.hidden = YES;
-    self.getInfoBtn.hidden = NO;
-    self.getOtherBtn.hidden = NO;
     NSDictionary *selection = [self getSelection];
     [self.resultModel getEat_area:selection[@"area"] getEat_num:selection[@"num"] getEat_property:selection[@"property"] requestSuccess:^{
         if (self.resultModel.status == 10100) {
             [self noFound];
         }else if (self.resultModel.status == 10000){
-            NSLog(@"%lu",(unsigned long)self.resultModel.dataArr.count);
+            NSLog(@"一共有%lu个食物",(unsigned long)self.resultModel.dataArr.count);
             NSMutableArray *textArr = [[NSMutableArray alloc] init];
-            for (FoodResultModel *a in self.resultModel.dataArr) {
+            for (FoodDetailsModel *a in self.resultModel.dataArr) {
                 [textArr addObject:a.name];
             }
-            self.resultView.textArr = textArr;
+            self.resultView.textArr = textArr;//滚动数组
             //随机数(不重复)
             NSInteger count = self.resultModel.dataArr.count;
             NSMutableOrderedSet *set = [NSMutableOrderedSet orderedSetWithCapacity:count];
@@ -321,10 +319,28 @@ UICollectionViewDelegateFlowLayout
 }
 
 - (void)getOther {
+    if (self.foodNumSet.firstObject){
+        self.foodNum = [self.foodNumSet.firstObject intValue];
+        self.resultView.finalText = self.resultModel.dataArr[self.foodNum].name;
+        [self.resultView startAnimation];
+        [self.foodNumSet removeObject:self.foodNumSet.firstObject];
+    }else {
+        [self foodOut];
+    }
+}
+
+- (void)getInfo {
+    popFoodResultVC *vc = [[popFoodResultVC alloc] init];
+    vc.foodNameText = self.resultModel.dataArr[self.foodNum].name;
+    vc.contentText = self.resultModel.dataArr[self.foodNum].introduce;
+    vc.ImgURL = self.resultModel.dataArr[self.foodNum].pictureURL;
+    vc.praiseNum = self.resultModel.dataArr[self.foodNum].praise_num;
+    vc.isPraise = self.resultModel.dataArr[self.foodNum].praise_is;
     
-    self.resultView.finalText = @"11";
-
-
+    vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    //填充全屏(原视图不会消失)
+    vc.modalPresentationStyle = UIModalPresentationOverFullScreen;
+    [self.navigationController presentViewController:vc animated:YES completion:nil];
 }
 
 - (void)noFound {
@@ -336,10 +352,9 @@ UICollectionViewDelegateFlowLayout
     [self.navigationController presentViewController:vc animated:YES completion:nil];
 }
 
-- (void)getInfo {
-    popFoodResultVC *vc = [[popFoodResultVC alloc] init];
-    vc.contentText = @"巴拉巴拉哔哩哔哩巴拉巴拉吧啦啦啦来了来了！";
-//    vc.ImgURL = self.resultModel.dataArr[0].pictureURL;
+- (void)foodOut {
+    popUpInformationVC *vc = [[popUpInformationVC alloc] init];
+    vc.contentText = @"如果还没找到你喜欢的美食，可以\n尝试多选一些关键词哦！";
     vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     //填充全屏(原视图不会消失)
     vc.modalPresentationStyle = UIModalPresentationOverFullScreen;
