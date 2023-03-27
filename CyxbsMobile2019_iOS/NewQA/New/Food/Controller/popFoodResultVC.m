@@ -171,7 +171,6 @@
 }
 
 - (void)praiseFood {
-    self.praiseNum++;
     [self.praiseModel getName:_foodNameText requestSuccess:^{
         if (self.praiseModel.status == 10000){
             self.praiseNum = self.praiseModel.praise_num;
