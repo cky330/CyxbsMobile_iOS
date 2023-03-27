@@ -23,6 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 //是否已经点赞
 @property (nonatomic, assign) BOOL isPraise;
 
+@property void (^block1) (NSString *foodNameText,  BOOL isPraise);
+
 @end
 
 NS_ASSUME_NONNULL_END

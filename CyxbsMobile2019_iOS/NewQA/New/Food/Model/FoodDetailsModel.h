@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 //点赞次数
 @property (nonatomic, assign) NSInteger praise_num;
 //是否点赞
-@property (nonatomic, assign) bool praise_is;
+@property (nonatomic, assign) BOOL praise_is;
 
 - (instancetype)init NS_UNAVAILABLE;
 

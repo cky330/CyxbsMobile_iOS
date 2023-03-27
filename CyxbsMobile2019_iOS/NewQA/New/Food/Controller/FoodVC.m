@@ -331,6 +331,9 @@ UICollectionViewDelegateFlowLayout
 
 - (void)getInfo {
     popFoodResultVC *vc = [[popFoodResultVC alloc] init];
+    vc.block1 = ^(NSString * _Nonnull foodNameText, BOOL isPraise) {
+        self.resultModel.dataArr[self.foodNum].praise_is = isPraise;
+    };
     vc.foodNameText = self.resultModel.dataArr[self.foodNum].name;
     vc.contentText = self.resultModel.dataArr[self.foodNum].introduce;
     vc.ImgURL = self.resultModel.dataArr[self.foodNum].pictureURL;

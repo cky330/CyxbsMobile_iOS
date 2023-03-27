@@ -176,6 +176,7 @@
         if (self.praiseModel.status == 10000){
             self.praiseNum = self.praiseModel.praise_num;
             self.isPraise = self.praiseModel.praise_is;
+            self->_block1(self.foodNameText, self.isPraise);
         }
     } failure:^(NSError * _Nonnull error) {
         NSLog(@"美食点赞失败");

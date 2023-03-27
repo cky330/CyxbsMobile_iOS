@@ -17,7 +17,7 @@
         self.pictureURL = [dic valueForKey:@"Picture"];
         self.introduce = [dic valueForKey:@"Introduce"];
         self.praise_num = [dic intValueForKey:@"PraiseNum" default:0];
-        self.praise_is = [dic valueForKey:@"Praisels"];
+        self.praise_is = [dic boolValueForKey:@"PraiseIs" default:NO];
     }
     return self;
 }
