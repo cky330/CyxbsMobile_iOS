@@ -6,17 +6,16 @@
 //  Copyright © 2023 Redrock. All rights reserved.
 //
 
-#import "FoodResultModel.h"
 #import "FoodHeader.h"
+#import "FoodResultModel.h"
 
 @implementation FoodResultModel
 
-- (void)getEat_area:(NSArray *)eat_areaArr getEat_num:(NSString *)eat_numArr getEat_property:(NSArray *)eat_propertyArr requestSuccess:(void (^)(void))success failure:(void (^)(NSError * _Nonnull))failure{
-    
+- (void)getEat_area:(NSArray *)eat_areaArr getEat_num:(NSString *)eat_numArr getEat_property:(NSArray *)eat_propertyArr requestSuccess:(void (^)(void))success failure:(void (^)(NSError *_Nonnull))failure {
     NSDictionary *paramters = @{
-        @"eat_area":eat_areaArr,
-        @"eat_num":eat_numArr,
-        @"eat_property":eat_propertyArr
+            @"eat_area": eat_areaArr,
+            @"eat_num": eat_numArr,
+            @"eat_property": eat_propertyArr
     };
     
     [HttpTool.shareTool
@@ -31,8 +30,9 @@
         if (self.status == 10000) {
             //数组<里面全是字典>
             NSArray <NSDictionary *> *data = object[@"data"];
+            NSSet <NSDictionary *> *set = [NSSet setWithArray:data];
             NSMutableArray <FoodDetailsModel *> *ma = NSMutableArray.array;
-            for (NSDictionary *dic in data ) {
+            for (NSDictionary *dic in set) {
                 FoodDetailsModel *foodModel = [[FoodDetailsModel alloc] initWithDictionary:dic];
                 [ma addObject:foodModel];
             }

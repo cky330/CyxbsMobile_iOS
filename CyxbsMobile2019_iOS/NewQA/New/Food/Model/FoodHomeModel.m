@@ -6,8 +6,8 @@
 //  Copyright © 2023 Redrock. All rights reserved.
 //
 
-#import "FoodHomeModel.h"
 #import "FoodHeader.h"
+#import "FoodHomeModel.h"
 
 @implementation FoodHomeModel
 
@@ -16,7 +16,7 @@
     return self;
 }
 
-- (void)requestSuccess:(void (^)(void))success failure:(void (^)(NSError * _Nonnull))failure{
+- (void)requestSuccess:(void (^)(void))success failure:(void (^)(NSError *_Nonnull))failure {
     [HttpTool.shareTool
      request:NewQA_GET_FoodHomePage_API
      type:HttpToolRequestTypeGet

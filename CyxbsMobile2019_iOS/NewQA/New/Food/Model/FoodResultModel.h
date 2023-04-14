@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 //状态码
 @property (nonatomic, assign) NSInteger status;
 
-@property (nonatomic, strong, nonnull) NSArray <FoodDetailsModel *>* dataArr;
+@property (nonatomic, strong, nonnull) NSArray <FoodDetailsModel *> *dataArr;
 
 - (void)getEat_area:(NSArray *)eat_areaArr getEat_num:(NSString *)eat_numArr getEat_property:(NSArray *)eat_propertyArr requestSuccess:(void (^)(void))success failure:(void (^)(NSError *error))failure;
 

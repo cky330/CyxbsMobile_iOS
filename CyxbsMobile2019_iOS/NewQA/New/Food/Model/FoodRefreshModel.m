@@ -6,16 +6,17 @@
 //  Copyright © 2023 Redrock. All rights reserved.
 //
 
-#import "FoodRefreshModel.h"
 #import "FoodHeader.h"
+#import "FoodRefreshModel.h"
 
 @implementation FoodRefreshModel
 
-- (void)getEat_area:(NSArray *)eat_areaArr getEat_num:(NSArray *)eat_numArr requestSuccess:(void (^)(void))success failure:(void (^)(NSError * _Nonnull))failure{
+- (void)getEat_area:(NSArray *)eat_areaArr getEat_num:(NSArray *)eat_numArr requestSuccess:(void (^)(void))success failure:(void (^)(NSError *_Nonnull))failure {
     NSDictionary *paramters = @{
-        @"eat_area":eat_areaArr,
-        @"eat_num":eat_numArr};
-    
+            @"eat_area": eat_areaArr,
+            @"eat_num": eat_numArr
+    };
+
     [HttpTool.shareTool
      request:NewQA_POST_FoodRefresh_API
      type:HttpToolRequestTypePost
@@ -40,4 +41,5 @@
         }
     }];
 }
+
 @end

@@ -6,17 +6,16 @@
 //  Copyright © 2023 Redrock. All rights reserved.
 //
 
-#import "FoodPraiseModel.h"
 #import "FoodHeader.h"
+#import "FoodPraiseModel.h"
 
 @implementation FoodPraiseModel
 
-- (void)getName:(NSString *)name requestSuccess:(void (^)(void))success failure:(void (^)(NSError * _Nonnull))failure{
-    
+- (void)getName:(NSString *)name requestSuccess:(void (^)(void))success failure:(void (^)(NSError *_Nonnull))failure {
     NSDictionary *paramters = @{
-        @"name":@"千喜鹤烤盘饭"
+            @"name": @"千喜鹤烤盘饭"
     };
-    
+
     [HttpTool.shareTool
      request:NewQA_POST_FoodPraise_API
      type:HttpToolRequestTypePost
@@ -44,7 +43,6 @@
             failure(error);
         }
     }];
-    
 }
 
 - (instancetype)initWithDictionary:(NSDictionary *)data {
@@ -58,6 +56,5 @@
     }
     return self;
 }
-
 
 @end

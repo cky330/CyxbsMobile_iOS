@@ -18,13 +18,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 ///data中包含的
 //图片URL
-@property (nonatomic, copy) NSString* pictureURL;
+@property (nonatomic, copy) NSString *pictureURL;
 //就餐区域
-@property (nonatomic, copy) NSArray* eat_areaAry;
+@property (nonatomic, copy) NSArray *eat_areaAry;
 //就餐人数
-@property (nonatomic, copy) NSArray* eat_numAry;
+@property (nonatomic, copy) NSArray *eat_numAry;
 //餐饮特征，返回数量固定八个
-@property (nonatomic, copy) NSArray* eat_propertyAry;
+@property (nonatomic, copy) NSArray *eat_propertyAry;
 
 /// Item数据传递
 //@property (nonatomic, strong, nonnull) SportAttendanceItemModel *sAItemModel;

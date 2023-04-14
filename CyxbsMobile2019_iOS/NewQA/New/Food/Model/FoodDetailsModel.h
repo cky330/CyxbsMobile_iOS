@@ -14,11 +14,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 ///data中包含的
 //食物名字
-@property (nonatomic, copy) NSString* name;
+@property (nonatomic, copy) NSString *name;
 //图片URL
-@property (nonatomic, copy) NSString* pictureURL;
+@property (nonatomic, copy) NSString *pictureURL;
 //食物介绍
-@property (nonatomic, copy) NSString* introduce;
+@property (nonatomic, copy) NSString *introduce;
 //点赞次数
 @property (nonatomic, assign) NSInteger praise_num;
 //是否点赞
