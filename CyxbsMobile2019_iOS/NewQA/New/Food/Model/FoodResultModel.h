@@ -18,7 +18,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong, nonnull) NSArray <FoodDetailsModel *> *dataArr;
 
-- (void)getEat_area:(NSArray *)eat_areaArr getEat_num:(NSString *)eat_numArr getEat_property:(NSArray *)eat_propertyArr requestSuccess:(void (^)(void))success failure:(void (^)(NSError *error))failure;
+- (void)getEat_area:(NSArray *)eat_areaArr
+         getEat_num:(NSString *)eat_numArr
+    getEat_property:(NSArray *)eat_propertyArr
+     requestSuccess:(void (^)(void))success failure:(void (^)(NSError *error))failure;
 
 @end
 

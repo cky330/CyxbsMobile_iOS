@@ -40,6 +40,8 @@
 #import "popFoodResultVC.h"
 #import "UDScrollAnimationView.h"
 
+#define singleFoodDuration 0.18//单个食物滚动时间
+
 @interface FoodVC ()<
 UICollectionViewDelegate,
 UICollectionViewDataSource,
@@ -293,7 +295,7 @@ UICollectionViewDelegateFlowLayout
         } else if (self.resultModel.status == 10000) {
             NSLog(@"一共有%lu个食物", (unsigned long)self.resultModel.dataArr.count);
             //根据个数确定滚动总时长
-            self.resultView.duration = self.resultModel.dataArr.count * 0.2;
+            self.resultView.duration = self.resultModel.dataArr.count * singleFoodDuration;
             NSMutableArray *textArr = [[NSMutableArray alloc] init];
             for (FoodDetailsModel *a in self.resultModel.dataArr) {
                 [textArr addObject:a.name];
@@ -378,6 +380,7 @@ UICollectionViewDelegateFlowLayout
     gl.locations = @[@(0), @(1.0f)];
     return gl;
 }
+
 #pragma mark - 自定义返回条
 //自定义的Tabbar
 - (void)addGoBackView {
@@ -463,6 +466,7 @@ UICollectionViewDelegateFlowLayout
     vc.modalPresentationStyle = UIModalPresentationOverFullScreen;
     [self.navigationController presentViewController:vc animated:YES completion:nil];
 }
+
 #pragma mark - Lazy
 - (NSMutableArray <NSArray *> *)_getAry {
     if (!_homeMary) {

@@ -4681,13 +4681,6 @@
 			path = "GenericClass  ";
 			sourceTree = "<group>";
 		};
-		7A64BFF22892826F007CCB1E /* Source */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Source;
-			sourceTree = "<group>";
-		};
 		7AA4C46A288F809D00E204C8 /* Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -5799,7 +5792,6 @@
 		B030B35B299BE8BA0035B500 /* Old */ = {
 			isa = PBXGroup;
 			children = (
-				7A64BFF22892826F007CCB1E /* Source */,
 				AA7ABA2D2873EA5300BA6790 /* NewQAMainView */,
 				AA7ABAC72873EA6D00BA6790 /* DynamicDetail */,
 				AA7ABA0B2873EA4100BA6790 /* ReleaseDynamic */,
