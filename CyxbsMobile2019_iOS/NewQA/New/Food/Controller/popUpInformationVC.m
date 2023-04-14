@@ -48,7 +48,7 @@
     contentLab.textAlignment = NSTextAlignmentCenter;
     contentLab.textColor = [UIColor colorWithHexString:@"#15315B" alpha:0.6];
     contentLab.frame = CGRectMake(0, 0, 219, 0);
-    [contentLab sizeToFit];//计算高度
+    [contentLab sizeToFit];    //计算高度
 
     UIView *learnView = [[UIView alloc]init];
     //设置圆角
