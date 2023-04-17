@@ -413,7 +413,7 @@ UICollectionViewDelegateFlowLayout
     [self.goBackView addSubview:titleLabel];
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view).offset(37);
-        make.top.equalTo(self.goBackView).offset(TOTAL_TOP_HEIGHT / 1.85);
+        make.top.equalTo(self.goBackView).offset(IS_IPHONEX ? TOTAL_TOP_HEIGHT / 1.75 : TOTAL_TOP_HEIGHT / 2);
     }];
     titleLabel.textColor = [UIColor colorWithHexString:@"#15315B" alpha:1];
 
