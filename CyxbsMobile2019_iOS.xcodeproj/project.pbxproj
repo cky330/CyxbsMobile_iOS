@@ -123,7 +123,6 @@
 		18CDF6A3257F91BD006E8E5C /* CQUPTMapDetailTagsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CDF57A257F91BD006E8E5C /* CQUPTMapDetailTagsCollectionViewCell.m */; };
 		18CDF6A4257F91BD006E8E5C /* CollectionViewSpaceLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CDF57E257F91BD006E8E5C /* CollectionViewSpaceLayout.m */; };
 		18CDF6A5257F91BD006E8E5C /* CQUPTMapDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CDF57F257F91BD006E8E5C /* CQUPTMapDetailView.m */; };
-		18CDF6C7257F91BE006E8E5C /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CDF5CB257F91BD006E8E5C /* CalendarViewController.m */; };
 		18CDF721257F91BE006E8E5C /* FinderToolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CDF65D257F91BD006E8E5C /* FinderToolViewController.m */; };
 		18CDF722257F91BE006E8E5C /* FinderToolViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CDF660257F91BD006E8E5C /* FinderToolViewItem.m */; };
 		18FE64F625FDA186008748AE /* UIControl+MGD.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FE64F525FDA186008748AE /* UIControl+MGD.m */; };
@@ -539,6 +538,7 @@
 		DB4065032466D889006CE5BC /* DLReminderView.m in Sources */ = {isa = PBXBuildFile; fileRef = DB4064F42466D888006CE5BC /* DLReminderView.m */; };
 		EE131C212471362E00B6ED97 /* URLController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE131C202471362E00B6ED97 /* URLController.m */; };
 		EE899DEA2367DB2600DDB0D9 /* Bahnschrift.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE899DDE2367D89900DDB0D9 /* Bahnschrift.ttf */; };
+		FCB61B9F2A721537004AF444 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB61B9E2A721537004AF444 /* CalendarViewController.swift */; };
 		FE0D60442801702B00319A9E /* SchoolBusData.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0D603A2801702B00319A9E /* SchoolBusData.m */; };
 		FE0D60452801702B00319A9E /* SchoolBusVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0D603C2801702B00319A9E /* SchoolBusVC.m */; };
 		FE0D60462801702B00319A9E /* SchoolBusBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0D60402801702B00319A9E /* SchoolBusBottomView.m */; };
@@ -819,8 +819,6 @@
 		18CDF57D257F91BD006E8E5C /* CQUPTMapDetailTagsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQUPTMapDetailTagsCollectionViewCell.h; sourceTree = "<group>"; };
 		18CDF57E257F91BD006E8E5C /* CollectionViewSpaceLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewSpaceLayout.m; sourceTree = "<group>"; };
 		18CDF57F257F91BD006E8E5C /* CQUPTMapDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CQUPTMapDetailView.m; sourceTree = "<group>"; };
-		18CDF5CA257F91BD006E8E5C /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
-		18CDF5CB257F91BD006E8E5C /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
 		18CDF65C257F91BD006E8E5C /* FinderToolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinderToolViewController.h; sourceTree = "<group>"; };
 		18CDF65D257F91BD006E8E5C /* FinderToolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinderToolViewController.m; sourceTree = "<group>"; };
 		18CDF65F257F91BD006E8E5C /* FinderToolViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinderToolViewItem.h; sourceTree = "<group>"; };
@@ -1059,7 +1057,6 @@
 		7AA4C4712891230900E204C8 /* ChangePasswordHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangePasswordHeader.h; sourceTree = "<group>"; };
 		7AA4C4722891237600E204C8 /* StampCenterHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StampCenterHeader.h; sourceTree = "<group>"; };
 		7AA4C473289123B700E204C8 /* FeedBackCenterHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedBackCenterHeader.h; sourceTree = "<group>"; };
-		7AA4C47628921BF400E204C8 /* SchoolCalendarHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SchoolCalendarHeader.h; sourceTree = "<group>"; };
 		7AA4C47E2892206200E204C8 /* SchoolBusHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SchoolBusHeader.h; sourceTree = "<group>"; };
 		7AA4C480289220CE00E204C8 /* ADHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADHeader.h; sourceTree = "<group>"; };
 		7AA4C4842892217100E204C8 /* MapHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapHeader.h; sourceTree = "<group>"; };
@@ -1666,6 +1663,7 @@
 		EE131C202471362E00B6ED97 /* URLController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = URLController.m; sourceTree = "<group>"; };
 		EE899DDE2367D89900DDB0D9 /* Bahnschrift.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bahnschrift.ttf; sourceTree = "<group>"; };
 		F1ED110FF9C783A1A3234FBE /* Pods-CyxbsMobile2019_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CyxbsMobile2019_iOS.release.xcconfig"; path = "Target Support Files/Pods-CyxbsMobile2019_iOS/Pods-CyxbsMobile2019_iOS.release.xcconfig"; sourceTree = "<group>"; };
+		FCB61B9E2A721537004AF444 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		FE0D60392801702B00319A9E /* SchoolBusData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolBusData.h; sourceTree = "<group>"; };
 		FE0D603A2801702B00319A9E /* SchoolBusData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolBusData.m; sourceTree = "<group>"; };
 		FE0D603C2801702B00319A9E /* SchoolBusVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolBusVC.m; sourceTree = "<group>"; };
@@ -2857,8 +2855,7 @@
 		18CDF5C9257F91BD006E8E5C /* Discover_SchoolCalendar */ = {
 			isa = PBXGroup;
 			children = (
-				18CDF5CA257F91BD006E8E5C /* CalendarViewController.h */,
-				18CDF5CB257F91BD006E8E5C /* CalendarViewController.m */,
+				FCB61B9E2A721537004AF444 /* CalendarViewController.swift */,
 			);
 			path = Discover_SchoolCalendar;
 			sourceTree = "<group>";
@@ -3829,7 +3826,6 @@
 				7AA4C480289220CE00E204C8 /* ADHeader.h */,
 				14B73F32281BED7B00D08ADD /* MineMessageHeader.h */,
 				7AA4C4842892217100E204C8 /* MapHeader.h */,
-				7AA4C47628921BF400E204C8 /* SchoolCalendarHeader.h */,
 				7AA4C48628922F9A00E204C8 /* ToDoHeader.h */,
 			);
 			path = Source;
@@ -5941,7 +5937,6 @@
 				73AAA1D326C918250084E44D /* PurchaseinfoViewController.m in Sources */,
 				AA7ABAAC2873EA5500BA6790 /* MGDClickLayer.m in Sources */,
 				187DF4BA260310DD000BCDE9 /* LYEmptyBaseView.m in Sources */,
-				18CDF6C7257F91BE006E8E5C /* CalendarViewController.m in Sources */,
 				18CDF67A257F91BD006E8E5C /* ScheduleInquiryViewController.m in Sources */,
 				14B73F6E281BED7B00D08ADD /* MessageSettingCell.m in Sources */,
 				AA7AB96B2873E5EA00BA6790 /* SegmentBarView.m in Sources */,
@@ -6336,6 +6331,7 @@
 				14CED37D288A594600BADA8B /* RisingRouter.m in Sources */,
 				AAC7CA1125F7753E00E6B5D5 /* PraiseModel.m in Sources */,
 				AA7ABAB22873EA5500BA6790 /* TopFollowView.m in Sources */,
+				FCB61B9F2A721537004AF444 /* CalendarViewController.swift in Sources */,
 				AAE3304D25E2A1C600324750 /* RemarkViewController.m in Sources */,
 				B0B1BA0A29E6E98000A1BB02 /* PickerDormitoryViewController.m in Sources */,
 				D0101D5C2433C885004337ED /* SDMaskGuidController.m in Sources */,

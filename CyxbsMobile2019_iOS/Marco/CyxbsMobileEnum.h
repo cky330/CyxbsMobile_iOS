@@ -32,8 +32,6 @@ typedef NS_ENUM(NSInteger, ScheduleType) {
     ScheduleTypeWeDate,
 };
 
-
-//更新显示下节课内容的tabBar要用的协议
 @protocol updateSchedulTabBarViewProtocol <NSObject>
 //paramDict的3个key：
 //classroomLabel：教室地点
@@ -41,6 +39,9 @@ typedef NS_ENUM(NSInteger, ScheduleType) {
 //classLabel：课程名称
 - (void)updateSchedulTabBarViewWithDic:(NSDictionary*)paramDict;
 @end
+
+
+//更新显示下节课内容的tabBar要用的协议
 
 
 #endif /* CyxbsMobileEnum_h */

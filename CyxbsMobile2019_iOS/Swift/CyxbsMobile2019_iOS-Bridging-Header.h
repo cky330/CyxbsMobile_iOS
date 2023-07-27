@@ -28,6 +28,7 @@
 #import "ByWordViewController.h"
 #import "ByPasswordViewController.h"
 #import "TodoSyncTool.h"
+#import "NewQAHud.h"
 
 #pragma mark - Group共享
 
@@ -220,7 +221,8 @@ for(NSString *fontFamilyName in [UIFont familyNames]){
 #define Discover_POST_volunteerBind_API @"https://cyxbsmobile.redrock.team/wxapi/volunteer/binding"
 #define Discover_POST_volunteerRequest_API @"https://cyxbsmobile.redrock.team/wxapi/volunteer/select"
 
-
+/// 校历
+#define Discover_schoolCalendar_API @"https://be-dev.redrock.cqupt.edu.cn/magipoke-jwzx/schoolCalendar"
 
 #pragma mark - ”重邮地图“接口
 
@@ -346,35 +348,37 @@ for(NSString *fontFamilyName in [UIFont familyNames]){
 //更新草稿箱内容
 #define QA_GET_updateDraft_API @"https://cyxbsmobile.redrock.team/wxapi/magipoke-draft/User/updateItemInDraft"
 
+#import "CyxbsMobileEnum.h"
 
-typedef NS_ENUM(NSInteger, PeopleType) {
-    /**代表传入的是学生相关*/
-    PeopleTypeStudent,
-    /**代表传入的是老师相关*/
-    PeopleTypeTeacher
-};
+//typedef NS_ENUM(NSInteger, PeopleType) {
+//    /**代表传入的是学生相关*/
+//    PeopleTypeStudent,
+//    /**代表传入的是老师相关*/
+//    PeopleTypeTeacher
+//};
 
 ////data[i][j]代表（星期i+1）的（第j+1节课）是否有课，有课则为1，无课则为0
 //typedef struct weekData{
 //    int data[7][12];
 //} weekData;
 
-typedef NS_ENUM(NSInteger, ScheduleType) {
-    /**代表是用户自己的课表*/
-    ScheduleTypePersonal,
-    /**代表是在查课表处显示的课表*/
-    ScheduleTypeClassmate,
-    /**代表是在没课约显示的课表*/
-    ScheduleTypeWeDate,
-};
+//typedef NS_ENUM(NSInteger, ScheduleType) {
+//    /**代表是用户自己的课表*/
+//    ScheduleTypePersonal,
+//    /**代表是在查课表处显示的课表*/
+//    ScheduleTypeClassmate,
+//    /**代表是在没课约显示的课表*/
+//    ScheduleTypeWeDate,
+//};
 //更新显示下节课内容的tabBar要用的协议
-@protocol updateSchedulTabBarViewProtocol <NSObject>
+//@protocol updateSchedulTabBarViewProtocol <NSObject>
 //paramDict的3个key：
 //classroomLabel：教室地点
 //classTimeLabel：上课时间
 //classLabel：课程名称
-- (void)updateSchedulTabBarViewWithDic:(NSDictionary*)paramDict;
-@end
+//- (void)updateSchedulTabBarViewWithDic:(NSDictionary*)paramDict;
+//@end
+
 //显示月份的view宽度；显示第几节课的竖条宽度
 #define MONTH_ITEM_W (MAIN_SCREEN_W*0.088)
 //显示月份、周几、日期的条内部item的间距；课表view和leftBar的距离
