@@ -16,7 +16,6 @@
 #import "TODOMainViewController.h"         // 邮子清单
 #import "TODOMainViewController.h"         // 邮子清单
 #import "ScheduleInquiryViewController.h"  // 查课表
-#import "掌上重邮-Swift.h"                   // 校历
 #import "DiscoverADModel.h"                // banner
 #import "SchoolBusVC.h"                    // 校车
 #import "ElectricViewController.h"         // 电费
