@@ -38,7 +38,10 @@
 #import "NSObject+YYAdd.h"
 #import "NSString+UILabel.h"
 #import "SSRButton.h"
-//#import "AppDelegate.h"
+#import <CommonCrypto/CommonCrypto.h>
+#import <MAMapKit/MAMapKit.h>
+#import <AMapLocationKit/AMapLocationKit.h>
+#import "TopBarBasicViewController.h"
 
 #pragma mark - Group共享
 
@@ -225,6 +228,9 @@ for(NSString *fontFamilyName in [UIFont familyNames]){
 
 /// 校车位置
 #define Discover_POST_schoolBus_API @"https://cyxbsmobile.redrock.team/wxapi/schoolbus/status"
+
+/// 站点
+#define Discover_GET_schoolStation_API @"https://cyxbsmobile.redrock.team/wxapi/schoolbus/map/line"
 
 /// banner
 #define Discover_GET_bannerView_API @"http://api-234.redrock.team/magipoke-text/banner/get"

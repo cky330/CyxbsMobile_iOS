@@ -17,7 +17,6 @@
 #import "TODOMainViewController.h"         // 邮子清单
 #import "ScheduleInquiryViewController.h"  // 查课表
 #import "DiscoverADModel.h"                // banner
-#import "SchoolBusVC.h"                    // 校车
 #import "ElectricViewController.h"         // 电费
 
 // View
@@ -356,6 +355,7 @@ static int requestCheckinInfo = 0;
 
 - (void)touchSchoolCar {
     NSLog(@"点击了校车查询");
+//    SchoolBusViewController *vc = [[SchoolBusViewController alloc] init];
     SchoolBusVC *vc = [[SchoolBusVC alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];

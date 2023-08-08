@@ -9,7 +9,6 @@
 #import "FinderToolViewController.h"
 #import "FinderToolViewItem.h"
 #import "ScheduleInquiryViewController.h"
-#import "SchoolBusVC.h"
 #import "WeDateViewController.h"
 #import "CQUPTMapViewController.h"
 #import "TODOMainViewController.h"
@@ -309,6 +308,7 @@
     if (sender.isChooingNow == YES) {
         [sender toggleFavoriteStates];
     } else {
+//        SchoolBusViewController *vc = [[SchoolBusViewController alloc] init];
         SchoolBusVC *vc = [[SchoolBusVC alloc]init];
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];

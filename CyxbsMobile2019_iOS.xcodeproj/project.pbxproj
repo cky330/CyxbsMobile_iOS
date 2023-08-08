@@ -170,19 +170,6 @@
 		49A50B6726D83B9600B25DDF /* CommonQuestionDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A50B6526D83B9600B25DDF /* CommonQuestionDetailVC.m */; };
 		49C2E78326D563AF00AFBE6F /* TypeSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C2E78226D563AF00AFBE6F /* TypeSelectView.m */; };
 		6464F93426E4F6EE008562C5 /* BuyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6464F93326E4F6EE008562C5 /* BuyModel.m */; };
-		646B1967282AA9420015DF28 /* BusGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B1966282AA9420015DF28 /* BusGuideViewController.m */; };
-		646B1975282CDF840015DF28 /* StationsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B1974282CDF840015DF28 /* StationsCollectionViewCell.m */; };
-		646B1978282CE0340015DF28 /* StationsGuideTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B1977282CE0340015DF28 /* StationsGuideTableViewCell.m */; };
-		646B1984282E8F000015DF28 /* StationGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B1983282E8F000015DF28 /* StationGuideView.m */; };
-		646B198D282FFC460015DF28 /* BusMAPointAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B198C282FFC460015DF28 /* BusMAPointAnnotation.m */; };
-		646B1990283001A60015DF28 /* StationMAPointAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B198F283001A60015DF28 /* StationMAPointAnnotation.m */; };
-		646B199728311B0E0015DF28 /* StationGuideBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B199628311B0E0015DF28 /* StationGuideBar.m */; };
-		646B199A28313CB20015DF28 /* StationScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B199928313CB10015DF28 /* StationScrollView.m */; };
-		646B199D28313CDB0015DF28 /* StationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B199C28313CDB0015DF28 /* StationView.m */; };
-		646B19A02833983E0015DF28 /* NextStationBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B199F2833983D0015DF28 /* NextStationBtn.m */; };
-		646B19A5283885740015DF28 /* CircleMAPointAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B19A4283885730015DF28 /* CircleMAPointAnnotation.m */; };
-		647AC30A2826CCB0009A2E35 /* StationData.m in Sources */ = {isa = PBXBuildFile; fileRef = 647AC3092826CCB0009A2E35 /* StationData.m */; };
-		647AC3102828012F009A2E35 /* SchoolBusMapSideBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 647AC30F2828012F009A2E35 /* SchoolBusMapSideBar.m */; };
 		7311328526CCEC2400EF88C1 /* ExchangeCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7311327326CCEC2400EF88C1 /* ExchangeCenterViewController.m */; };
 		7311328626CCEC2400EF88C1 /* Goods.m in Sources */ = {isa = PBXBuildFile; fileRef = 7311327726CCEC2400EF88C1 /* Goods.m */; };
 		7311328726CCEC2400EF88C1 /* Balance.m in Sources */ = {isa = PBXBuildFile; fileRef = 7311327826CCEC2400EF88C1 /* Balance.m */; };
@@ -539,10 +526,19 @@
 		FCCE565D2A77E49700DF37E0 /* MineMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCE565C2A77E49700DF37E0 /* MineMessageModel.swift */; };
 		FCCE565F2A77EFCC00DF37E0 /* MineMessageTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCE565E2A77EFCC00DF37E0 /* MineMessageTopView.swift */; };
 		FCCE56612A78181B00DF37E0 /* MineMessageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCE56602A78181B00DF37E0 /* MineMessageVC.swift */; };
-		FE0D60442801702B00319A9E /* SchoolBusData.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0D603A2801702B00319A9E /* SchoolBusData.m */; };
-		FE0D60452801702B00319A9E /* SchoolBusVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0D603C2801702B00319A9E /* SchoolBusVC.m */; };
-		FE0D60462801702B00319A9E /* SchoolBusBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0D60402801702B00319A9E /* SchoolBusBottomView.m */; };
-		FE0D60472801702B00319A9E /* SchoolBusMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0D60412801702B00319A9E /* SchoolBusMapView.m */; };
+		FCDE09A32A7E50A900069F0C /* SchoolBusVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDE09A22A7E50A900069F0C /* SchoolBusVC.swift */; };
+		FCDE09A52A7E515000069F0C /* BusGuideVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDE09A42A7E515000069F0C /* BusGuideVC.swift */; };
+		FCDE09A72A7E523700069F0C /* SchoolBusBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDE09A62A7E523700069F0C /* SchoolBusBottomView.swift */; };
+		FCDE09A92A7E526800069F0C /* BusGuideBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDE09A82A7E526800069F0C /* BusGuideBarView.swift */; };
+		FCDE09AB2A7E529400069F0C /* StationScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDE09AA2A7E529400069F0C /* StationScrollView.swift */; };
+		FCDE09AD2A7E52BE00069F0C /* ChangeLineBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDE09AC2A7E52BE00069F0C /* ChangeLineBtn.swift */; };
+		FCDE09AF2A7E531500069F0C /* AllMAPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDE09AE2A7E531500069F0C /* AllMAPointAnnotation.swift */; };
+		FCDE09B52A7E538F00069F0C /* StationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDE09B42A7E538F00069F0C /* StationView.swift */; };
+		FCDE09B72A7E53C000069F0C /* SchoolBusMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDE09B62A7E53C000069F0C /* SchoolBusMapView.swift */; };
+		FCDE09B92A7E53E400069F0C /* SchoolBusMapSideBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDE09B82A7E53E400069F0C /* SchoolBusMapSideBarView.swift */; };
+		FCDE09BB2A7E53FF00069F0C /* BusGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDE09BA2A7E53FF00069F0C /* BusGuideView.swift */; };
+		FCDE09BD2A7E542300069F0C /* BusData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDE09BC2A7E542300069F0C /* BusData.swift */; };
+		FCDE09BF2A7E543E00069F0C /* StationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDE09BE2A7E543E00069F0C /* StationData.swift */; };
 		FE11E82027E8712B00C4B90B /* QAListSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE11E81D27E8712A00C4B90B /* QAListSegmentView.m */; };
 		FE2C134E27AEF629001CF7AF /* TODOMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2C131727AEF629001CF7AF /* TODOMainViewController.m */; };
 		FE2C134F27AEF629001CF7AF /* ToDoDetaileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2C131827AEF629001CF7AF /* ToDoDetaileViewController.m */; };
@@ -609,7 +605,6 @@
 		147842F127F080A7002359BA /* NSDate+Day.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Day.m"; sourceTree = "<group>"; };
 		147E2CE928240C3A00DCC312 /* HttpTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HttpTool.h; sourceTree = "<group>"; };
 		14B73F26281BE6C200D08ADD /* CyxbsMobileImage.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = CyxbsMobileImage.xcassets; sourceTree = "<group>"; };
-		14B73F32281BED7B00D08ADD /* MineMessageHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineMessageHeader.h; sourceTree = "<group>"; };
 		14B73F892823577600D08ADD /* SSRButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSRButton.h; sourceTree = "<group>"; };
 		14B73F8A2823577600D08ADD /* SSRButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSRButton.m; sourceTree = "<group>"; };
 		14CED376288A594500BADA8B /* RisingRouterResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RisingRouterResponse.h; sourceTree = "<group>"; };
@@ -912,32 +907,6 @@
 		6464F93226E4F6EE008562C5 /* BuyModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BuyModel.h; sourceTree = "<group>"; };
 		6464F93326E4F6EE008562C5 /* BuyModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BuyModel.m; sourceTree = "<group>"; };
 		6464F98726F4FDB4008562C5 /* ExchangeCenterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExchangeCenterViewController.h; sourceTree = "<group>"; };
-		646B1965282AA9420015DF28 /* BusGuideViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BusGuideViewController.h; sourceTree = "<group>"; };
-		646B1966282AA9420015DF28 /* BusGuideViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BusGuideViewController.m; sourceTree = "<group>"; };
-		646B1973282CDF840015DF28 /* StationsCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StationsCollectionViewCell.h; sourceTree = "<group>"; };
-		646B1974282CDF840015DF28 /* StationsCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StationsCollectionViewCell.m; sourceTree = "<group>"; };
-		646B1976282CE0340015DF28 /* StationsGuideTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StationsGuideTableViewCell.h; sourceTree = "<group>"; };
-		646B1977282CE0340015DF28 /* StationsGuideTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StationsGuideTableViewCell.m; sourceTree = "<group>"; };
-		646B1982282E8F000015DF28 /* StationGuideView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StationGuideView.h; sourceTree = "<group>"; };
-		646B1983282E8F000015DF28 /* StationGuideView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StationGuideView.m; sourceTree = "<group>"; };
-		646B198B282FFC460015DF28 /* BusMAPointAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BusMAPointAnnotation.h; sourceTree = "<group>"; };
-		646B198C282FFC460015DF28 /* BusMAPointAnnotation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BusMAPointAnnotation.m; sourceTree = "<group>"; };
-		646B198E283001A60015DF28 /* StationMAPointAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StationMAPointAnnotation.h; sourceTree = "<group>"; };
-		646B198F283001A60015DF28 /* StationMAPointAnnotation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StationMAPointAnnotation.m; sourceTree = "<group>"; };
-		646B199528311B0E0015DF28 /* StationGuideBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StationGuideBar.h; sourceTree = "<group>"; };
-		646B199628311B0E0015DF28 /* StationGuideBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StationGuideBar.m; sourceTree = "<group>"; };
-		646B199828313CB10015DF28 /* StationScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StationScrollView.h; sourceTree = "<group>"; };
-		646B199928313CB10015DF28 /* StationScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StationScrollView.m; sourceTree = "<group>"; };
-		646B199B28313CDB0015DF28 /* StationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StationView.h; sourceTree = "<group>"; };
-		646B199C28313CDB0015DF28 /* StationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StationView.m; sourceTree = "<group>"; };
-		646B199E2833983D0015DF28 /* NextStationBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NextStationBtn.h; sourceTree = "<group>"; };
-		646B199F2833983D0015DF28 /* NextStationBtn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NextStationBtn.m; sourceTree = "<group>"; };
-		646B19A3283885730015DF28 /* CircleMAPointAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CircleMAPointAnnotation.h; sourceTree = "<group>"; };
-		646B19A4283885730015DF28 /* CircleMAPointAnnotation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CircleMAPointAnnotation.m; sourceTree = "<group>"; };
-		647AC3082826CCB0009A2E35 /* StationData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StationData.h; sourceTree = "<group>"; };
-		647AC3092826CCB0009A2E35 /* StationData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StationData.m; sourceTree = "<group>"; };
-		647AC30E2828012E009A2E35 /* SchoolBusMapSideBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SchoolBusMapSideBar.h; sourceTree = "<group>"; };
-		647AC30F2828012F009A2E35 /* SchoolBusMapSideBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SchoolBusMapSideBar.m; sourceTree = "<group>"; };
 		6F3D5CAF0787713C5281B516 /* Pods-CyxbsMobile2019_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CyxbsMobile2019_iOS.debug.xcconfig"; path = "Target Support Files/Pods-CyxbsMobile2019_iOS/Pods-CyxbsMobile2019_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		7311327326CCEC2400EF88C1 /* ExchangeCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExchangeCenterViewController.m; sourceTree = "<group>"; };
 		7311327626CCEC2400EF88C1 /* Balance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Balance.h; sourceTree = "<group>"; };
@@ -1011,7 +980,6 @@
 		7AA4C4712891230900E204C8 /* ChangePasswordHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangePasswordHeader.h; sourceTree = "<group>"; };
 		7AA4C4722891237600E204C8 /* StampCenterHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StampCenterHeader.h; sourceTree = "<group>"; };
 		7AA4C473289123B700E204C8 /* FeedBackCenterHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedBackCenterHeader.h; sourceTree = "<group>"; };
-		7AA4C47E2892206200E204C8 /* SchoolBusHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SchoolBusHeader.h; sourceTree = "<group>"; };
 		7AA4C480289220CE00E204C8 /* ADHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADHeader.h; sourceTree = "<group>"; };
 		7AA4C4842892217100E204C8 /* MapHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapHeader.h; sourceTree = "<group>"; };
 		7AA4C48628922F9A00E204C8 /* ToDoHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToDoHeader.h; sourceTree = "<group>"; };
@@ -1642,14 +1610,19 @@
 		FCCE565C2A77E49700DF37E0 /* MineMessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineMessageModel.swift; sourceTree = "<group>"; };
 		FCCE565E2A77EFCC00DF37E0 /* MineMessageTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineMessageTopView.swift; sourceTree = "<group>"; };
 		FCCE56602A78181B00DF37E0 /* MineMessageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineMessageVC.swift; sourceTree = "<group>"; };
-		FE0D60392801702B00319A9E /* SchoolBusData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolBusData.h; sourceTree = "<group>"; };
-		FE0D603A2801702B00319A9E /* SchoolBusData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolBusData.m; sourceTree = "<group>"; };
-		FE0D603C2801702B00319A9E /* SchoolBusVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolBusVC.m; sourceTree = "<group>"; };
-		FE0D603D2801702B00319A9E /* SchoolBusVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolBusVC.h; sourceTree = "<group>"; };
-		FE0D603F2801702B00319A9E /* SchoolBusMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolBusMapView.h; sourceTree = "<group>"; };
-		FE0D60402801702B00319A9E /* SchoolBusBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolBusBottomView.m; sourceTree = "<group>"; };
-		FE0D60412801702B00319A9E /* SchoolBusMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolBusMapView.m; sourceTree = "<group>"; };
-		FE0D60422801702B00319A9E /* SchoolBusBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolBusBottomView.h; sourceTree = "<group>"; };
+		FCDE09A22A7E50A900069F0C /* SchoolBusVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolBusVC.swift; sourceTree = "<group>"; };
+		FCDE09A42A7E515000069F0C /* BusGuideVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusGuideVC.swift; sourceTree = "<group>"; };
+		FCDE09A62A7E523700069F0C /* SchoolBusBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolBusBottomView.swift; sourceTree = "<group>"; };
+		FCDE09A82A7E526800069F0C /* BusGuideBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusGuideBarView.swift; sourceTree = "<group>"; };
+		FCDE09AA2A7E529400069F0C /* StationScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationScrollView.swift; sourceTree = "<group>"; };
+		FCDE09AC2A7E52BE00069F0C /* ChangeLineBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeLineBtn.swift; sourceTree = "<group>"; };
+		FCDE09AE2A7E531500069F0C /* AllMAPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllMAPointAnnotation.swift; sourceTree = "<group>"; };
+		FCDE09B42A7E538F00069F0C /* StationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationView.swift; sourceTree = "<group>"; };
+		FCDE09B62A7E53C000069F0C /* SchoolBusMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolBusMapView.swift; sourceTree = "<group>"; };
+		FCDE09B82A7E53E400069F0C /* SchoolBusMapSideBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolBusMapSideBarView.swift; sourceTree = "<group>"; };
+		FCDE09BA2A7E53FF00069F0C /* BusGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusGuideView.swift; sourceTree = "<group>"; };
+		FCDE09BC2A7E542300069F0C /* BusData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusData.swift; sourceTree = "<group>"; };
+		FCDE09BE2A7E543E00069F0C /* StationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationData.swift; sourceTree = "<group>"; };
 		FE11E81D27E8712A00C4B90B /* QAListSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QAListSegmentView.m; sourceTree = "<group>"; };
 		FE11E81E27E8712A00C4B90B /* QAListSegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QAListSegmentView.h; sourceTree = "<group>"; };
 		FE2C131627AEF629001CF7AF /* ToDoDetaileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoDetaileViewController.h; sourceTree = "<group>"; };
@@ -3287,44 +3260,10 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		646B1985282F68AB0015DF28 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				646B1987282F68CD0015DF28 /* CollectionViewCell */,
-				646B1986282F68B40015DF28 /* TableViewCell */,
-				646B199B28313CDB0015DF28 /* StationView.h */,
-				646B199C28313CDB0015DF28 /* StationView.m */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
-		646B1986282F68B40015DF28 /* TableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				646B1976282CE0340015DF28 /* StationsGuideTableViewCell.h */,
-				646B1977282CE0340015DF28 /* StationsGuideTableViewCell.m */,
-			);
-			path = TableViewCell;
-			sourceTree = "<group>";
-		};
-		646B1987282F68CD0015DF28 /* CollectionViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				646B1973282CDF840015DF28 /* StationsCollectionViewCell.h */,
-				646B1974282CDF840015DF28 /* StationsCollectionViewCell.m */,
-			);
-			path = CollectionViewCell;
-			sourceTree = "<group>";
-		};
 		646B199428311ABE0015DF28 /* Annotation */ = {
 			isa = PBXGroup;
 			children = (
-				646B198B282FFC460015DF28 /* BusMAPointAnnotation.h */,
-				646B198C282FFC460015DF28 /* BusMAPointAnnotation.m */,
-				646B198E283001A60015DF28 /* StationMAPointAnnotation.h */,
-				646B198F283001A60015DF28 /* StationMAPointAnnotation.m */,
-				646B19A3283885730015DF28 /* CircleMAPointAnnotation.h */,
-				646B19A4283885730015DF28 /* CircleMAPointAnnotation.m */,
+				FCDE09AE2A7E531500069F0C /* AllMAPointAnnotation.swift */,
 			);
 			path = Annotation;
 			sourceTree = "<group>";
@@ -3332,8 +3271,7 @@
 		646B19A1283398450015DF28 /* Button */ = {
 			isa = PBXGroup;
 			children = (
-				646B199E2833983D0015DF28 /* NextStationBtn.h */,
-				646B199F2833983D0015DF28 /* NextStationBtn.m */,
+				FCDE09AC2A7E52BE00069F0C /* ChangeLineBtn.swift */,
 			);
 			path = Button;
 			sourceTree = "<group>";
@@ -3341,12 +3279,9 @@
 		646B19A22833985B0015DF28 /* Bottom */ = {
 			isa = PBXGroup;
 			children = (
-				FE0D60422801702B00319A9E /* SchoolBusBottomView.h */,
-				FE0D60402801702B00319A9E /* SchoolBusBottomView.m */,
-				646B199528311B0E0015DF28 /* StationGuideBar.h */,
-				646B199628311B0E0015DF28 /* StationGuideBar.m */,
-				646B199828313CB10015DF28 /* StationScrollView.h */,
-				646B199928313CB10015DF28 /* StationScrollView.m */,
+				FCDE09A62A7E523700069F0C /* SchoolBusBottomView.swift */,
+				FCDE09A82A7E526800069F0C /* BusGuideBarView.swift */,
+				FCDE09AA2A7E529400069F0C /* StationScrollView.swift */,
 			);
 			path = Bottom;
 			sourceTree = "<group>";
@@ -3609,10 +3544,8 @@
 		7AA4C48528922AE300E204C8 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				7AA4C47E2892206200E204C8 /* SchoolBusHeader.h */,
 				B0B1B9DA29E69E3C00A1BB02 /* ElectricHeader.h */,
 				7AA4C480289220CE00E204C8 /* ADHeader.h */,
-				14B73F32281BED7B00D08ADD /* MineMessageHeader.h */,
 				7AA4C4842892217100E204C8 /* MapHeader.h */,
 				7AA4C48628922F9A00E204C8 /* ToDoHeader.h */,
 			);
@@ -5298,10 +5231,8 @@
 		FE0D60382801702B00319A9E /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				FE0D60392801702B00319A9E /* SchoolBusData.h */,
-				FE0D603A2801702B00319A9E /* SchoolBusData.m */,
-				647AC3082826CCB0009A2E35 /* StationData.h */,
-				647AC3092826CCB0009A2E35 /* StationData.m */,
+				FCDE09BC2A7E542300069F0C /* BusData.swift */,
+				FCDE09BE2A7E543E00069F0C /* StationData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -5309,10 +5240,8 @@
 		FE0D603B2801702B00319A9E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				FE0D603D2801702B00319A9E /* SchoolBusVC.h */,
-				FE0D603C2801702B00319A9E /* SchoolBusVC.m */,
-				646B1965282AA9420015DF28 /* BusGuideViewController.h */,
-				646B1966282AA9420015DF28 /* BusGuideViewController.m */,
+				FCDE09A22A7E50A900069F0C /* SchoolBusVC.swift */,
+				FCDE09A42A7E515000069F0C /* BusGuideVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -5323,13 +5252,10 @@
 				646B19A22833985B0015DF28 /* Bottom */,
 				646B19A1283398450015DF28 /* Button */,
 				646B199428311ABE0015DF28 /* Annotation */,
-				646B1985282F68AB0015DF28 /* Cell */,
-				FE0D603F2801702B00319A9E /* SchoolBusMapView.h */,
-				FE0D60412801702B00319A9E /* SchoolBusMapView.m */,
-				647AC30E2828012E009A2E35 /* SchoolBusMapSideBar.h */,
-				647AC30F2828012F009A2E35 /* SchoolBusMapSideBar.m */,
-				646B1982282E8F000015DF28 /* StationGuideView.h */,
-				646B1983282E8F000015DF28 /* StationGuideView.m */,
+				FCDE09B42A7E538F00069F0C /* StationView.swift */,
+				FCDE09B62A7E53C000069F0C /* SchoolBusMapView.swift */,
+				FCDE09B82A7E53E400069F0C /* SchoolBusMapSideBarView.swift */,
+				FCDE09BA2A7E53FF00069F0C /* BusGuideView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -5723,14 +5649,15 @@
 				DB34EB3B239BD4550052B65E /* WeekChooseButton.m in Sources */,
 				18CDF6A1257F91BD006E8E5C /* CQUPTMapAllImageCollectionViewCell.m in Sources */,
 				18CDF4C2257F8DBD006E8E5C /* changePassword.m in Sources */,
+				FCDE09A72A7E523700069F0C /* SchoolBusBottomView.swift in Sources */,
 				73AAA1D326C918250084E44D /* PurchaseinfoViewController.m in Sources */,
 				AA7ABAAC2873EA5500BA6790 /* MGDClickLayer.m in Sources */,
 				187DF4BA260310DD000BCDE9 /* LYEmptyBaseView.m in Sources */,
 				18CDF67A257F91BD006E8E5C /* ScheduleInquiryViewController.m in Sources */,
 				AA7AB96B2873E5EA00BA6790 /* SegmentBarView.m in Sources */,
 				DB4064FB2466D889006CE5BC /* DLWeeklSelectView.m in Sources */,
-				646B1967282AA9420015DF28 /* BusGuideViewController.m in Sources */,
 				FE2C135027AEF629001CF7AF /* TodoTableViewCell.m in Sources */,
+				FCDE09BD2A7E542300069F0C /* BusData.swift in Sources */,
 				14D03A0B27FE69A800D6AE93 /* SSRTopBarBaseView.m in Sources */,
 				18CDF66E257F91BD006E8E5C /* EnterButton.m in Sources */,
 				18CDF4C4257F8DBD006E8E5C /* SetQuestionView.m in Sources */,
@@ -5744,8 +5671,8 @@
 				AA7AB95D2873E5EA00BA6790 /* SZHHotSearchView.m in Sources */,
 				187DF4BB260310DD000BCDE9 /* UIScrollView+Empty.m in Sources */,
 				DB34EB2D239BD4550052B65E /* DetailRemindTableViewCell.m in Sources */,
-				646B199D28313CDB0015DF28 /* StationView.m in Sources */,
 				FE2C135827AEF629001CF7AF /* ToDoDetailBar.m in Sources */,
+				FCDE09A92A7E526800069F0C /* BusGuideBarView.swift in Sources */,
 				49252DAA26D39CC9003A8A7F /* FeedBackMainPageViewController.m in Sources */,
 				49A50B6726D83B9600B25DDF /* CommonQuestionDetailVC.m in Sources */,
 				AA7ABAC32873EA5500BA6790 /* MGDCurrentTimeStr.m in Sources */,
@@ -5776,7 +5703,6 @@
 				1A344BBA23E96BF50014A3B4 /* MineAboutContentView.m in Sources */,
 				AA7AB9602873E5EA00BA6790 /* SZHHotSearchButton.m in Sources */,
 				7F101AC5260613E800F2034C /* YYZTopicCell.m in Sources */,
-				FE0D60442801702B00319A9E /* SchoolBusData.m in Sources */,
 				AA49098924F3BF5A007CB3BC /* TransitionManager.m in Sources */,
 				DB34EB28239BD4550052B65E /* DetailLessonController.m in Sources */,
 				AA7ABAAD2873EA5500BA6790 /* FunctionBtn.m in Sources */,
@@ -5806,7 +5732,6 @@
 				B51C501028A5FFC00011465E /* ForgetPwdVC.m in Sources */,
 				AA7AB9632873E5EA00BA6790 /* CYSearchEndKnowledgeDetailModel.m in Sources */,
 				18CDF68D257F91BD006E8E5C /* CQUPTMapPresenter.m in Sources */,
-				646B1975282CDF840015DF28 /* StationsCollectionViewCell.m in Sources */,
 				AA0DDB6D286C8B1A00802324 /* EditMyInfoViewController.m in Sources */,
 				18CDF66B257F91BD006E8E5C /* DiscoverADs.m in Sources */,
 				B0FE5F2D294C94540070E755 /* UIColor+Rising.m in Sources */,
@@ -5824,7 +5749,6 @@
 				AA3F82DA24E8E03C00B65042 /* ClassDetailView.m in Sources */,
 				AA5368F02589E28800236CB5 /* QuitTipView.m in Sources */,
 				7311328A26CCEC2400EF88C1 /* TopView.m in Sources */,
-				646B1984282E8F000015DF28 /* StationGuideView.m in Sources */,
 				AA7AB96C2873E5EA00BA6790 /* QASearchResultTopView.m in Sources */,
 				AA7ABAF42873EA6D00BA6790 /* DynamicDetailAddPhotoController.m in Sources */,
 				AA0DDB7E286C8B1A00802324 /* PMPHomePageHeaderView.m in Sources */,
@@ -5842,6 +5766,7 @@
 				AA4FA1DF25C2DE5F005139BA /* LearnMoreViewController.m in Sources */,
 				AA7AB9652873E5EA00BA6790 /* CYSearchEndKnowledgeDetailView.m in Sources */,
 				1893DC8926EA32A3007E871E /* MGDGCD.m in Sources */,
+				FCDE09AD2A7E52BE00069F0C /* ChangeLineBtn.swift in Sources */,
 				AA0DDB6C286C8B1A00802324 /* EditMyInfoModel.m in Sources */,
 				AA7ABAF72873EA6D00BA6790 /* UIView+FrameTool.m in Sources */,
 				FE2C135527AEF629001CF7AF /* ToDoDetailTitleView.m in Sources */,
@@ -5862,7 +5787,7 @@
 				AA3F82E624EA4A8900B65042 /* LeftBar.m in Sources */,
 				18CDF67B257F91BD006E8E5C /* ClassmateItem.m in Sources */,
 				1A1E869723C8D1DE00321367 /* CheckInBar.m in Sources */,
-				646B19A5283885740015DF28 /* CircleMAPointAnnotation.m in Sources */,
+				FCDE09B72A7E53C000069F0C /* SchoolBusMapView.swift in Sources */,
 				18CDF69E257F91BD006E8E5C /* CQUPTMapBeforeSearchCell.m in Sources */,
 				1A1691F82430DEE70076EDC7 /* ClassScheduleTabBarView.m in Sources */,
 				FCA1C80F2A73ACC1003448BE /* MessageSettingCell.swift in Sources */,
@@ -5875,6 +5800,7 @@
 				B51C501728A5FFCE0011465E /* LoginBaseView.m in Sources */,
 				FE2C135127AEF629001CF7AF /* ToDoEmptyCell.m in Sources */,
 				4931630B26CD7B6800140412 /* GoodsCollectionViewCell.m in Sources */,
+				FCDE09B92A7E53E400069F0C /* SchoolBusMapSideBarView.swift in Sources */,
 				DB4065032466D889006CE5BC /* DLReminderView.m in Sources */,
 				DB4064F72466D889006CE5BC /* DLReminderSetDetailVC.m in Sources */,
 				AA9ABE9024EB63BF00D16BE0 /* ClassDetailViewShower.m in Sources */,
@@ -5883,7 +5809,6 @@
 				4931630E26CD7B6800140412 /* StampCenterSecondHeaderView.m in Sources */,
 				18CDF722257F91BE006E8E5C /* FinderToolViewItem.m in Sources */,
 				FE2C136827AEF629001CF7AF /* TodoSyncMsg.m in Sources */,
-				FE0D60462801702B00319A9E /* SchoolBusBottomView.m in Sources */,
 				AA7ABABC2873EA5500BA6790 /* ShareBtn.m in Sources */,
 				DB4064FC2466D889006CE5BC /* DLReminderModel.m in Sources */,
 				AA7ABAB42873EA5500BA6790 /* GroupBtn.m in Sources */,
@@ -5911,6 +5836,7 @@
 				EE131C212471362E00B6ED97 /* URLController.m in Sources */,
 				AA0DDB6F286C8B1A00802324 /* MineEditTextField.m in Sources */,
 				14E7E4A827F5762500B67469 /* QuestionSelectView.m in Sources */,
+				FCDE09A32A7E50A900069F0C /* SchoolBusVC.swift in Sources */,
 				FC47BD6C2A758B7F00F3016B /* ActiveMessageVC.swift in Sources */,
 				18CDF689257F91BD006E8E5C /* WeDateViewController.m in Sources */,
 				DB34EACE239BD4550052B65E /* DateModle.m in Sources */,
@@ -5951,6 +5877,7 @@
 				1A4A466C24C97E2A0033734E /* UserProtocolViewController.m in Sources */,
 				1893DC9126EA3375007E871E /* MGDGroup.m in Sources */,
 				73AAA1CF26C918250084E44D /* DetailsGoodsTableView.m in Sources */,
+				FCDE09BF2A7E543E00069F0C /* StationData.swift in Sources */,
 				4931631326CD7B6800140412 /* TableHeaderView.m in Sources */,
 				DB34EB24239BD4550052B65E /* LessonController.m in Sources */,
 				AA7ABAA72873EA5500BA6790 /* NewQACellCollectionView.m in Sources */,
@@ -5975,10 +5902,9 @@
 				AA7ABAC42873EA5500BA6790 /* NewQATool.m in Sources */,
 				AA57588C24EF5841002F6F6D /* NoticeWaySelectView.m in Sources */,
 				AA7ABAC52873EA5500BA6790 /* MGDRefreshTool.m in Sources */,
-				646B199A28313CB20015DF28 /* StationScrollView.m in Sources */,
 				AA7ABA9A2873EA5400BA6790 /* DeletePostModel.m in Sources */,
-				646B198D282FFC460015DF28 /* BusMAPointAnnotation.m in Sources */,
 				AAC7CA2025F7797000E6B5D5 /* RemarkParseModel.m in Sources */,
+				FCDE09B52A7E538F00069F0C /* StationView.swift in Sources */,
 				AA7ABAA92873EA5500BA6790 /* ShareView.m in Sources */,
 				493162DE26CD7B6300140412 /* StampTaskData.m in Sources */,
 				7FBF39F4257B79F30077494E /* ByPasswordViewController.m in Sources */,
@@ -5987,6 +5913,7 @@
 				AA7ABAB02873EA5500BA6790 /* NewQAFollowTableView.m in Sources */,
 				1A141378235F524B0001417E /* SYCSegmentView.m in Sources */,
 				DB34EB33239BD4550052B65E /* TickButton.m in Sources */,
+				FCDE09AF2A7E531500069F0C /* AllMAPointAnnotation.swift in Sources */,
 				AA7ABA252873EA4100BA6790 /* SZHPhotoImageView.m in Sources */,
 				1A5A5EE52360100B00543BAE /* UserItem.m in Sources */,
 				AA7ABAF22873EA6D00BA6790 /* DynamicDetailViewModel.m in Sources */,
@@ -6001,7 +5928,6 @@
 				AA0DDB57286C8B1A00802324 /* UIView+JHFrameExtension.m in Sources */,
 				DB34EB32239BD4550052B65E /* LessonNumLabel.m in Sources */,
 				1A1691FB2430ECA70076EDC7 /* ClassTabBarController.m in Sources */,
-				646B1978282CE0340015DF28 /* StationsGuideTableViewCell.m in Sources */,
 				AA7ABA9B2873EA5400BA6790 /* PostModel.m in Sources */,
 				1AFE535124F7571300F42A74 /* IntroductionController.m in Sources */,
 				735BC53C26D3B33E00F22678 /* FeedBackDetailsViewController.m in Sources */,
@@ -6028,7 +5954,6 @@
 				7F101AC3260613E800F2034C /* YYZTopicDetailVC.m in Sources */,
 				AA7ABAC62873EA5500BA6790 /* NewQAHud.m in Sources */,
 				DB34EB36239BD4550052B65E /* ChooseButton.m in Sources */,
-				647AC3102828012F009A2E35 /* SchoolBusMapSideBar.m in Sources */,
 				AAC7CA0125F5130900E6B5D5 /* PraiseParseModel.m in Sources */,
 				18CDF69F257F91BD006E8E5C /* CQUPTMapSearchView.m in Sources */,
 				4931630C26CD7B6800140412 /* GotoButton.m in Sources */,
@@ -6053,6 +5978,7 @@
 				493162DF26CD7B6300140412 /* StampGoodsData.m in Sources */,
 				DB34EB37239BD4550052B65E /* LZWeekScrollView.m in Sources */,
 				1A141375235F524B0001417E /* UIImage+ImageEffects.m in Sources */,
+				FCDE09A52A7E515000069F0C /* BusGuideVC.swift in Sources */,
 				735BC54D26D3C05900F22678 /* FeedBackReplyTableViewCell.m in Sources */,
 				FE2C136327AEF629001CF7AF /* YearBtnsView.m in Sources */,
 				1A79956C252B5BC300603253 /* LoginModel.swift in Sources */,
@@ -6071,7 +5997,6 @@
 				18CDF4C6257F8DBD006E8E5C /* setEmail.m in Sources */,
 				1A141376235F524B0001417E /* UIImage+Color.m in Sources */,
 				AA7ABAA42873EA5400BA6790 /* StarPostModel.m in Sources */,
-				FE0D60452801702B00319A9E /* SchoolBusVC.m in Sources */,
 				AA0DDB54286C8B1900802324 /* MineSignView.m in Sources */,
 				FCBD5C9D2A75137B0077AD88 /* ActiveMessageModel.swift in Sources */,
 				DB34EB3D239BD4550052B65E /* ORWInputTextView.m in Sources */,
@@ -6105,7 +6030,6 @@
 				B51C500F28A5FFC00011465E /* ModifyVC.m in Sources */,
 				AA4CD60425EF6311002D9394 /* IgnoreModel.m in Sources */,
 				AA0DDB65286C8B1A00802324 /* FansAndFollowersModel.m in Sources */,
-				647AC30A2826CCB0009A2E35 /* StationData.m in Sources */,
 				DB34EB22239BD4550052B65E /* AddRemindViewController.m in Sources */,
 				DB4064FD2466D889006CE5BC /* DLReminderSetTimeVC.m in Sources */,
 				AA0DDB6B286C8B1A00802324 /* EditMyInfoPresenter.m in Sources */,
@@ -6130,6 +6054,7 @@
 				AA3F82E024E992C000B65042 /* LessonView.m in Sources */,
 				735BC53826D399DB00F22678 /* FeedBackModel.m in Sources */,
 				491DAE5726E207C600693AAA /* CommonQuestionData.m in Sources */,
+				FCDE09AB2A7E529400069F0C /* StationScrollView.swift in Sources */,
 				1A141365235F524B0001417E /* UIFont+AdaptiveFont.m in Sources */,
 				AAE3305325E2A41900324750 /* ArticleTableViewCell.m in Sources */,
 				1A344BB723E96AD80014A3B4 /* MineAboutController.m in Sources */,
@@ -6181,9 +6106,9 @@
 				DB4064F62466D889006CE5BC /* DLReminderViewController.m in Sources */,
 				FE2C135B27AEF629001CF7AF /* DiscoverTodoTableViewCell.m in Sources */,
 				AA86E38B2635B04A00756F05 /* ColorManager.m in Sources */,
+				FCDE09BB2A7E53FF00069F0C /* BusGuideView.swift in Sources */,
 				738C15B126E0B35600E24F8C /* FeedBackDefaultView.m in Sources */,
 				AA7ABA9E2873EA5400BA6790 /* ShieldModel.m in Sources */,
-				FE0D60472801702B00319A9E /* SchoolBusMapView.m in Sources */,
 				AA0DDB79286C8B1A00802324 /* PMPFansFollowsAndPraiseModel.m in Sources */,
 				D0101D5D2433C885004337ED /* SDMaskView.m in Sources */,
 				AA7AB96E2873E5EA00BA6790 /* SZHArchiveTool.m in Sources */,
@@ -6198,7 +6123,6 @@
 				AAE3308725E3AD5E00324750 /* MainPageNumBtn.m in Sources */,
 				AA7AB96A2873E5EA00BA6790 /* QASegementBarBtn.m in Sources */,
 				1A141368235F524B0001417E /* HttpClient.m in Sources */,
-				646B19A02833983E0015DF28 /* NextStationBtn.m in Sources */,
 				AA0DDB55286C8B1900802324 /* MineTableViewCell.m in Sources */,
 				AA7AB9682873E5EA00BA6790 /* QAVerticalScrollView.m in Sources */,
 				AAE3305925E2A42B00324750 /* RemarkTableViewCell.m in Sources */,
@@ -6219,7 +6143,6 @@
 				B0B1B9F529E69EAD00A1BB02 /* ElectricFeeItem.m in Sources */,
 				AAAA1D9024FE39F500DB9A81 /* NextLessonFinder.m in Sources */,
 				AA0DDB5D286C8B1A00802324 /* PMPBasicActionView.m in Sources */,
-				646B199728311B0E0015DF28 /* StationGuideBar.m in Sources */,
 				B0FE5F2C294C94540070E755 /* UIView+Rising.m in Sources */,
 				73AAA1D426C918250084E44D /* PurchaseInfoGoodsInfoView.m in Sources */,
 				AA7ABA2C2873EA4100BA6790 /* SZHReleaseTopBarView.m in Sources */,
@@ -6227,7 +6150,6 @@
 				AA0DDB67286C8B1A00802324 /* FollowersTableViewCell.m in Sources */,
 				FE2C134F27AEF629001CF7AF /* ToDoDetaileViewController.m in Sources */,
 				FCCE56612A78181B00DF37E0 /* MineMessageVC.swift in Sources */,
-				646B1990283001A60015DF28 /* StationMAPointAnnotation.m in Sources */,
 				187DF4C5260310FA000BCDE9 /* UITextView+WZB.m in Sources */,
 				4931631E26CD7B7900140412 /* StampCenterVC.m in Sources */,
 				18CDF695257F91BD006E8E5C /* CQUPTMapPlaceItem.m in Sources */,

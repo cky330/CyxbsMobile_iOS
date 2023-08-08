@@ -25,8 +25,6 @@
 #import "StampCenterVC.h" //邮票中心
 #import "FeedBackMainPageViewController.h" //意见反馈
 #import "CheckInModel.h" //签到的网络请求
-
-//#import "MineMessageVC.h"//消息中心模块by ssr，将接入router技术
 #import "掌上重邮-Swift.h"
 
 //获取用户关注的人和粉丝的个人信息
