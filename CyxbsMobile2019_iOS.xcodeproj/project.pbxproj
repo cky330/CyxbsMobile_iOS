@@ -560,6 +560,7 @@
 		FC4B3BD22A878457003336C8 /* TemporaryGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4B3BD12A878457003336C8 /* TemporaryGroupVC.swift */; };
 		FC4B3BD42A87B0EE003336C8 /* FixedGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4B3BD32A87B0EE003336C8 /* FixedGroupVC.swift */; };
 		FC51103F2AED06910049EE43 /* AddArrangeFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC51103E2AED06910049EE43 /* AddArrangeFlowLayout.swift */; };
+		FC5110412AED2D010049EE43 /* WeDateHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5110402AED2D010049EE43 /* WeDateHeader.swift */; };
 		FC5279002AAC46D500B09685 /* StudentResultItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5278FF2AAC46D500B09685 /* StudentResultItem.swift */; };
 		FC5279022AAC471400B09685 /* ClassResultItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5279012AAC471400B09685 /* ClassResultItem.swift */; };
 		FC5279042AAC473E00B09685 /* GroupResultItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5279032AAC473E00B09685 /* GroupResultItem.swift */; };
@@ -1740,6 +1741,7 @@
 		FC4B3BD12A878457003336C8 /* TemporaryGroupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemporaryGroupVC.swift; sourceTree = "<group>"; };
 		FC4B3BD32A87B0EE003336C8 /* FixedGroupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixedGroupVC.swift; sourceTree = "<group>"; };
 		FC51103E2AED06910049EE43 /* AddArrangeFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddArrangeFlowLayout.swift; sourceTree = "<group>"; };
+		FC5110402AED2D010049EE43 /* WeDateHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeDateHeader.swift; sourceTree = "<group>"; };
 		FC5278FF2AAC46D500B09685 /* StudentResultItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentResultItem.swift; sourceTree = "<group>"; };
 		FC5279012AAC471400B09685 /* ClassResultItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassResultItem.swift; sourceTree = "<group>"; };
 		FC5279032AAC473E00B09685 /* GroupResultItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupResultItem.swift; sourceTree = "<group>"; };
@@ -2825,6 +2827,7 @@
 		18CDF53B257F91BC006E8E5C /* Discover_WeDate */ = {
 			isa = PBXGroup;
 			children = (
+				FC5110402AED2D010049EE43 /* WeDateHeader.swift */,
 				FC4B3BCD2A8764FA003336C8 /* WeDateVC.swift */,
 				FC4B3BCF2A8766F2003336C8 /* WeDateTopView.swift */,
 				FC4B3BD12A878457003336C8 /* TemporaryGroupVC.swift */,
@@ -6177,6 +6180,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC5110412AED2D010049EE43 /* WeDateHeader.swift in Sources */,
 				AA0DDB66286C8B1A00802324 /* BaseTableViewCell.m in Sources */,
 				145AF3E5281BDA0000AABC53 /* NSString+UILabel.m in Sources */,
 				AA0DDB83286C8B1A00802324 /* PMPHomePageViewController.m in Sources */,

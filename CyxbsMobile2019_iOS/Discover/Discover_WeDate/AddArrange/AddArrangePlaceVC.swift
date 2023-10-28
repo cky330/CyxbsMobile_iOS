@@ -9,9 +9,6 @@
 import UIKit
 import SwiftyJSON
 
-/// 获取行程地点热词
-let Reminder_GET_placeHotWord = CyxbsMobileBaseURL_1  + "magipoke-jwzx/itinerary/hotLocation"
-
 class AddArrangePlaceVC: UIViewController {
 
     /// 地点数组

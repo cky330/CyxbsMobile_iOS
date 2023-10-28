@@ -9,11 +9,6 @@
 import UIKit
 import SwiftyJSON
 
-/// 查询课表
-let Discover_POST_courseSchedule_API = CyxbsMobileBaseURL_1  + "magipoke-jwzx/kebiao"
-/// 查询同学
-let Discover_GET_searchStudent_API = CyxbsMobileBaseURL_1  + "magipoke-text/search/people"
-
 class CourseScheduleModel {
     
     /// 现在周数

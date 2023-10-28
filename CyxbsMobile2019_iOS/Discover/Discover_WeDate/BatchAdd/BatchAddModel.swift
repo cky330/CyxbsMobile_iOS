@@ -9,9 +9,6 @@
 import UIKit
 import SwiftyJSON
 
-/// 批量添加信息验证
-let Discover_POST_checkData_API = CyxbsMobileBaseURL_1  + "magipoke-jwzx/no_class/member/check"
-
 class BatchAddModel {
     
     /// 重复学生数组

@@ -71,11 +71,6 @@ class RepeatNameVC: UIViewController {
         isButtonSelectedAry = [Bool](repeating: false, count: studentAry.count)
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        view.backgroundColor = UIColor(hexString: "000000", alpha: 0.47)
-//    }
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         UIView.animate(withDuration: 0.1) {

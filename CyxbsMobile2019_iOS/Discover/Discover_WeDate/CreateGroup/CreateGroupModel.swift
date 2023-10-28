@@ -8,9 +8,6 @@
 
 import UIKit
 
-/// 上传分组
-let Discover_POST_createGroup_API = CyxbsMobileBaseURL_1  + "magipoke-jwzx/no_class/group"
-
 class CreateGroupModel {
     
     var isRepeat = Bool()

@@ -42,11 +42,6 @@ class CreateGroupVC: UIViewController {
         view.addSubview(containerView)
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        view.backgroundColor = UIColor(hexString: "000000", alpha: 0.47)
-//    }
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         UIView.animate(withDuration: 0.1) {
@@ -72,8 +67,6 @@ class CreateGroupVC: UIViewController {
             showShakeAnimation(label: emptyLab)
             repeatLab.removeFromSuperview()
         } else if textField.text!.count <= 10 {
-//            let user = UserItem.default()
-//            let studentID = user.stuNum
             CreateGroupModel.requestWith(name: textField.text!, studentID: studentIDAry) { createGroupModel in
                 if createGroupModel.isRepeat {
                     self.containerView.addSubview(self.repeatLab)

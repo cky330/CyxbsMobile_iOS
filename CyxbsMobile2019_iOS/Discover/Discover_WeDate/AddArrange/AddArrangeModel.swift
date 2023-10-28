@@ -8,9 +8,6 @@
 
 import UIKit
 
-/// 发送通知
-let Discover_POST_sendNotification_API = CyxbsMobileBaseURL_1  + "magipoke-jwzx/itinerary"
-
 class AddArrangeModel {
     /// 网络请求发送通知
     static func sendNotification(stuNumAry: [String], title: String, location: String, dateDic: [String: Int]) {

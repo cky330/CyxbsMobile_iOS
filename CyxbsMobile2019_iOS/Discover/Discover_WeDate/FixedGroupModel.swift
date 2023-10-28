@@ -9,13 +9,6 @@
 import UIKit
 import SwiftyJSON
 
-/// 获取所有分组
-let Discover_GET_allGroup_API = CyxbsMobileBaseURL_1  + "magipoke-jwzx/no_class/group/all"
-/// 删除分组
-let Discover_DELETE_deleteGroup_API = CyxbsMobileBaseURL_1  + "magipoke-jwzx/no_class/group"
-/// 更新分组
-let Discover_PUT_updateGroup_API = CyxbsMobileBaseURL_1  + "magipoke-jwzx/no_class/group"
-
 class FixedGroupModel {
     
     /// 分组信息数组

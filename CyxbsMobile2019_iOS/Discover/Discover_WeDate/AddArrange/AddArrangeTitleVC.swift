@@ -8,9 +8,6 @@
 
 import UIKit
 
-/// 获取行程标题热词
-let Reminder_GET_titleHotWord = CyxbsMobileBaseURL_1  + "magipoke-reminder/Person/getHotWord"
-
 class AddArrangeTitleVC: UIViewController {
 
     /// 标题数组

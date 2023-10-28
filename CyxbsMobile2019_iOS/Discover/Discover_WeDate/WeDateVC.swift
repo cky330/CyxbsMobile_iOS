@@ -9,24 +9,6 @@
 import UIKit
 import JXSegmentedView
 
-/// 屏幕宽度
-let SCREEN_WIDTH = UIScreen.main.bounds.size.width
-/// 屏幕高度
-let SCREEN_HEIGHT = UIScreen.main.bounds.size.height
-/// 状态栏高度
-let statusBarHeight = getStatusBarHeight()
-
-func getStatusBarHeight() -> CGFloat {
-    var height: CGFloat = 0.0
-    if #available(iOS 13.0, *) {
-        let window = UIApplication.shared.windows.first
-        height = window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0.0
-    } else {
-        height = UIApplication.shared.statusBarFrame.height
-    }
-    return height
-}
-
 class WeDateVC: UIViewController {
     
     // MARK: - Life Cycle

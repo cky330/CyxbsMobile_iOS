@@ -71,11 +71,6 @@ class SearchResultVC: UIViewController {
         containerView.layer.mask = maskLayer
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        view.backgroundColor = UIColor(hexString: "000000", alpha: 0.47)
-//    }
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         UIView.animate(withDuration: 0.1) {
@@ -263,7 +258,6 @@ extension SearchResultVC: SearchResultTableViewCellDelegate {
             studentAry.remove(at: index)
             studentIDAry.append(item.studentID)
             studentNameAry.append(item.name)
-//            clickCancelBtn()
             delegate?.updateStudentData(name: studentNameAry, number: studentIDAry)
             self.dismiss(animated: true, completion: nil)
         } else if types == ["班级"] {
@@ -272,7 +266,6 @@ extension SearchResultVC: SearchResultTableViewCellDelegate {
                 studentNameAry.append(student.name)
             }
             classAry.remove(at: index)
-//            clickCancelBtn()
             delegate?.updateStudentData(name: studentNameAry, number: studentIDAry)
             self.dismiss(animated: true, completion: nil)
         } else if types == ["分组"] {
@@ -282,7 +275,6 @@ extension SearchResultVC: SearchResultTableViewCellDelegate {
             studentNameAry.append(item.name)
             delegate?.updateStudentData(name: studentNameAry, number: studentIDAry)
             if groupAry[0].members.count == 0 {
-//                clickCancelBtn()
                 self.dismiss(animated: true, completion: nil)
             }
             
@@ -303,7 +295,6 @@ extension SearchResultVC: SearchResultTableViewCellDelegate {
             }
             delegate?.updateStudentData(name: studentNameAry, number: studentIDAry)
             if studentAry.count + groupAry.count == 0 {
-//                clickCancelBtn()
                 self.dismiss(animated: true, completion: nil)
             }
         }

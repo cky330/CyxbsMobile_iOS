@@ -9,10 +9,6 @@
 import UIKit
 import SwiftyJSON
 
-let CyxbsMobileBaseURL_1 = UserDefaults.standard.object(forKey: "baseURL") as! String
-/// 临时分组搜索
-let Discover_GET_temporaryGroup_API = CyxbsMobileBaseURL_1  + "magipoke-jwzx/no_class/group/search/temporary"
-
 class SearchResultModel {
     
     /// 输入数据是否存在

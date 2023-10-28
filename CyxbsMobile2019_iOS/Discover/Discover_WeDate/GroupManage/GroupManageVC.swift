@@ -8,11 +8,6 @@
 
 import UIKit
 
-/// 分组删除成员
-let Discover_POST_deleteMember_API = CyxbsMobileBaseURL_1  + "magipoke-jwzx/no_class/member/delete"
-/// 分组添加成员
-let Discover_POST_addMember_API = CyxbsMobileBaseURL_1  + "magipoke-jwzx/no_class/member"
-
 class GroupManageVC: UIViewController {
     /// 数据数组
     private var memberAry: [StudentItem] = []
