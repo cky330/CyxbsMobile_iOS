@@ -561,6 +561,7 @@
 		FC4B3BD42A87B0EE003336C8 /* FixedGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4B3BD32A87B0EE003336C8 /* FixedGroupVC.swift */; };
 		FC51103F2AED06910049EE43 /* AddArrangeFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC51103E2AED06910049EE43 /* AddArrangeFlowLayout.swift */; };
 		FC5110412AED2D010049EE43 /* WeDateHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5110402AED2D010049EE43 /* WeDateHeader.swift */; };
+		FC5110432AED3B6A0049EE43 /* ArrangeMessageHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5110422AED3B6A0049EE43 /* ArrangeMessageHeader.swift */; };
 		FC5279002AAC46D500B09685 /* StudentResultItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5278FF2AAC46D500B09685 /* StudentResultItem.swift */; };
 		FC5279022AAC471400B09685 /* ClassResultItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5279012AAC471400B09685 /* ClassResultItem.swift */; };
 		FC5279042AAC473E00B09685 /* GroupResultItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5279032AAC473E00B09685 /* GroupResultItem.swift */; };
@@ -1742,6 +1743,7 @@
 		FC4B3BD32A87B0EE003336C8 /* FixedGroupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixedGroupVC.swift; sourceTree = "<group>"; };
 		FC51103E2AED06910049EE43 /* AddArrangeFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddArrangeFlowLayout.swift; sourceTree = "<group>"; };
 		FC5110402AED2D010049EE43 /* WeDateHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeDateHeader.swift; sourceTree = "<group>"; };
+		FC5110422AED3B6A0049EE43 /* ArrangeMessageHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrangeMessageHeader.swift; sourceTree = "<group>"; };
 		FC5278FF2AAC46D500B09685 /* StudentResultItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentResultItem.swift; sourceTree = "<group>"; };
 		FC5279012AAC471400B09685 /* ClassResultItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassResultItem.swift; sourceTree = "<group>"; };
 		FC5279032AAC473E00B09685 /* GroupResultItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupResultItem.swift; sourceTree = "<group>"; };
@@ -5686,6 +5688,7 @@
 		FC78F8102AD07F5000995C01 /* ArrangeMessage */ = {
 			isa = PBXGroup;
 			children = (
+				FC5110422AED3B6A0049EE43 /* ArrangeMessageHeader.swift */,
 				FC78F8112AD07FB100995C01 /* ArrangeMessageVC.swift */,
 				FC1484662AD1D38500657191 /* ReceiveMessageVC.swift */,
 				FC1484682AD1D3AB00657191 /* SendMessageVC.swift */,
@@ -6270,6 +6273,7 @@
 				14B73F8B2823577600D08ADD /* SSRButton.m in Sources */,
 				DB34EACF239BD4550052B65E /* WYCClassAndRemindDataModel.m in Sources */,
 				FE2C136027AEF629001CF7AF /* DiscoverTodoSelectTimeView.m in Sources */,
+				FC5110432AED3B6A0049EE43 /* ArrangeMessageHeader.swift in Sources */,
 				14B73F73281BED7B00D08ADD /* ActiveMessageVC.m in Sources */,
 				AA7ABAA12873EA5400BA6790 /* PostH5Item.m in Sources */,
 				1404747D27F46F0D00307209 /* DiscoverADController.m in Sources */,

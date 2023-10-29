@@ -9,9 +9,6 @@
 import UIKit
 import JXSegmentedView
 
-/// 取消行程提醒
-let Discover_PUT_cancalArrange_API = CyxbsMobileBaseURL_1  + "magipoke-jwzx/itinerary/cancel"
-
 class SendMessageVC: UIViewController {
     
     private var messageAry: [ArrangeMessageItem] = []

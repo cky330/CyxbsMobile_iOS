@@ -9,11 +9,6 @@
 import UIKit
 import JXSegmentedView
 
-/// 添加行程到日程
-let Discover_PUT_addArrange_API = CyxbsMobileBaseURL_1  + "magipoke-jwzx/itinerary/add"
-/// 更改行程为已读
-let Discover_PUT_changeRead_API = CyxbsMobileBaseURL_1  + "magipoke-jwzx/itinerary/read"
-
 class ReceiveMessageVC: UIViewController {
     
     private var messageAry: [ArrangeMessageItem] = []

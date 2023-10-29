@@ -216,10 +216,10 @@ extension ScheduleCollectionViewCell {
             if isTitleOnly {
                 titleLab.center.y = bounds.height / 2
             } else {
-                titleLab.frame.origin.y = 13//6
+                titleLab.frame.origin.y = 13
             }
             contentLab.isHidden = isTitleOnly
-            contentLab.frame.origin.y = bounds.height - contentLab.bounds.height - 13//6
+            contentLab.frame.origin.y = bounds.height - contentLab.bounds.height - 13
         }
     }
 }

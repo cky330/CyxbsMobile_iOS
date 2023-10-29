@@ -9,9 +9,6 @@
 import UIKit
 import SwiftyJSON
 
-/// 获取所有行程信息
-let Discover_GET_arrangeMessage_API = CyxbsMobileBaseURL_1  + "magipoke-jwzx/itinerary/allMsg"
-
 class ArrangeMessageModel {
     
     /// 消息信息数组
@@ -75,5 +72,4 @@ class ArrangeMessageModel {
             failure?(error)
         })
     }
-    
 }

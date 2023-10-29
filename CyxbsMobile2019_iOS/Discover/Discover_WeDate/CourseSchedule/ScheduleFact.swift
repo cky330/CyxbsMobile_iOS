@@ -163,7 +163,6 @@ extension ScheduleFact: UICollectionViewDataSource {
                 }
             }
             
-//            cell.set(supplementaryType: isToday ? .today : .normal, title: title, content: content, isTitleOnly: isTitleOnly)
             cell.set(supplementaryType: isToday ? .today : .normal, title: title, content: content, isTitleOnly: isTitleOnly, isNeedTimePointer: false)
             cell.backgroundColor = collectionView.backgroundColor
             
@@ -172,35 +171,19 @@ extension ScheduleFact: UICollectionViewDataSource {
             
             var isNeedTimePointer: Bool = false
             
-//            let timeAry = [
-//                "8:00", "8:45", "8:55", "9:40", "10:15", "11:00", "11:10", "11:55", "14:00", "14:45", "14:55", "15:40", "16:15", "17:00", "17:10", "17:55", "19:00", "19:45", "19:55", "20:40", "20:50", "21:35", "21:45", "22:30"
-//            ]
+            let timeAry = [["hour": 8, "minute": 00], ["hour": 8, "minute": 45], ["hour": 9, "minute": 40], ["hour": 11, "minute": 00], ["hour": 11, "minute": 55], ["hour": 14, "minute": 45], ["hour": 15, "minute": 40], ["hour": 17, "minute": 00], ["hour": 17, "minute": 55], ["hour": 19, "minute": 45], ["hour": 20, "minute": 40], ["hour": 21, "minute": 35], ["hour": 22, "minute": 30]]
             
-//            let time = ["8:00", "8:55", "10:15", "11:10", "14:00", "14:55", "16:15", "17:10", "19:00", "19:55", "20:50", "21:45", "22:30"]
-            let timeAry = [["hour": 8, "minute": 00], ["hour": 8, "minute": 55], ["hour": 10, "minute": 15], ["hour": 11, "minute": 10], ["hour": 14, "minute": 00], ["hour": 14, "minute": 55], ["hour": 16, "minute": 15], ["hour": 17, "minute": 10], ["hour": 19, "minute": 00], ["hour": 19, "minute": 55], ["hour": 20, "minute": 50], ["hour": 21, "minute": 45], ["hour": 22, "minute": 30]]
-            
-            let nowComponents = Calendar.current.dateComponents([.hour, .minute], from: Date())
-            let nowHour = nowComponents.hour
-            let nowMinute = nowComponents.minute
-            for i in 0..<timeAry.count - 1 {
-                
-                if nowHour! >= timeAry[i]["hour"]!,
-                   nowHour! < timeAry[i + 1]["hour"]!,
-                   indexPath.item == i + 1 {
-                    isNeedTimePointer = true
-                    break
-                } else if nowHour! == timeAry[i]["hour"]!,
-                          nowHour! == timeAry[i + 1]["hour"]!,
-                          nowMinute! >= timeAry[i]["minute"]!,
-                          nowMinute! < timeAry[i + 1]["minute"]!,
-                          indexPath.item == i + 1 {
+            for i in 0..<timeAry.count-1 {
+                let current = Date()
+                let currentPoint = Calendar.current.date(bySettingHour: timeAry[i]["hour"]!, minute: timeAry[i]["minute"]!, second: 0, of: current)!
+                let nextPoint = Calendar.current.date(bySettingHour: timeAry[i+1]["hour"]!, minute: timeAry[i+1]["minute"]!, second: 0, of: current)!
+                if current >= currentPoint && current < nextPoint,
+                   indexPath.item == i {
                     isNeedTimePointer = true
                     break
                 }
             }
             
-            
-//            cell.set(supplementaryType: .normal, title: title, content: nil, isTitleOnly: true)
             cell.set(supplementaryType: .normal, title: title, content: nil, isTitleOnly: true, isNeedTimePointer: isNeedTimePointer)
             
 //        case .placeHolder:
@@ -224,7 +207,7 @@ extension ScheduleFact: ScheduleCollectionViewLayoutDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout: ScheduleCollectionViewLayout, lineOfItemAtIndexPath indexPath: IndexPath) -> Int {
-        //这周的这门课在第几节开始（体育-3
+        //这周的这门课在第几节开始
         return data[indexPath.section][indexPath.item]["beginLesson"] as! Int
     }
     
